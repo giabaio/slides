@@ -1,0 +1,186 @@
+/* Class-specific global variables */
+
+:root {
+  /* Fonts */
+  --text-font-family: 'Ubuntu', Arial, sans-serif; /*'Ubuntu';*/
+  --text-font-is-google: 1;
+  --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
+  --text-font-base: sans-serif;
+  --header-font-family: 'Ubuntu'; /*'Ubuntu';*/
+  --header-font-is-google: 1;
+  --code-font-family: 'Inconsolata';
+  --code-font-is-google: 1;
+  --base-font-size: 20px;
+  --text-font-size: 1rem;
+  --code-font-size: 1rem; /*0.9rem;*/
+  --code-inline-font-size: 1em;
+  --header-h1-font-size: 2.00rem;
+  --header-h2-font-size: 1.50rem;
+  --header-h3-font-size: 1.10rem;
+
+  /* Colors */
+  --text-color: #000000;
+  --header-color: #3434ad; /* #24568c; */
+  --background-color: #FFFFFF;
+  --link-color: #C5283D;
+  --text-bold-color: #035AA6;
+  --code-highlight-color: rgba(255,255,0,0.5);
+  --inverse-text-color: #000000;
+  --inverse-background-color: #03A696;
+  --inverse-header-color: #000000;
+  --title-slide-background-color: #FFFFFF; /* #035AA6; */
+  --title-slide-text-color: #FFFFFF;
+  --header-background-color: #3434ad;
+  --header-background-text-color: #FFFFFF;
+  --primary: #035AA6;
+  --secondary: #03A696;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /* Lengths */
+  --pull-left: 47%;
+  --pull-right: 47%;
+
+  /* ol stuff */
+  --ol-font: "Nanum Pen Script";
+  --ol-color: #fcd000;
+  --ol-font-size: 1.5rem;
+  --ol-background: #3434ad;
+  --ol-deg: -0deg;
+}
+
+/* This aligns the title of each frame in the blue box */
+.remark-slide-content > h1:first-of-type {
+  margin-top: -20px;
+}
+
+/* Headers */
+h1 {
+  color: #fcd000;
+  font-weight: 300;
+  font-family: var(--header-font-family);
+  background-color: var(--header-background-color);
+  padding: 20px 20px 10px 30px;
+  margin: 0 -200px 10px -30px;
+  font-weight: 300;
+}
+h2, h3 {
+  font-family: var(--header-font-family);
+  font-weight: 400;
+  color: var(--header-color);
+}
+
+/* Slide content */
+.remark-slide-content {
+  background-color: var(--background-color);
+  font-size: 1rem;
+  padding: 20px 64px 10px 64px; /* 16px 64px 16px 64px; */
+  width: 100%;
+  height: 100%;
+}
+
+.remark-slide-content h1 {
+  font-size: var(--header-h1-font-size);
+  font-weight: 30;
+}
+
+/* Slide numbering */
+.remark-slide-number {
+  color: #FFFFFF;
+  opacity: 1;
+  font-size: 0.75em;
+  /* Customise position of numbering */
+  margin-bottom: -9.0px;
+  margin-right: 5.0px;
+}
+
+/* Hyperlinks */
+a, a > code {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 10px;
+  background-color: #fcd000;
+}
+
+
+/* Customised title page */
+.title-slide h1 {
+  color: #fcd000; /* #FFFFFF; */
+  font-family: 'Ubuntu';
+  font-size: 40px!important;
+  font-weight: 400;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px  rgba(0,0,0,0.6);
+  border-radius: 15px;
+  background-color: #3434ad;
+  padding: 35px 30px 35px 30px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+
+.title-slide {
+  background-color: var(--title-slide-background-color);
+  text-align: center;
+  vertical-align: middle;
+}
+.title-slide .remark-slide-number {
+  /*display: none;*/
+  color: #FFFFFF;
+  opacity: 1;
+  font-size: 0.75em;
+  /* Customise position of numbering */
+  margin-bottom: -10.0px;
+  margin-right: 5.0px;
+}
+
+
+/******************
+ * Footers
+ ****************/
+
+.my-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+    color: #D5D5D5;
+    font-size: 70%;
+    background-image: linear-gradient(to right, rgb(0, 34, 102), rgb(164, 148, 215));
+}
+.my-footer .alignleft {
+  float: left;
+  text-align: left;
+  width: 20%;
+}
+.my-footer .aligncenter {
+  float: left;
+  text-align: center;
+  width: 55%;
+}
+.my-footer .alignright {
+  float: left;
+  text-align: right;
+  width: 25%;
+  margin-left: -8%;
+}
+
+/* A footer to be on the bottom-left corner of the page */
+.footer-left {
+  position: fixed;
+  /* if I leave the top spacing then Chrome cuts out the bottom-left part of the footer
+  top: 96.6%;
+  */
+  bottom: 0%;
+  left: 0;
+  text-align: left;
+  width: 100%;
+  font-size: 70%;
+  color: white;
+  background-image: linear-gradient(to right, rgb(0, 34, 102), rgb(164, 148, 215));
+  height: 22px;
+}
+

@@ -1,0 +1,214 @@
+/* Class-specific global variables */
+
+:root {
+  /* Fonts */
+  --text-font-family: 'Ubuntu', Arial, sans-serif; /*'Ubuntu';*/
+  --text-font-is-google: 1;
+  --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
+  --text-font-base: sans-serif;
+  --header-font-family: 'Ubuntu'; /*'Ubuntu';*/
+  --header-font-is-google: 1;
+  --code-font-family: 'Inconsolata';
+  --code-font-is-google: 1;
+  --base-font-size: 18px;
+  --text-font-size: 1rem;
+  --code-font-size: 1rem; /*0.9rem;*/
+  --code-inline-font-size: 1em;
+  --header-h1-font-size: 1.85rem;
+  --header-h2-font-size: 1.50rem;
+  --header-h3-font-size: 1.10rem;
+
+  /* Colors */
+  --text-color: #000000;
+  --header-color: #035AA6;
+  --background-color: #FFFFFF;
+  --link-color: #C5283D; /*#035AA6;*/
+  --text-bold-color: #035AA6;
+  --code-highlight-color: rgba(255,255,0,0.5);
+  --inverse-text-color: #000000;
+  --inverse-background-color: #03A696;
+  --inverse-header-color: #000000;
+  --title-slide-background-color: #FFFFFF; /* #035AA6; */
+  --title-slide-text-color: #035AA6; /* #FFFFFF; */
+  --header-background-color: #035AA6;
+  --header-background-text-color: #FFFFFF;
+  --primary: #035AA6;
+  --secondary: #03A696;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /* Lengths */
+  --pull-left: 47%;
+  --pull-right: 47%;
+
+  /* ol stuff */
+  --ol-font: "Permanent Marker";
+  --ol-color: #fcd000;
+  --ol-font-size: 1.15rem;
+  --ol-background: #1c3c69;
+  --ol-deg: -20deg;
+}
+
+/* This aligns the title of each frame in the blue box */
+.remark-slide-content > h1:first-of-type {
+  margin-top: 10px;
+  font-size: 2.65rem;
+}
+
+/* Headers */
+h1 {
+  color: #FFFFFF;
+  font-weight: 180;
+  font-family: var(--header-font-family);
+}
+/* This would add a coloured box over the header
+ * would need to fiddle a bit with the size of the logo + add the correct colour for the logo files
+ * NB: the color #002855 is UCL official mid-blue
+ h1, .full-width {
+  position: relative; /* child absolute
+  margin: 0 -9999rem;
+  /* add back section padding value
+  padding: 0 9999rem 0.25rem 9999rem;
+  background-color: #002855;
+  height: 11.4%;
+}
+*/
+h2, h3 {
+  font-family: var(--header-font-family);
+  font-weight: 500;
+  color: var(--header-color);
+}
+
+/* Slide content */
+.remark-slide-content {
+  background-image: url("ucl-powerpoint/ucl-official-template-slides.png");
+  background-size: contain;
+  background-color: var(--background-color);
+  font-size: 1.15rem;
+  padding: 16px 64px 16px 64px; /* 16px 64px 16px 64px; */
+  width: 100%;
+  height: 100%;
+}
+.remark-slide-content h1 {
+  font-size: var(--header-h1-font-size);
+}
+
+
+/* Slide numbering */
+.remark-slide-number {
+  color: #2c4f98;
+  opacity: 1;
+  font-size: 0.75em;
+  /* Customise position of numbering */
+  margin-bottom: -10.0px;
+  margin-right: -12.0px;
+}
+
+/* Hyperlinks */
+a, a > code {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 10px;
+  background-color: #fcd000;
+}
+
+
+/*-- Code chunk background layer --*/
+pre {
+  border:             none; /*2px solid rgba(204, 189, 204, 0.8);*/
+  box-shadow:         0px 0px 0px 0px #eee;
+  padding:            0.1em;                    /* padding between code chunk and border */
+  background:         none !important;
+  overflow-x:         auto;                     /* enable horizontal scrolling with overflow */
+  border-radius:      15px;                      /* modify rounding of corners*/
+}
+/*-- Code chunk foreground --
+pre code {
+  background:          none;
+  font-size:           18px !important;
+}
+*/
+
+/* Customised title page */
+/* Title slide with box around the title */
+.title-slide h1 {
+  color: #2c4f98;
+  font-size: 44px!important;
+/*  font-family: 'Source Sans Pro'; */
+  font-family: var(--header-font-family);
+  font-weight: 450;
+  padding-top: 15%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  text-align: center;
+}
+
+/* The other fields in the title box don't have a box */
+.title-slide {
+  background-image: url("ucl-powerpoint/ucl-official-template-title-page.png");
+  background-size: 100%;
+  background-position: 0% 0%;
+}
+
+.title-slide {
+  background-color: var(--title-slide-background-color);
+  text-align: center;
+  /*vertical-align: bottom;*/
+}
+.title-slide .remark-slide-number {
+  /*display: none;*/
+  color: #FFFFFF;
+  opacity: 1;
+  font-size: 0.75em;
+  /* Customise position of numbering */
+  margin-bottom: -10.0px;
+  margin-right: 5.0px;
+}
+
+
+/******************
+ * Footers
+ ****************/
+
+.my-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
+    height: 20px;
+    width: 100%;
+    color: #D5D5D5;
+    font-size: 70%;
+}
+.my-footer .alignleft {
+  float: left;
+  text-align: left;
+  width: 20%;
+}
+.my-footer .aligncenter {
+  float: left;
+  text-align: center;
+  width: 55%;
+}
+.my-footer .alignright {
+  float: left;
+  text-align: right;
+  width: 25%;
+  margin-left: -8%;
+}
+
+/* A footer to be on the bottom-left corner of the page */
+.footer-left {
+    position: fixed;
+    /* if I leave the top spacing then Chrome cuts out the bottom-left part of the footer
+    top: 96.6%;
+    */
+    bottom: -1%;
+    left: 0;
+    text-align: left;
+    width: 93%;
+    font-size: 70%;
+    color: white;
+}
+

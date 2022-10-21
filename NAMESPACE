@@ -1,0 +1,7 @@
+exportPattern("^[[:alpha:]]+")
+import(dplyr)
+import(ggplot2)
+import(xaringan)
+import(xaringanExtra)
+import(RefManageR)
+import(tikzDevice)

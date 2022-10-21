@@ -1,0 +1,264 @@
+---
+title: "INSERT TITLE HERE"
+author: Gianluca Baio
+institute: "[Department of Statistical Science](https://www.ucl.ac.uk/statistics/) | University College London"
+params: 
+   conference: "A conference"
+   location: "Some place"
+   date: 
+   short_title: "A shorter title"
+date: 
+output:
+  xaringan::moon_reader:
+    # This allows to use the local 'remarks' installation, obtained by running 'xaringan::summon_remarks()'
+    # chakra: libs/remark-latest.min.js
+    includes: 
+       in_header: "assets/latex_macros.html" 
+       ## This line adds a logo based on the format selected in the file 'assets/THEME/include_logo.html'
+       ## NB: the actual options (eg placement of the logo and actual logo file) can be changed there
+       ## There's also a script to manipulate the colouring scheme for the UCL logo (from a basic black/white one)
+       after_body: "assets/ucl-stats/insert-logo.html"
+    seal: false
+    yolo: no
+    lib_dir: libs
+    nature:
+      beforeInit: ["https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: yes
+      countIncrementalSlides: no
+      ratio: '16:9'
+      titleSlideClass:
+      - center
+      - middle
+    self_contained: false 
+    css:
+    - "assets/fonts.css"
+    - "assets/ucl-stats.css"
+    - "assets/common.css"
+---
+
+```{r echo=F,message=FALSE,warning=FALSE,comment=NA}
+# Sources the R file with all the relevant setup and commands
+source("assets/setup.R")
+
+# Stuff from 'xaringanExtra' (https://pkg.garrickadenbuie.com/xaringanExtra)
+# This allows the use of panels (from 'xaringanExtra')
+xaringanExtra::use_panelset()
+# This allows to copy code from the slides directly
+xaringanExtra::use_clipboard()
+# This freezes the frame for when there's a gif included
+xaringanExtra::use_freezeframe()
+# Can also add the scribbling function to the slides
+# xaringanExtra::use_scribble()
+# Can also add a search box
+# xaringanExtra::use_search(show_icon = TRUE)
+
+# Defines the path to the file with the .bib entries (in case there are references)
+bibfile=ReadBib("~/Dropbox/Perso/Office/CV/mypubs.bib",check = FALSE)
+```
+
+```{r title-page, child="assets/title-page.Rmd"}
+```
+
+# Disclaimer...
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Best opening sentence <a href="https://twitter.com/hashtag/ISPOREurope?src=hash&amp;ref_src=twsrc%5Etfw">#ISPOREurope</a> from Gianluca Baio: “statisticians should rule the world and Bayesian statisticians should rule all statisticians” <a href="https://t.co/GN2w7liAcR">https://t.co/GN2w7liAcR</a></p>&mdash; Manuela Joore (@ManuelaJoore) <a href="https://twitter.com/ManuelaJoore/status/1191397718930939904?ref_src=twsrc%5Etfw">November 4, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</center>
+
+`r vspace("10px")`
+...Just so you know what you're about to get into... `r emo::ji("wink")`
+
+---
+
+# Fun with colours & spaces
+
+## With a subtitle
+
+This shows how to use colours in the slides. A bunch are pre-defined in the `.css` file and can be used simply as:
+
+- The .red[**predictive**] distribution can be computed as follows.
+
+More can be created by simply modifying the `.css` file to add more `HEX` codes.
+
+- For example use
+   ```{css echo=TRUE,eval=FALSE,prompt=FALSE}
+   .uclblue {
+     color: #002855;
+   }
+   ```
+   (though this colour is already defined)
+
+- The default is in [`assets/ucl-powerpoint.css`](assets/ucl-powerpoint.css), but can also use the [`assets/beamer.css`](assets/beamer.css) template or create new ones...
+
+`r vspace("20px")`
+
+Can add vertical space using the command 
+```{r echo=T,eval=FALSE,prompt=FALSE}
+`r vspace("XXX")`
+```
+where `XXX` is a suitable unit, eg `"20px"`.
+
+---
+
+# Some maths
+
+We can also include maths, using standard $\rm\LaTeX$:
+
+$$\class{myblue}{p(y\mid\mathcal{D}) = \int p(y\mid\bm\theta)p(\boldsymbol\theta\mid\mathcal{D})d\boldsymbol\theta} $$
+
+To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$`
+
+You can define a probabilistic assumption as
+.myblue[$$y \mid \bm\theta \sim \dpois(\bm\theta) $$]
+but in line it would look like this $\color{MidnightBlue}{y\sim \dnorm(\mu,\sigma^2)}$ 
+
+These use the predefined $\rm\LaTeX$ macros, saved in the file [`assets/latex_macros.html`](assets/latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output
+
+`r vspace("2rem")`
+For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font)
+
+---
+
+# Other LaTeX stuff
+
+There's also a file [`assets/latex_colours.tex`](assets/latex_colours.tex), which can be used in LaTeX chunks, eg
+```
+\input{assets/latex_colours.tex}
+\begin{center}
+\begin{tikzpicture}
+...
+
+```
+
+- This would be a chunk with header like this: `{r,engine='tikz', echo=F, opts=list(width="85%",title="INSERT TEXT HERE")}`
+
+- Then all the colours and, possibly other advanced LaTeX macro defined in `assets/latex_colours.tex` are accessible by `tikz` chunks
+
+
+- But also, the "extension" `"color.js"` (loaded in `assets/latex_macros.tex`) enables semi-standard LaTeX colouring
+
+- For example `$\displaystyle \color{olive} x^2=\frac{d}{dx}f(x)$` renders as
+$\displaystyle \color{olive} x^2=\frac{d}{dx}f(x)$, which essentially looks the same as when using `$\class{color}{math formula}$` 
+
+---
+
+# Numbered lists & references
+- This is a bullet list and $\class{spanish-yellow}{\theta \sim \dgamma(\alpha,\beta)}$ `r Citep(bibfile,"Baio:2012")`
+   - Test 
+
+- And another
+   1. With a numbered item `r Cite(bibfile,"Baio:2019")`
+   2. And another
+
+- With more items
+
+
+Can reset the counter of a list
+```
+<ol style="counter-reset: my-counter 9;">
+  <li>Number Ten</li>
+  <li>Number Eleven</li>
+</ol>
+```
+which renders as
+<ol style="counter-reset: my-counter 9;">
+  <li>Number Ten</li>
+  <li>Number Eleven</li>
+</ol>
+
+---
+
+# A page with left & right columns
+
+.pull-left[
+Some content here
+
+```{r echo=FALSE}
+tab=tibble(
+  names=c("Gianluca","Marta","Kobi","Anna"),
+  sex=c("Male","Female","Male","Female")
+)
+
+# See: https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf
+library(kableExtra)
+tab %>% kable(bootstrap=TRUE,col.names=c("Name","Sex")) %>%  kable_styling(font_size = 28) %>% 
+  column_spec(1,width="25%") %>% column_spec(2,width="65%") %>% 
+  row_spec(0,extra_css="border-bottom: 1px solid") %>% 
+  row_spec(nrow(tab),extra_css="border-bottom: 1px solid")
+```
+]
+
+.pull-right[
+Just a test to see what happens here even if the text is really long
+]
+
+---
+
+# More columns
+
+This also creates two columns, but with different split of the page width (and check the file [`assets/ucl-powerpoint.css`](assets/ucl-powerpoint.css) for other possibilities)
+`r vspace("5em")`
+
+.left-column[
+Some text here
+]
+.right-column[
+Some more text here
+]
+
+---
+
+# Tries the panelsets
+
+### [https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset](https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset)
+
+.panelset[
+.panel[.panel-name[Code]
+```{r onlycode, fig.show='hide'}
+# This would make a plot of 1000 random draws for a Normal(0,1) 
+plot(rnorm(1000),axes=F)
+axis(1);axis(2)
+```
+]
+.panel[.panel-name[Graph]
+```{r ref.label="onlycode", echo=FALSE,opts=list(width="45%",title="This is just a test to see if alt text works")}
+```
+]
+]
+
+---
+
+# More on graphs
+
+- The file [`assets/setup.R`](assets/setup.R) contains a bunch of `R` commands to create functions and shortcuts that can be used with the normal `Rmd` code
+
+- Also, it contains some extra functions and customisation to tell `knitr` how to process the `Rmd` file
+   - Specifically, in order to create an ["alternative text"](https://en.wikipedia.org/wiki/Alt_attribute), it uses a trick
+   - This essentially means that the width of any graph created by `R` is controlled by the extra "chunk" option 
+   ```{r eval=FALSE}
+   opts=list(...)
+   ```
+   
+   which contains various elements
+   ```{r eval=FALSE}
+   opts=list(
+    width="X%",
+    title="SOME TEXT",
+    alt="SOME TEXT",
+    ...
+   )
+   ```
+   - `title` will produce the actual "alt text", while `alt` will simply add some text to the `html` file (that can be read out for accessibility)
+
+---
+
+# References
+
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(bibfile,.opts=list(max.names=3))
+```
+
+---
+
+class: thankyou-michelle 
