@@ -8,7 +8,8 @@ add_twitter(
   url = "https://twitter.com/giabaio",
   title = "Follow me on Twitter",
   fill = "#bcc0c4",
-  scale = 0.8
+  scale = 0.8,
+  style = NULL
 )
 }
 \arguments{
@@ -20,6 +21,8 @@ add_twitter(
 \item{fill}{A string or a HEX code with the color of the icon}
 
 \item{scale}{A number indicating the scale of the icon (default = 0.8)}
+
+\item{style}{A string with some css style options (e.g. 'border-bottom: 0px;',style=NULL)}
 }
 \description{
 Adds twitter icon & link (to be used, eg in the 'footer-social' container)

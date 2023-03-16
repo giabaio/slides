@@ -1,0 +1,16 @@
+.my-footer[ 
+.alignleft[
+&nbsp; &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
+`r add_twitter()` 
+`r add_mastodon()` 
+`r add_github()` 
+`r add_email()` 
+`r add_website()` 
+]
+.aligncenter[
+`r rmarkdown::metadata$params$short_title` 
+]
+.alignright[
+`r rmarkdown::metadata$params$conference`, `r short_date`
+]
+] 

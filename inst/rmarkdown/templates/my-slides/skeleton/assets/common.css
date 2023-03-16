@@ -94,8 +94,8 @@ strong {
   font-family: var(--code-font-family);
 }
 .title-small {
-  font-size: 85%;
-  line-height: 0.2;
+  font-size: 80%;
+  line-height: 0.95;
 }
 
 /* Two-column layout */
@@ -480,11 +480,19 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-image: url("thankyou/barney.gif");
   background-size: contain;
 }
+.thankyou-reese {
+  background-image: url("thankyou/reese.gif");
+  background-size: cover;
+}
 /* This prevents the center & right footer from showing in the "thank you" page */
 .thankyou-michelle .footer-left,
 .thankyou-michelle .footer-center,
 .thankyou-michelle .footer-social,
 .thankyou-michelle .footer-right,
+.thankyou-reese .footer-left,
+.thankyou-reese .footer-center,
+.thankyou-reese .footer-social,
+.thankyou-reese .footer-right,
 .thankyou-barney .footer-left,
 .thankyou-barney .footer-social,
 .thankyou-barney .footer-center,

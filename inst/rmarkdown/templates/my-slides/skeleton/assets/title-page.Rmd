@@ -6,6 +6,7 @@ class: title-slide
 ## `r rmarkdown::metadata$author`
 
 ### `r rmarkdown::metadata$institute`    
+<br>
 
 .title-small[
 `r icons::icon_style(icons::fontawesome("envelope",style = "solid"),scale=.8,fill="#00acee")`  [g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)
@@ -13,8 +14,10 @@ class: title-slide
 `r icons::icon_style(icons::fontawesome("firefox"),scale=.8,fill="#EA7600")`  [https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)
 `r icons::icon_style(icons::fontawesome("github"),scale=.8,fill="black")`  [https://github.com/giabaio](https://github.com/giabaio)
 `r icons::icon_style(icons::fontawesome("github"),scale=.8,fill="black")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)
-`r icons::icon_style(icons::fontawesome("twitter"),scale=.8,fill="#00acee")`  [@gianlubaio](https://twitter.com/gianlubaio)     
+`r icons::icon_style(icons::fontawesome("twitter"),scale=.8,fill="#00acee")`  [@gianlubaio](https://twitter.com/gianlubaio) &nbsp;&nbsp; `r icons::icon_style(icons::fontawesome("mastodon"),scale=.8,fill="#563acc")`  [@gianlubaio@mas.to](https://mas.to/@gianlubaio)      
 ]
+
+<br>
 
 ### `r rmarkdown::metadata$params$conference`, `r rmarkdown::metadata$params$location` 
 <!-- Can also separate the various components of the extra argument 'params', eg as in 
@@ -31,9 +34,9 @@ Adds a departmental logo on the right-bottom corner (Only with 'ucl-stats')
 <!--
 Can also add sticky notes:
 -->
-`r postit(text=paste0('Check out our departmental podcast "Random Talks" on Soundcloud!', add_podcast()),top="75%",left="2.5%",height="6.3em",width="6.3em")`
+`r postit(text=paste0('Check out our departmental podcast "Random Talks" on Soundcloud!', add_podcast()),top="75%",left="2.5%",height="6.3em",width="6.3em",rotate="-8deg")`
 
-`r postit(text=paste0("Follow our departmental social media accounts", add_twitter(url="https://twitter.com/stats_ucl",title="@stats_UCL",fill="#00acee"), add_linkedin(url="https://www.linkedin.com/in/statistical-science-ucl-906b9a201",title="LinkedIn")),top="53%",left="6.5%",height="6.3em",width="6.3em")`
+`r postit(text=paste0("Follow our departmental social media accounts", add_twitter(url="https://twitter.com/stats_ucl",title="@stats_UCL",fill="#00acee"), add_linkedin(url="https://www.linkedin.com/in/statistical-science-ucl-906b9a201",title="LinkedIn"),add_instagram(url="https://www.instagram.com/ucl.stats/",title="Instagram")),top="53%",left="6.5%",height="6.3em",width="6.3em")`
 
 <!-- This adds a footer (optional and with other possibilities...) 
      For example, can use `r samptux()` to add the Samp Tux log,
@@ -47,16 +50,9 @@ Can also add sticky notes:
 
 layout: true
 
-.my-footer[ 
-.alignleft[
-&nbsp; &copy; Gianluca Baio (UCL) `r add_twitter()` `r add_github()` `r add_email()` `r add_website()` 
-]
-.aligncenter[
-`r rmarkdown::metadata$params$short_title` 
-]
-.alignright[
-`r rmarkdown::metadata$params$conference`, `r short_date`
-]
-] 
+<!-- this selects the footer from a template, depending on the value passed in the YAML of the main presentation --> 
+
+```{r make_footer, echo=FALSE, child=(if(!rmarkdown::metadata$params$center_footer) {"footers/standard_footer.Rmd"} else {"footers/center_footer.Rmd"})}
+```
 
 ---

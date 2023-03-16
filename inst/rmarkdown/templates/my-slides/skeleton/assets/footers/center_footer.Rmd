@@ -1,0 +1,32 @@
+```{css}
+#| echo: false
+
+/* Redefines the my-footer class to have the footer centered and smaller */
+.my-footer {
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    color: #D5D5D5;
+    font-size: 62%;
+    background-image: linear-gradient(to right, rgb(0, 44, 83), rgb(100, 125, 151));
+    /* vertical alignment (as to play nicely with page numbering!) */
+    margin-bottom: -2.0px;
+}
+
+/* Redefines the slide numbering (smaller font), to align with the footer */
+.remark-slide-number {
+  color: #FFFFFF;
+  opacity: 1;
+  font-size: 62%;
+  /* Customise position of numbering */
+  margin-bottom: -8.5px;
+  margin-right: -5.0px;
+}
+```
+
+.my-footer[ 
+&copy; Gianluca Baio (UCL) &nbsp; | &nbsp; `r add_twitter(style="border-bottom: 0px;")` `r add_mastodon(style="border-bottom: 0px;")` `r add_github(style="border-bottom: 0px;")` `r add_email(style="border-bottom: 0px;")` `r add_website(style="border-bottom: 0px;")`  &nbsp; | &nbsp; 
+`r rmarkdown::metadata$params$short_title`  &nbsp; | &nbsp; `r rmarkdown::metadata$params$conference`  &nbsp; | &nbsp; `r short_date`
+] 

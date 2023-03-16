@@ -8,7 +8,8 @@ add_instagram(
   url = "https://www.instagram.com/ucl.stats/",
   title = "Follow us on Instagram",
   fill = "#2867b2",
-  scale = 0.8
+  scale = 0.8,
+  style = NULL
 )
 }
 \arguments{
@@ -20,6 +21,8 @@ add_instagram(
 \item{fill}{A string or a HEX code with the color of the icon}
 
 \item{scale}{A number indicating the scale of the icon (default = 0.8)}
+
+\item{style}{A string with some css style options (e.g. 'border-bottom: 0px;')}
 }
 \description{
 Adds instagram icon & link (to be used, eg in the 'footer-social' container)

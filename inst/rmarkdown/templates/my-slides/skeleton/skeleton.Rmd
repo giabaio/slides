@@ -7,6 +7,7 @@ params:
    location: "Some place"
    date: 
    short_title: "A shorter title"
+   center_footer: TRUE
 date: 
 output:
   xaringan::moon_reader:
