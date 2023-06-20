@@ -55,4 +55,10 @@ layout: true
 ```{r make_footer, echo=FALSE, child=(if(!rmarkdown::metadata$params$center_footer) {"footers/standard_footer.Rmd"} else {"footers/center_footer.Rmd"})}
 ```
 
+<!-- this adds the URL at which the slides are available; depends on the params 'slides_url' -->
+.slide-url[
+`r ifelse(!is.null(rmarkdown::metadata$params$slides_url),rmarkdown::metadata$params$slides_url,"")`
+]
+
+
 ---

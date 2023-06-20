@@ -658,3 +658,17 @@ ol > li::before {
   background-size: contain;
   border-radius: 6px 6px 6px 6px;
 }
+
+/* Add the slides URL to the footer */
+.slide-url {
+  position: absolute;
+  bottom: 0%;
+  text-align: left;
+  color: #D5D5D5!important;
+  font-size: 45%;
+  margin-bottom: 2.5px;
+  left: 3px;
+}
+.slide-url a {
+  color: #D5D5D5!important;
+}

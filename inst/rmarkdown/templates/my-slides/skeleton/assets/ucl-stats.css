@@ -60,7 +60,7 @@ h1 {
   font-weight: 300;
   font-family: var(--header-font-family);
   background-color: var(--header-background-color);
-  padding: 20px 20px 10px 30px;
+  padding: 20px 20px 5px 30px;
   margin: 0 -200px 10px -30px;
   font-weight: 300;
 }

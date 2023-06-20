@@ -8,6 +8,7 @@ params:
    date: 
    short_title: "A shorter title"
    center_footer: TRUE
+   slides_url: ""
 date: 
 output:
   xaringan::moon_reader:

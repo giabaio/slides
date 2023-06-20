@@ -15,8 +15,14 @@ if (isTRUE(requireNamespace("icons", quietly = TRUE))) {
 
 # Sets default fonts for tikz
 library(tikzDevice)
-options(tikzLatexPackages=c(getOption("tikzLatexPackages"),"\\usepackage{inconsolata,}",
-                            "\\usepackage[scaled=.89]{helvet}\n\\renewcommand{\\familydefault}{\\sfdefault}\n"))
+library(tikzDevice)
+options(tikzLatexPackages=c(
+  getOption("tikzLatexPackages"),"\\usepackage{inconsolata,}",
+  "\\usepackage[scaled=.89]{helvet}\n\\renewcommand{\\familydefault}{\\sfdefault}\n")
+)
+options(tikzMetricPackages = c(
+  "\\usepackage[utf8]{inputenc}","\\usepackage[T1]{fontenc}", "\\usetikzlibrary{calc}", "\\usepackage{amssymb}")
+)
 
 # Trick to automatically convert pdf graphs generated with dev='tikz' into png so they work in html format
 # see: https://github.com/rstudio/bookdown/issues/275
