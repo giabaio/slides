@@ -50,8 +50,8 @@ include_fig=function(img,dir="./img",width="100%",title="INCLUDE TEXT HERE") {
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_social=function(social,url,title,fill="#bcc0c4",scale=.8,style="border-bottom: 0px!important;") {
-  icon=paste0('icons::icon_style(icons::fontawesome("',social,'"),scale=scale,fill=fill,bottom="1em")')
+add_social=function(social,url,title,fill="#bcc0c4",scale=".8em",style="border-bottom: 0px!important;") {
+  icon=paste0('fontawesome::fa("',social,'",height=scale,fill=fill)')
   paste0('&nbsp;<a style="',style,'" href="',url,'" title="',title,'">',eval(parse(text=icon)),'</a>&nbsp;')
 }
 
@@ -64,8 +64,8 @@ add_social=function(social,url,title,fill="#bcc0c4",scale=.8,style="border-botto
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;',style=NULL)
 #'
-add_twitter=function(url="https://twitter.com/giabaio",title="Follow me on Twitter",fill="#bcc0c4",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("twitter"),scale=scale,fill=fill,bottom="1em"),'</a>&nbsp;')
+add_twitter=function(url="https://twitter.com/giabaio",title="Follow me on Twitter",fill="#bcc0c4",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("twitter",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Adds X (FKA Twitter) icon & link (to be used, eg in the 'footer-social' container)
@@ -90,8 +90,8 @@ add_x=function(url="https://twitter.com/giabaio",title="Follow me on X",fill="#b
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_mastodon=function(url="https://mas.to/@gianlubaio",title="Follow me on Mastodon",fill="#bcc0c4",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("mastodon"),scale=scale,fill=fill,bottom="1em"),'</a>&nbsp;')
+add_mastodon=function(url="https://mas.to/@gianlubaio",title="Follow me on Mastodon",fill="#bcc0c4",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("mastodon",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 
@@ -104,8 +104,8 @@ add_mastodon=function(url="https://mas.to/@gianlubaio",title="Follow me on Masto
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_email=function(email="g.baio@ucl.ac.uk",title="Email me",fill="#bcc0c4",scale=0.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="mailto:',email,'" title="',title,'">',icons::icon_style(icons::fontawesome("envelope",style = "solid"),scale=scale,fill=fill),'</a>&nbsp;')
+add_email=function(email="g.baio@ucl.ac.uk",title="Email me",fill="#bcc0c4",scale="0.8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="mailto:',email,'" title="',title,'">',fontawesome::fa("envelope",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Adds website icon & link (to be used, eg in the 'footer-social' container)
@@ -117,8 +117,8 @@ add_email=function(email="g.baio@ucl.ac.uk",title="Email me",fill="#bcc0c4",scal
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_website=function(url="https://gianluca.statistica.it",title="Visit my website",fill="#bcc0c4",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("firefox"),scale=scale,fill=fill),'</a>&nbsp;')
+add_website=function(url="https://gianluca.statistica.it",title="Visit my website",fill="#bcc0c4",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("firefox",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Adds github icon & link (to be used, eg in the 'footer-social' container)
@@ -130,8 +130,8 @@ add_website=function(url="https://gianluca.statistica.it",title="Visit my websit
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_github=function(url="https://github.com/giabaio",title="Check out my repos",fill="#bcc0c4",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("github"),scale=scale,fill=fill),'</a>&nbsp;')
+add_github=function(url="https://github.com/giabaio",title="Check out my repos",fill="#bcc0c4",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("github",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Adds linkedin icon & link (to be used, eg in the 'footer-social' container)
@@ -143,8 +143,8 @@ add_github=function(url="https://github.com/giabaio",title="Check out my repos",
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_linkedin=function(url="https://www.linkedin.com/in/gianluca-baio-b893879/",title="Follow me on LinkedIn",fill="#2867b2",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("linkedin"),scale=scale,fill=fill,bottom="1em"),'</a>&nbsp;')
+add_linkedin=function(url="https://www.linkedin.com/in/gianluca-baio-b893879/",title="Follow me on LinkedIn",fill="#2867b2",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("linkedin",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Adds instagram icon & link (to be used, eg in the 'footer-social' container)
@@ -156,8 +156,8 @@ add_linkedin=function(url="https://www.linkedin.com/in/gianluca-baio-b893879/",t
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_instagram=function(url="https://www.instagram.com/ucl.stats/",title="Follow us on Instagram",fill="#2867b2",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("instagram"),scale=scale,fill=fill,bottom="1em"),'</a>&nbsp;')
+add_instagram=function(url="https://www.instagram.com/ucl.stats/",title="Follow us on Instagram",fill="#2867b2",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("instagram",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Adds podcast icon & link (to be used, eg in the 'footer-social' container)
@@ -169,8 +169,8 @@ add_instagram=function(url="https://www.instagram.com/ucl.stats/",title="Follow 
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
 #'
-add_podcast=function(url="https://soundcloud.com/uclsound/sets/sample-space",title="Random Talks",fill="#FE5000",scale=.8,style=NULL) {
-  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("soundcloud"),scale=scale,fill=fill,bottom="1em"),'</a>&nbsp;')
+add_podcast=function(url="https://soundcloud.com/uclsound/sets/sample-space",title="Random Talks",fill="#FE5000",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("soundcloud",fill=fill,height=scale),'</a>&nbsp;')
 }
 
 #' Makes css/html code to create post-its with variable inputs

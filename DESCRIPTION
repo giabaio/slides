@@ -1,10 +1,10 @@
 Package: slides
 Type: Package
 Title: Creates a set of templates for 'xaringan' slides 
-Version: 0.4.0
+Version: 0.5.0
 Authors@R: c(
     person("Gianluca", "Baio", role = c("aut", "cre"), email = "g.baio@ucl.ac.uk", comment = c(ORCID = "0000-0003-4314-2570")),
-    # contributors ordered alphabetically below
+    # contributors ordered alphabetically below 
     person("Name", "Surname", role = "ctb", comment = c(ORCID = "XXXX-XXXX-XXXX-XXXX"))
     )
 Maintainer: The package maintainer <g.baio@ucl.ac.uk>
@@ -19,5 +19,6 @@ Imports:
    xaringan,
    xaringanExtra,
    RefManageR,
-   tikzDevice
+   tikzDevice,
+   fontawesome
 RoxygenNote: 7.2.1
