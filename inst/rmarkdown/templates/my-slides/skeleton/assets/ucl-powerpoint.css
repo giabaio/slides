@@ -81,7 +81,7 @@ h2, h3 {
 
 /* Slide content */
 .remark-slide-content {
-  background-image: url("ucl-powerpoint/ucl-official-template-slides.png");
+  background-image: url("ucl-powerpoint/ucl-ppt-slides.png");
   background-size: contain;
   background-color: var(--background-color);
   font-size: 1.15rem;
@@ -147,7 +147,7 @@ pre code {
 
 /* The other fields in the title box don't have a box */
 .title-slide {
-  background-image: url("ucl-powerpoint/ucl-official-template-title-page.png");
+  background-image: url("ucl-powerpoint/ucl-ppt-title-page.png");
   background-size: 100%;
   background-position: 0% 0%;
 }

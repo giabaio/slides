@@ -14,7 +14,7 @@ class: title-slide
 `r icons::icon_style(icons::fontawesome("firefox"),scale=.8,fill="#EA7600")`  [https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)
 `r icons::icon_style(icons::fontawesome("github"),scale=.8,fill="black")`  [https://github.com/giabaio](https://github.com/giabaio)
 `r icons::icon_style(icons::fontawesome("github"),scale=.8,fill="black")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)
-`r icons::icon_style(icons::fontawesome("twitter"),scale=.8,fill="#00acee")`  [@gianlubaio](https://twitter.com/gianlubaio) &nbsp;&nbsp; `r icons::icon_style(icons::fontawesome("mastodon"),scale=.8,fill="#563acc")`  [@gianlubaio@mas.to](https://mas.to/@gianlubaio)      
+`r icons::icon_style(icons::fontawesome("mastodon"),scale=.8,fill="#563acc")`  [@gianlubaio@mas.to](https://mas.to/@gianlubaio) &nbsp;&nbsp;  `r fontawesome::fa("x-twitter",fill="black",height="0.8em")` [@gianlubaio](https://twitter.com/gianlubaio)       
 ]
 
 <br>

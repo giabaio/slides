@@ -64,10 +64,22 @@ add_social=function(social,url,title,fill="#bcc0c4",scale=.8,style="border-botto
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;',style=NULL)
 #'
-add_twitter=function(url="https://twitter.com/giabaio",title="Follow me on Twitter",fill="#bcc0c4",scale=.8,style=NULL) {
+add_x=function(url="https://twitter.com/giabaio",title="Follow me on Twitter",fill="#bcc0c4",scale=.8,style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',icons::icon_style(icons::fontawesome("twitter"),scale=scale,fill=fill,bottom="1em"),'</a>&nbsp;')
 }
 
+#' Adds X (FKA Twitter) icon & link (to be used, eg in the 'footer-social' container)
+#'
+#' @param url The URL of the X account
+#' @param title The alt text to be shown upon hovering the icon (default at
+#' 'Follow me on X')
+#' @param fill A string or a HEX code with the color of the icon
+#' @param scale A number indicating the scale of the icon (default = 0.8)
+#' @param style A string with some css style options (e.g. 'border-bottom: 0px;',style=NULL)
+#'
+add_twitter=function(url="https://twitter.com/giabaio",title="Follow me on X",fill="black",scale=".8em",style=NULL) {
+  paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("x-twitter",fill=fill,height=scale),'</a>&nbsp;')
+}
 
 #' Adds mastodon icon & link (to be used, eg in the 'footer-social' container)
 #'

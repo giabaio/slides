@@ -1,7 +1,7 @@
 .my-footer[ 
 .alignleft[
 &nbsp; &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
-`r add_twitter()` 
+`r add_x()` 
 `r add_mastodon()` 
 `r add_github()` 
 `r add_email()` 

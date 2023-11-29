@@ -27,6 +27,6 @@
 ```
 
 .my-footer[ 
-&copy; Gianluca Baio (UCL) &nbsp; | &nbsp; `r add_twitter(style="border-bottom: 0px;")` `r add_mastodon(style="border-bottom: 0px;")` `r add_github(style="border-bottom: 0px;")` `r add_email(style="border-bottom: 0px;")` `r add_website(style="border-bottom: 0px;")`  &nbsp; | &nbsp; 
+&copy; Gianluca Baio (UCL) &nbsp; | &nbsp; `r add_x(style="border-bottom: 0px;")` `r add_mastodon(style="border-bottom: 0px;")` `r add_github(style="border-bottom: 0px;")` `r add_email(style="border-bottom: 0px;")` `r add_website(style="border-bottom: 0px;")`  &nbsp; | &nbsp; 
 `r rmarkdown::metadata$params$short_title`  &nbsp; | &nbsp; `r rmarkdown::metadata$params$conference`  &nbsp; | &nbsp; `r short_date`
 ] 
