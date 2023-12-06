@@ -8,7 +8,7 @@ add_instagram(
   url = "https://www.instagram.com/ucl.stats/",
   title = "Follow us on Instagram",
   fill = "#2867b2",
-  scale = 0.8,
+  scale = ".8em",
   style = NULL
 )
 }

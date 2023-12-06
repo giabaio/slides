@@ -8,7 +8,7 @@ add_linkedin(
   url = "https://www.linkedin.com/in/gianluca-baio-b893879/",
   title = "Follow me on LinkedIn",
   fill = "#2867b2",
-  scale = 0.8,
+  scale = ".8em",
   style = NULL
 )
 }

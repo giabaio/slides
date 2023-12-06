@@ -8,7 +8,7 @@ add_mastodon(
   url = "https://mas.to/@gianlubaio",
   title = "Follow me on Mastodon",
   fill = "#bcc0c4",
-  scale = 0.8,
+  scale = ".8em",
   style = NULL
 )
 }

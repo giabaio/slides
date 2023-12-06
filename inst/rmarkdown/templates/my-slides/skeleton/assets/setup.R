@@ -2,17 +2,6 @@
 # Set up and common commands & packages #
 #########################################
 
-# Checks that relevant packages (**not** imports!) are available and if so loads them in the workspace
-if (!isTRUE(requireNamespace("icons", quietly = TRUE))) {
-  stop("You need to install the packages 'icons'. Please run in your R terminal:\n remotes::install_github('mitchelloharawild/icons')")
-}
-# If 'icons' is installed but not loaded then attach the Namespace (so that all the relevant functions are available)
-if (isTRUE(requireNamespace("icons", quietly = TRUE))) {
-  if (!is.element("icons", (.packages()))) {
-    attachNamespace("icons")
-  }
-}
-
 # Sets default fonts for tikz
 library(tikzDevice)
 library(tikzDevice)

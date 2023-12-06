@@ -9,7 +9,7 @@ add_social(
   url,
   title,
   fill = "#bcc0c4",
-  scale = 0.8,
+  scale = ".8em",
   style = "border-bottom: 0px!important;"
 )
 }

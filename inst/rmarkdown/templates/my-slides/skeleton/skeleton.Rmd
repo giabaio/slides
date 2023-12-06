@@ -56,7 +56,7 @@ xaringanExtra::use_freezeframe()
 # xaringanExtra::use_search(show_icon = TRUE)
 
 # Defines the path to the file with the .bib entries (in case there are references)
-bibfile=ReadBib("~/Dropbox/Perso/Office/CV/mypubs.bib",check = FALSE)
+bibfile=ReadBib("~/Dropbox/Rstuff/Website/publications/mypubs.bib",check = FALSE)
 ```
 
 ```{r title-page, child="assets/title-page.Rmd"}

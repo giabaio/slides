@@ -8,7 +8,7 @@ add_website(
   url = "https://gianluca.statistica.it",
   title = "Visit my website",
   fill = "#bcc0c4",
-  scale = 0.8,
+  scale = ".8em",
   style = NULL
 )
 }

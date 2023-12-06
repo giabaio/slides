@@ -8,7 +8,7 @@ add_email(
   email = "g.baio@ucl.ac.uk",
   title = "Email me",
   fill = "#bcc0c4",
-  scale = 0.8,
+  scale = "0.8em",
   style = NULL
 )
 }

@@ -8,7 +8,7 @@ add_podcast(
   url = "https://soundcloud.com/uclsound/sets/sample-space",
   title = "Random Talks",
   fill = "#FE5000",
-  scale = 0.8,
+  scale = ".8em",
   style = NULL
 )
 }

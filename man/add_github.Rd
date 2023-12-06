@@ -8,7 +8,7 @@ add_github(
   url = "https://github.com/giabaio",
   title = "Check out my repos",
   fill = "#bcc0c4",
-  scale = 0.8,
+  scale = ".8em",
   style = NULL
 )
 }

@@ -60,5 +60,4 @@ layout: true
 `r ifelse(!is.null(rmarkdown::metadata$params$slides_url),rmarkdown::metadata$params$slides_url,"")`
 ]
 
-
 ---
