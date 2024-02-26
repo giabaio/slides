@@ -255,27 +255,44 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 }
 
 
-#' Create Quarto slides using GB predefined template (similar to the
+#' Create Quarto slides using a `gb` predefined template
+#'
+#' Create Quarto slides using a `gb` (similar to the
 #' `xaringan` one). This function is based heavily on Cara Thompson's
 #' package `samplespace` developed specifically for UCL Stats Science
 #'
 #' @param file_name The file name for your .qmd file (with or without ".qmd" at
 #' the end; the function takes care of that to avoid needing to remember
 #' whether to include it or not!)
+#' @param directory The directory where the files should be created.
+#' Defaults to `here::here("slides")`. If using a full path, should have a
+#' trailing slash (e.g. '/home/gianluca/Desktop/slides/', instead of
+#' '/home/gianluca/Desktop/slides') or `R` will interpret the resulting path
+#' wrongly, returning an error
 #' @param style Defaults to `gb`, but could create more, in the vain of the
 #' `samplespace` package
-#' @param directory The directory where the files should be created.
-#' Defaults to `here::here("slides")`
-quarto_slides=function(file_name,style="gb",directory=here::here("slides")) {
+#' @author Cara Thompson, Gianluca Baio
+#' @examples
+#' quarto_slides(file="test",directory="~/Desktop/slides-test")
+#'
+quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
+  # Firstly checks that the last character in the string name is a "/"
+  # because if not, then R will throw an error when trying to write the folder
+  # and files to it...
+  if (sub('.*(?=.$)', '', directory, perl=T) != "/") {
+    directory=paste0(directory,"/")
+  }
   file_name <- gsub(".qmd", "", file_name, fixed = TRUE)
   if (!dir.exists(directory)) {
     dir.create(directory)
   }
   if (file.exists(here::here(directory, paste0(file_name, ".qmd")))) {
-    stop("*** ", here::here(directory, paste0(file_name,
-                                              ".qmd")), " already exists! ***\n          \nI won't overwrite your existing file. \nPlease choose a different directory or file name for your new slides (or delete/rename the existing file). ")
-  }
-  else {
+    stop(
+      "*** ", here::here(
+        directory, paste0(file_name,".qmd")
+      ), " already exists! ***\n          \nI won't overwrite your existing file. \nPlease choose a different directory or file name for your new slides (or delete/rename the existing file). "
+    )
+  } else {
     string_to_swap <- system.file("quarto/", package = "slides")
     if (style == "gb") {
       footer_file <- grep(
@@ -297,24 +314,30 @@ quarto_slides=function(file_name,style="gb",directory=here::here("slides")) {
         ), value = TRUE
       )
       files_to_copy <- grep(
-        ".qmd|.scss|title-slide.html",
+        ".qmd|.scss|title-slide.html|slides.Rproj",
         grep(
-          "gb|title-slide",
+          "gb|title-slide|slides",
           list.files(
             system.file("quarto",package = "slides"), recursive = FALSE,
             full.names = TRUE
         ), value = TRUE), value = TRUE
       )
-      file.copy(from = files_to_copy, to = gsub(string_to_swap,
-                                                directory, files_to_copy))
-      if (!dir.exists(file.path(directory, paste0(file_name,
-                                                  "_files"), "libs", "revealjs", "plugin", "quarto-support"))) {
-        dir.create(file.path(directory, paste0(file_name,
-                                               "_files"), "libs", "revealjs", "plugin", "quarto-support"),
-                   recursive = TRUE)
+      file.copy(
+        from = files_to_copy,
+        to = gsub(string_to_swap,directory, files_to_copy)
+      )
+      if (!dir.exists(
+        file.path(directory, paste0(file_name,"_files"),
+                  "libs", "revealjs","plugin", "quarto-support"))) {
+        dir.create(
+          file.path(
+            directory, paste0(file_name,"_files"), "libs", "revealjs",
+            "plugin", "quarto-support"
+          ),
+          recursive = TRUE
+        )
       }
-      if (
-        !dir.exists(
+      if (!dir.exists(
           file.path(
             directory,
             paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
@@ -369,32 +392,7 @@ quarto_slides=function(file_name,style="gb",directory=here::here("slides")) {
       )
       file.rename(here::here(directory, "gb-slides.qmd"),
                   here::here(directory, paste0(file_name, ".qmd")))
-    }
-    # Can add different styles here...
-#    else if (style == "samplespace") {
-#      footer_file <- grep("quarto-support/footer.css",
-#                          list.files(system.file("quarto/samplespace-slides_files/libs/",
-#                                                 package = "samplespace"), recursive = TRUE,
-#                                     full.names = TRUE), value = TRUE)
-#      files_to_copy <- grep(".qmd|.scss|title-slide.html",
-#                            grep("quarto/samplespace|title-slide", list.files(system.file("quarto/",
-#                                                                                          package = "samplespace"), recursive = FALSE,
-#                                                                              full.names = TRUE), value = TRUE), value = TRUE)
-#      file.copy(from = files_to_copy, to = gsub(string_to_swap,
-#                                                directory, files_to_copy))
-#      if (!dir.exists(file.path(directory, paste0(file_name,
-#                                                  "_files"), "libs", "revealjs", "plugin", "quarto-support"))) {
-#        dir.create(file.path(directory, paste0(file_name,
-#                                               "_files"), "libs", "revealjs", "plugin", "quarto-support"),
-#                   recursive = TRUE)
-#      }
-#      file.copy(from = footer_file, to = gsub(string_to_swap,
-#                                              directory, gsub("samplespace-slides_files", paste0(file_name,
-#                                                                                                 "_files"), footer_file)))
-#      file.rename(here::here(directory, "samplespace-slides.qmd"),
-#                  here::here(directory, paste0(file_name, ".qmd")))
-#    }
-    else {
+    } else {
       stop(message = "I don't recognise that style of slides. Please choose \"gb\" or something else that exists. Thank you!")
     }
     if (!dir.exists(file.path(directory, "images"))) {
@@ -403,21 +401,34 @@ quarto_slides=function(file_name,style="gb",directory=here::here("slides")) {
     if (!dir.exists(file.path(directory, "_extensions"))) {
       dir.create(file.path(directory, "_extensions"))
     }
-    if (!dir.exists(file.path(directory, "_extensions", "quarto-ext",
-                              "lightbox"))) {
-      dir.create(file.path(directory, "_extensions", "quarto-ext",
-                           "lightbox"), recursive = TRUE)
+    if (!dir.exists(file.path(directory, "_extensions", "quarto-ext","lightbox"))) {
+      dir.create(
+        file.path(directory, "_extensions", "quarto-ext","lightbox"),
+        recursive = TRUE
+      )
     }
-    if (!dir.exists(file.path(directory, "_extensions", "jjallaire",
-                              "code-visibility"))) {
-      dir.create(file.path(directory, "_extensions", "jjallaire",
-                           "code-visibility"), recursive = TRUE)
+    if (!dir.exists(
+        file.path(directory, "_extensions", "jjallaire","code-visibility")
+      )
+    ) {
+      dir.create(
+        file.path(directory, "_extensions", "jjallaire","code-visibility"),
+        recursive = TRUE
+      )
     }
-    image_files <- list.files(system.file("quarto/./images",
-                                          package = "slides"), recursive = TRUE, full.names = TRUE)
-    file.copy(from = image_files, to = gsub(string_to_swap,
-                                            directory, image_files))
-    file.copy(from = system.file("quarto/./_extensions",
-                                 package = "slides"), to = directory, recursive = TRUE)
+    image_files <- list.files(
+      system.file("quarto/./images",package = "slides"),
+      recursive = TRUE, full.names = TRUE
+    )
+    file.copy(
+      from = image_files,
+      to = gsub(
+        string_to_swap,directory, image_files
+      )
+    )
+    file.copy(
+      from = system.file("quarto/./_extensions",package = "slides"),
+      to = directory, recursive = TRUE
+    )
   }
 }
