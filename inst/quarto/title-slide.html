@@ -1,0 +1,60 @@
+<section id="$idprefix$title-slide"$for(title-slide-attributes/pairs)$ $it.key$="$it.value$"$endfor$>
+  <h1 class="title">$title$</h1>
+
+$if(subtitle)$
+  <h3 style="opacity:0.8;" class="subtitle">$subtitle$</h3>
+$endif$
+
+<br>
+
+$for(author)$
+<p style="margin:0px; font-family: Ubuntu; font-size: 1.2em;" class="author">$author$</p>
+$endfor$
+
+<br>
+
+$for(institute)$
+<p style="margin:0px; opacity:0.8;font-family: Ubuntu;">$institute$</p>
+$endfor$
+$for(email)$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$email$</p>
+$endfor$
+
+<br>
+
+$if(orchid)$
+<p style="margin:0px; opacity:0.8;">$orchid$</p>
+$endif$
+
+$if(url1)$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$url1$</p>
+$endif$
+
+$if(url2)$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$url2$</p>
+$endif$
+
+$if(url3)$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$url3$</p>
+$endif$
+
+<br> 
+$for(conference)$
+<p style="margin:0px; opacity:0.8;">$conference$</p>
+$endfor$
+
+$if(date-as-string)$
+<p style="margin-top:5px">$date-as-string$</p>
+$endif$
+
+$for(postit1)$
+<p><span class="postit1">$postit1$</span></p> 
+$endfor$
+
+$for(postit2)$
+<p><span class="postit2">$postit2$</span></p> 
+$endfor$
+
+<p><span class="logo-stats"></span></p>
+
+</section>
