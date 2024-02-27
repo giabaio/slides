@@ -314,9 +314,9 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
         ), value = TRUE
       )
       files_to_copy <- grep(
-        ".qmd|.scss|title-slide.html|slides.Rproj",
+        ".qmd|.scss|title-slide.html|slides.Rproj|latex_macros.html",
         grep(
-          "gb|title-slide|slides",
+          "gb|title-slide|slides|latex_macros",
           list.files(
             system.file("quarto",package = "slides"), recursive = FALSE,
             full.names = TRUE

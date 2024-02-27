@@ -32,6 +32,8 @@ format:
   revealjs: 
     template-partials: 
       - title-slide.html
+    include-in-header: 
+      - latex_macros.html
     transition: none
     slide-number: true
     chalkboard: 
@@ -64,15 +66,23 @@ title-slide-attributes:
 #    data-background-color: "#002248"
 ---
 
-## Hello there :wave: {transition="convex-in none-out" transition-speed="fast"}
+```{r}
+#| label: setup
+#| echo: false
 
-
-```{r, echo=FALSE}
-# This makes the fonts play nicely within the figures
 library(slides)
+# This makes the fonts play nicely within the figures
 knitr::opts_chunk$set(dev = "ragg_png")
-
 ```
+
+## Disclaimer... {transition="convex-in none-out" transition-speed="fast"}
+
+![](images/screenshot.png)
+
+... Just so you know what [you're about to get yourself into...](https://twitter.com/ManuelaJoore/status/1191397718930939904) :wink:
+
+
+## Hello there :wave: {transition="convex-in none-out" transition-speed="fast"}
 
 This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
 
@@ -89,6 +99,53 @@ This presentation will show you examples of what you can do with Quarto and [Rev
 Here's a new slide without a title.
 
 ---
+
+## Fun with colours & spaces
+
+### With a subtitle
+
+This shows how to use colours in the slides. A bunch are pre-defined in the `.css` file and can be used simply as:
+
+- The [**predictive**]{.spanish-red} distribution can be computed as follows.
+
+More can be created by simply modifying the `.css` file to add more `HEX` codes.
+
+- For example use
+```{css echo=TRUE,eval=FALSE,prompt=FALSE}
+ .uclblue {
+   color: #002855;
+}
+```
+(though this colour is already defined)
+
+::: {style="margin-top: 40px"}
+Can add vertical space using `fragments`
+:::
+
+````
+::: {style="margin-top: 40px"}
+Can add vertical space using `fragments`
+:::   
+````
+
+## Some maths
+
+We can also include maths, using standard $\rm\LaTeX$:
+
+$$\class{myblue}{p(y\mid\mathcal{D}) = \int p(y\mid\bm\theta)p(\boldsymbol\theta\mid\mathcal{D})d\boldsymbol\theta} $$
+
+To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$`
+
+You can define a probabilistic assumption as
+[$$y \mid \bm\theta \sim \dpois(\bm\theta)$$]{.myblue}
+but in line it would look like this $\color{MidnightBlue}{y\sim \dnorm(\mu,\sigma^2)}$ 
+
+These use the predefined $\rm\LaTeX$ macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output
+
+`r vspace("2rem")`
+For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font)
+
+
 
 ## Pretty Code {auto-animate="true"}
 

@@ -24,7 +24,7 @@ $font-family-monospace: "Ubuntu Mono", monospace !default;
 // headings
 $presentation-heading-font: Ubuntu, "Inter Tight", Arial,
   FreeSerif, serif !default;
-$presentation-heading-color: #002248 !default; 
+$presentation-heading-color: #002248 !default;
 
 // other variables
 $body-bg: #ffffff;
@@ -47,7 +47,7 @@ $selection-bg: #95A6B8;
 /* Modified by GB */
 .reveal h1 {
   font-size: 2em;
-  color: #647d97; 
+  color: #647d97;
   box-sizing: border-box;
   box-shadow: 10px 10px 5px  rgba(0,0,0,0.6);
   border-radius: 15px;
@@ -55,7 +55,7 @@ $selection-bg: #95A6B8;
   padding: 35px 30px 35px 30px;
   margin-left: 3%;
   margin-right: 3%;
-  font-weight: 500; 
+  font-weight: 500;
 }
 
 /* This is necessary to remove the box if the h1 happens in a slide with background */
@@ -234,36 +234,38 @@ section.has-dark-background a, section.has-dark-background a:hover {
 
 /* Added by GB for further customisation */
 .postit1 {
-  position: absolute; 
-  top: 75%; 
-  left: 2.0%; 
-  font-family: Nanum Pen Script; 
-  font-size: 75%; 
-  text-decoration: none; 
-  color: #000; 
-  background: #ffc; 
-  display: block; 
-  height: 6.3em; 
-  width: 6.3em; 
-  padding: .5em; box-shadow: 5px 5px 7px rgba(33,33,33,.7); 
-  transform: rotate(-8deg); 
+  position: absolute;
+  top: 75%;
+  left: 2.0%;
+  font-family: Nanum Pen Script;
+  font-size: 75%;
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  margin-left: -10px;
+  height: 6.3em;
+  width: 6.3em;
+  padding: .5em; box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transform: rotate(-8deg);
   border-bottom-right-radius: 60px 5px;
 }
 
 .postit2 {
-  position: absolute; 
-  top:45%; 
-  left: 3.0%; 
-  font-family: Nanum Pen Script; 
-  font-size:75%; 
-  text-decoration: none; 
-  color: #000; 
-  background: #ffc; 
-  display: block; 
-  height:6.3em; 
-  width:6.3em; 
-  padding: .5em; 
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7); 
+  position: absolute;
+  top:45%;
+  left: 3.0%;
+  font-family: Nanum Pen Script;
+  font-size:75%;
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  margin-left: -10px;
+  height:6.3em;
+  width:6.3em;
+  padding: .5em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
   transform: rotate(6deg);
   border-bottom-right-radius: 60px 5px;
 }
@@ -280,8 +282,60 @@ section.has-dark-background a, section.has-dark-background a:hover {
   background-image: url("images/UCL_Stats_logo.jpeg");
   background-repeat: no-repeat;
   position: absolute;
-  bottom: 0px; 
-  right: 0px; 
+  bottom: 0px;
+  right: 0px;
   background-size: contain;
   border-radius: 6px 6px 6px 6px;
+}
+
+/*******************************************************************************************************************************
+ * Colours
+ * NB: In LaTeX, colors may be defined in rgb (0-1). Can scale up to RGB (0-255) by simply multiplying the three numbers by 255
+ *     then can use 'https://www.google.com/search?channel=fs&client=ubuntu&q=rgb+to+hex' to convert to HEX and can use here.
+ *     These can be used as 'class', so for instance code such as
+ *     `[$y \sim \dnorm(0,100)$]{.spanish-red}`
+ *     will make the LaTeX equation coloured in the red of the Spanish flag
+ ******************************************************************************************************************************/
+.myred {
+  color: #e62b4f;
+}
+.myblue {
+  color: #24568c;
+}
+.olive {
+  color: #334f17;
+}
+.ubuntublue {
+  color: #035AA6;
+}
+.spanish-red {
+  color: #c60b1e;
+}
+.spanish-yellow {
+  color: #ffc400;
+}
+.italian-green {
+  color: #009246;
+}
+.italian-red {
+  color: #ce2b37;
+}
+.blue90red60 {
+  color: #7e5dc9;
+}
+.blue60red90 {
+  color: #9350c7;
+}
+.lightgray {
+  color: #ededed; /*#d3d3d3*/
+}
+.uclblue {
+  /* https://www.ucl.ac.uk/cam/sites/cam/files/migrated-files/ucl-visual-identity-poster.pdf */
+  color: #002855;
+}
+.navbargrey{
+  color: #D5D5D5;
+}
+.beamer-yellow {
+  color: #fcd000;
 }
