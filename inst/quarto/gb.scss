@@ -223,15 +223,6 @@ section.has-dark-background a, section.has-dark-background a:hover {
   width: 100%;
 }
 
-.panel-tabset [role="tablist"] {
-  border-bottom: 1px solid $link-color;
-  list-style: none;
-  margin: 0;
-    margin-bottom: 0px;
-  padding: 0;
-  width: 100%;
-}
-
 /* Added by GB for further customisation */
 .postit1 {
   position: absolute;
@@ -338,4 +329,10 @@ section.has-dark-background a, section.has-dark-background a:hover {
 }
 .beamer-yellow {
   color: #fcd000;
+}
+
+/* This makes long tables included in tabsets scrollable vertically */
+.panel-tabset {
+  height: 90%;
+  overflow-y: auto;
 }
