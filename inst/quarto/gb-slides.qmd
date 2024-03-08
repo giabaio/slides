@@ -9,6 +9,11 @@ conference: |
 shortconference: "A shorter title of the conference"
 date: ""
 date-format: "D MMMM YYYY"
+thank-you: 
+   show: false
+   file: phoebe
+bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
+
 
 #' Fixed attributes (don't need to change these)
 author: 
@@ -17,7 +22,7 @@ institute:  "Department of Statistical Science | University College London"
 email: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em")`  [g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)'
 url1: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://gianluca.statistica.it](https://gianluca.statistica.it) <br> `r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`[https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)'
 url2: '`r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/giabaio](https://github.com/giabaio) <br> `r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)'
-url3: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`  [@gianlubaio@mas.to](https://mas.to/@gianlubaio) &nbsp;&nbsp;  `r fontawesome::fa("x-twitter",fill="black",height="0.8em")` [@gianlubaio](https://twitter.com/gianlubaio)'
+url3: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`  [\@gianlubaio@mas.to](https://mas.to/@gianlubaio) &nbsp;&nbsp;  `r fontawesome::fa("x-twitter",fill="black",height="0.8em")` [\@gianlubaio](https://twitter.com/gianlubaio)'
 orchid: 
 postit1: 'Check out our departmental podcast "Random Talks" on Soundcloud! [{{< fa brands soundcloud >}}](https://soundcloud.com/uclsound/sets/sample-space){style="color: #ff7700;" title="Listen to our podcast"}'
 postit2: 'Follow our departmental social media accounts [{{< fa brands x-twitter >}}](url="https://twitter.com/stats_ucl){style="color: #000000;" title="Follow us on X"} [{{< fa brands linkedin >}}](https://www.linkedin.com/in/statistical-science-ucl-906b9a201){style="color: #0A66C2;" title="Follow us on LinkedIn"} [{{< fa brands instagram >}}](https://www.instagram.com/ucl.stats/){style="color: #8a3ab9;" title="Follow us on Instagram"} + magazine ["Sample Space"](https://sample-space.org/){style="color: #434252;" title="Read our online magazine"}'
@@ -33,9 +38,9 @@ from: markdown+emoji
 format:
   revealjs: 
     template-partials: 
-      - title-slide.html
+      - assets/title-slide.html
     include-in-header: 
-      - latex_macros.html
+      - assets/latex_macros.html
     transition: none
     slide-number: true
     chalkboard: 
@@ -57,7 +62,6 @@ format:
 #' Filters
 filters:
  - code-visibility
- - lightbox
 lightbox: auto
 
 #' Title slide attributes
@@ -742,6 +746,13 @@ Here is an image:
 
 Some text after the image.
 
-# {background-image="images/michelle.gif" background="#002248"}
-::: {.footer style="background-color: transparent"}
+<!-- 
+   If the meta parameter 'thank-you' is set to "false", this won't show. Can 
+   choose among various options, all stored in the 'assets' folder. For now:
+   - michelle
+   - phoebe
+   - reese
+-->
+::: {.content-hidden unless-meta="thank-you.show"}
+{{< include assets/thankyou.qmd >}}
 :::

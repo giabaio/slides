@@ -427,5 +427,9 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
       from = system.file("quarto/./_extensions",package = "slides"),
       to = directory, recursive = TRUE
     )
+    file.copy(
+      from = system.file("quarto/./assets",package = "slides"),
+      to = directory, recursive = TRUE
+    )
   }
 }
