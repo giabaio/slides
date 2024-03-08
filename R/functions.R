@@ -265,10 +265,7 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' the end; the function takes care of that to avoid needing to remember
 #' whether to include it or not!)
 #' @param directory The directory where the files should be created.
-#' Defaults to `here::here("slides")`. If using a full path, should have a
-#' trailing slash (e.g. '/home/gianluca/Desktop/slides/', instead of
-#' '/home/gianluca/Desktop/slides') or `R` will interpret the resulting path
-#' wrongly, returning an error
+#' Defaults to `here::here("slides")`
 #' @param style Defaults to `gb`, but could create more, in the vain of the
 #' `samplespace` package
 #' @author Cara Thompson, Gianluca Baio

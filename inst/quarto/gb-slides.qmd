@@ -25,6 +25,8 @@ postit2: 'Follow our departmental social media accounts [{{< fa brands x-twitter
 #' Computed attributes (from other parts of the yml file)
 date-as-string: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %B %Y")),(Sys.Date() |> format("%e %B %Y")))`'
 shortdate: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %b %Y")),(Sys.Date() |> format("%e %b %Y")))`'
+shorttitle-string: '`r ifelse((rmarkdown::metadata$shorttitle)!="",paste(rmarkdown::metadata$shorttitle,"&nbsp; | &nbsp;"),"")`'
+shortconference-string: '`r ifelse((rmarkdown::metadata$shortconference)!="",paste(rmarkdown::metadata$shortconference,"&nbsp; | &nbsp;"),"")`'
 
 #' Format
 from: markdown+emoji
@@ -50,7 +52,7 @@ format:
        [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp; 
        [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp; 
        [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp; 
-       {{< meta shorttitle >}} &nbsp; | &nbsp; {{< meta shortconference >}} &nbsp; | &nbsp; {{< meta shortdate >}}
+       {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}}
 
 #' Filters
 filters:
@@ -739,3 +741,7 @@ Here is an image:
 ![](https://github.com/cararthompson/tidytuesdays/raw/main/plots/202210_gbbo.png){.r-stretch}
 
 Some text after the image.
+
+# {background-image="images/michelle.gif" background="#002248"}
+::: {.footer style="background-color: transparent"}
+:::

@@ -12,10 +12,7 @@ the end; the function takes care of that to avoid needing to remember
 whether to include it or not!)}
 
 \item{directory}{The directory where the files should be created.
-Defaults to `here::here("slides")`. If using a full path, should have a
-trailing slash (e.g. '/home/gianluca/Desktop/slides/', instead of
-'/home/gianluca/Desktop/slides') or `R` will interpret the resulting path
-wrongly, returning an error}
+Defaults to `here::here("slides")`}
 
 \item{style}{Defaults to `gb`, but could create more, in the vain of the
 `samplespace` package}
