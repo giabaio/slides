@@ -46,7 +46,7 @@ format:
     chalkboard: 
       buttons: false
     preview-links: auto
-    theme: gb.scss
+    theme: assets/gb.scss
 # default width/height: 1050/700
     width: 1200 
     height: 800
@@ -110,7 +110,7 @@ Here's a new slide without a title.
 
 ### With a subtitle
 
-This shows how to use colours in the slides. A bunch are pre-defined in the `.css` file and can be used simply as:
+[This shows how to use colours in the slides.]{.magic-marker} A bunch are pre-defined in the `.css` file and can be used simply as:
 
 - The [**predictive**]{.spanish-red} distribution can be computed as follows.
 
