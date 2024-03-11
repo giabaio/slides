@@ -3,13 +3,17 @@
 title: "A very long title for my slides, which may span across two lines"
 shorttitle: "A short title"
 subtitle: ""
+date: ""
+date-format: "D MMMM YYYY"
 conference:
    title: The name of the conference
    location: Where it is
    session: The name of the session
 shortconference: "A shorter title of the conference"
-date: ""
-date-format: "D MMMM YYYY"
+postit: 
+   random-talks: true
+   social-media: true
+orchid: 
 thank-you: 
    show: false
    file: phoebe
@@ -24,9 +28,6 @@ email: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type=
 url1: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://gianluca.statistica.it](https://gianluca.statistica.it) <br> `r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)'
 url2: '`r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/giabaio](https://github.com/giabaio) &nbsp; `r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)'
 url3: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`  [\@gianlubaio@mas.to](https://mas.to/@gianlubaio) &nbsp;&nbsp;  `r fontawesome::fa("x-twitter",fill="black",height="0.8em")` [\@gianlubaio](https://twitter.com/gianlubaio)'
-orchid: 
-postit1: true
-postit2: true
 
 
 #' Computed attributes (from other parts of the yml file)
