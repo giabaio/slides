@@ -2,7 +2,7 @@
   <h1 class="title">$title$</h1>
 
 $if(subtitle)$
-  <h3 style="opacity:0.8;" class="subtitle">$subtitle$</h3>
+  <h3 style="opacity:0.8; margin-top: 20px; margin-bottom: -10px" class="subtitle">$subtitle$</h3>
 $endif$
 
 <br>
@@ -17,7 +17,7 @@ $for(institute)$
 <p style="margin:0px; opacity:0.8;font-family: Ubuntu;">$institute$</p>
 $endfor$
 $for(email)$
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$email$</p>
+<p style="margin:5px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$email$</p>
 $endfor$
 
 <br>
@@ -27,7 +27,7 @@ $if(orchid)$
 $endif$
 
 $if(url1)$
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$url1$</p>
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8">$url1$</p>
 $endif$
 
 $if(url2)$
@@ -39,12 +39,19 @@ $if(url3)$
 $endif$
 
 <br>
-$for(conference)$
-<p style="margin:0px; opacity:0.8;">$conference$</p>
-$endfor$
+$if(conference.session)$
+<p style="margin:0px; opacity:0.8">$conference.session$</p>
+$endif$
+$if(conference.title)$
+  $if(conference.location)$
+     <p style="margin:0px; opacity:0.8">$conference.title$, $conference.location$</p>
+  $else$
+     <p style="margin:0px; opacity:0.8">$conference.title$</p>
+  $endif$
+$endif$
 
 $if(date-as-string)$
-<p style="margin-top:5px">$date-as-string$</p>
+<p style="margin-top:10px">$date-as-string$</p>
 $endif$
 
 $for(postit1)$

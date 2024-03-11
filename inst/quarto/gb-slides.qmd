@@ -3,9 +3,10 @@
 title: "A very long title for my slides, which may span across two lines"
 shorttitle: "A short title"
 subtitle: ""
-conference: |
-   The name of the session <br>
-   The name of the conference, Where is it
+conference:
+   title: The name of the conference
+   location: Where it is
+   session: The name of the session
 shortconference: "A shorter title of the conference"
 date: ""
 date-format: "D MMMM YYYY"
@@ -18,20 +19,22 @@ bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 #' Fixed attributes (don't need to change these)
 author: 
   - name: "**Gianluca Baio**"
-institute:  "Department of Statistical Science | University College London"
-email: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em")`  [g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)'
-url1: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://gianluca.statistica.it](https://gianluca.statistica.it) <br> `r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`[https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)'
-url2: '`r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/giabaio](https://github.com/giabaio) <br> `r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)'
+institute:  "Department of Statistical Science &nbsp; | &nbsp; University College London"
+email: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")` [g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)'
+url1: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://gianluca.statistica.it](https://gianluca.statistica.it) <br> `r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)'
+url2: '`r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/giabaio](https://github.com/giabaio) &nbsp; `r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)'
 url3: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`  [\@gianlubaio@mas.to](https://mas.to/@gianlubaio) &nbsp;&nbsp;  `r fontawesome::fa("x-twitter",fill="black",height="0.8em")` [\@gianlubaio](https://twitter.com/gianlubaio)'
 orchid: 
 postit1: 'Check out our departmental podcast "Random Talks" on Soundcloud! [{{< fa brands soundcloud >}}](https://soundcloud.com/uclsound/sets/sample-space){style="color: #ff7700;" title="Listen to our podcast"}'
 postit2: 'Follow our departmental social media accounts [{{< fa brands x-twitter >}}](url="https://twitter.com/stats_ucl){style="color: #000000;" title="Follow us on X"} [{{< fa brands linkedin >}}](https://www.linkedin.com/in/statistical-science-ucl-906b9a201){style="color: #0A66C2;" title="Follow us on LinkedIn"} [{{< fa brands instagram >}}](https://www.instagram.com/ucl.stats/){style="color: #8a3ab9;" title="Follow us on Instagram"} + magazine ["Sample Space"](https://sample-space.org/){style="color: #434252;" title="Read our online magazine"}'
+
 
 #' Computed attributes (from other parts of the yml file)
 date-as-string: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %B %Y")),(Sys.Date() |> format("%e %B %Y")))`'
 shortdate: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %b %Y")),(Sys.Date() |> format("%e %b %Y")))`'
 shorttitle-string: '`r ifelse((rmarkdown::metadata$shorttitle)!="",paste(rmarkdown::metadata$shorttitle,"&nbsp; | &nbsp;"),"")`'
 shortconference-string: '`r ifelse((rmarkdown::metadata$shortconference)!="",paste(rmarkdown::metadata$shortconference,"&nbsp; | &nbsp;"),"")`'
+
 
 #' Format
 from: markdown+emoji

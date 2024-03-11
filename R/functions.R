@@ -279,11 +279,13 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
   if (sub('.*(?=.$)', '', directory, perl=T) != "/") {
     directory=paste0(directory,"/")
   }
+  # Remove the .qmd ending if it was provided
   file_name <- gsub(".qmd", "", file_name, fixed = TRUE)
   if (!dir.exists(directory)) {
     dir.create(directory)
   }
   if (file.exists(here::here(directory, paste0(file_name, ".qmd")))) {
+    # Prompt to choose a different file name!
     stop(
       "*** ", here::here(
         directory, paste0(file_name,".qmd")
