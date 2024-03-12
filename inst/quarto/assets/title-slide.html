@@ -17,7 +17,7 @@ $for(institute)$
 <p style="margin:0px; opacity:0.8;font-family: Ubuntu;">$institute$</p>
 $endfor$
 $for(email)$
-<p style="margin:5px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$email$</p>
+<p style="margin:5px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$email.icon$ $email.text$</p>
 $endfor$
 
 <br>
@@ -26,17 +26,13 @@ $if(orchid)$
 <p style="margin:0px; opacity:0.8;">$orchid$</p>
 $endif$
 
-$if(url)$
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8">$url$</p>
-$endif$
+$for(url)$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8">$url.icon$ $url.text$</p>
+$endfor$
 
-$if(github)$
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$github$</p>
-$endif$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(github)$$github.icon$ $github.text$ &nbsp; $endfor$</p>
 
-$if(social)$
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$social$</p>
-$endif$
+<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(social)$$social.icon$ $social.text$ &nbsp; &nbsp;$endfor$</p>
 
 <br>
 $if(conference.session)$

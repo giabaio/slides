@@ -24,10 +24,24 @@ bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 author: 
   - name: "**Gianluca Baio**"
 institute:  "Department of Statistical Science &nbsp; | &nbsp; University College London"
-email: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")` [g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)'
-url: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://gianluca.statistica.it](https://gianluca.statistica.it) <br> `r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")` [https://egon.stats.ucl.ac.uk/research/statistics-health-economics/](https://egon.stats.ucl.ac.uk/research/statistics-health-economics/)'
-github: '`r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/giabaio](https://github.com/giabaio) &nbsp; `r fontawesome::fa("github",fill="black",height="0.8em")`  [https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)'
-social: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`  [\@gianlubaio@mas.to](https://mas.to/@gianlubaio) &nbsp;&nbsp;  `r fontawesome::fa("x-twitter",fill="black",height="0.8em")` [\@gianlubaio](https://twitter.com/gianlubaio)'
+email: 
+   text: "[g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)"
+   icon: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")`'
+url: 
+  - text: "[https://gianluca.statistica.it](https://gianluca.statistica.it)"
+    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+  - text: "[https://egon.stats.ucl.ac.uk/research/statistics-health-economics](https://egon.stats.ucl.ac.uk/research/statistics-health-economics)"
+    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+github: 
+  - text: "[https://github.com/giabaio](https://github.com/giabaio)"
+    icon: '`r fontawesome::fa("github",fill="black",height="0.8em")`'
+  - text: "[https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)"
+    icon: '`r fontawesome::fa("github",fill="black",height="0.8em")`'
+social: 
+  - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
+    icon: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`'
+  - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
+    icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
 
 
 #' Computed attributes (from other parts of the yml file)
