@@ -20,7 +20,7 @@ thank-you:
 bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 
 
-#' Fixed attributes (don't need to, but can change these)
+#' (Semi-)Fixed attributes (don't need to, but can change these)
 author: 
   - name: "**Gianluca Baio**"
 institute:  "Department of Statistical Science &nbsp; | &nbsp; University College London"
