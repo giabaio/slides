@@ -23,7 +23,8 @@ bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 #' (Semi-)Fixed attributes (don't need to, but can change these)
 author: 
   - name: "**Gianluca Baio**"
-institute:  "Department of Statistical Science &nbsp; | &nbsp; University College London"
+institute:  
+   - uni: "Department of Statistical Science &nbsp; | &nbsp; University College London"
 email: 
    text: "[g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)"
    icon: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")`'
