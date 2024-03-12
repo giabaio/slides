@@ -15,7 +15,7 @@ postit:
    social-media: true
 orchid: 
 thank-you: 
-   show: false
+   show: true
    file: phoebe
 bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 
