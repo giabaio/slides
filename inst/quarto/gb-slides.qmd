@@ -13,7 +13,6 @@ shortconference: "A shorter title of the conference"
 postit: 
    random-talks: true
    social-media: true
-orchid: 
 thank-you: 
    show: true
    file: phoebe
@@ -43,6 +42,10 @@ social:
     icon: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`'
   - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
     icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
+orchid: 
+   show: false
+   url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
+   icon: '`r fontawesome::fa("orcid",fill="black",height="0.8em")`'
 
 
 #' Computed attributes (from other parts of the yml file)
@@ -94,10 +97,14 @@ title-slide-attributes:
 ```{r}
 #| label: setup
 #| echo: false
-
+# Loads 'tidyverse' & 'slides'
+library(tidyverse, quietly=TRUE)
 library(slides)
-# This makes the fonts play nicely within the figures
-knitr::opts_chunk$set(dev = "ragg_png")
+
+#' This makes the fonts play nicely within the figures 
+#' (but uses a weird font, not Arial, so can be turned off)
+# knitr::opts_chunk$set(dev = "ragg_png")
+
 ```
 
 ## Disclaimer... {transition="convex-in none-out" transition-speed="fast"}

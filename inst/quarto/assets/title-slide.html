@@ -20,17 +20,17 @@ $endfor$
 
 <br>
 
-$if(orchid)$
-<p style="margin:0px; opacity:0.8;">$orchid$</p>
+$if(orchid.show)$
+<p style="margin:0px; font-size: .9em; font-family: 'Ubuntu Mono'; opacity:0.8;">$orchid.icon$ $orchid.url$</p>
 $endif$
 
 $for(url)$
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8">$url.icon$ $url.text$</p>
+<p style="margin:0px 15px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8">$url.icon$ $url.text$</p>
 $endfor$
 
-<p style="margin:0px 5px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(github)$$github.icon$ $github.text$ &nbsp; $endfor$</p>
+<p style="margin:0px 15px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(github)$$github.icon$ $github.text$ &nbsp; $endfor$</p>
 
-<p style="margin:0px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(social)$$social.icon$ $social.text$ &nbsp; &nbsp;$endfor$</p>
+<p style="margin:0px 15px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(social)$$social.icon$ $social.text$ &nbsp; &nbsp;$endfor$</p>
 
 <br>
 $if(conference.session)$
