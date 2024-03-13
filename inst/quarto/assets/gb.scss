@@ -20,7 +20,7 @@
 
 $font-family-sans-serif: "Ubuntu", "Arial", Arial,
   FreeSerif, serif !default;
-$font-family-monospace: "Inconsolata", "Ubuntu Mono",  monospace !default;
+$font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
 
 // headings
 $presentation-heading-font: Ubuntu, "Inter Tight", Arial,
@@ -352,4 +352,16 @@ section.has-dark-background a, section.has-dark-background a:hover {
   );
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+/* Some new colours for highlighting text in fragments
+ * Of course, can make new ones with differet values for the colour.
+ * NB: This is originally defined in gb-slides_files/libs/revealjs/dist/reveal.css
+*/
+.reveal .slides section .fragment.highlight-blue {
+  opacity: 1;
+  visibility: inherit;
+}
+.reveal .slides section .fragment.highlight-blue.visible {
+  color: blue;
 }
