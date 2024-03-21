@@ -153,19 +153,37 @@ section.has-dark-background a, section.has-dark-background a:hover {
   color: #C6AA51;
 }
 
+
+/*
+ * This modifies the appearance of the bullet list wrt Cara's original formulation
+*/
 .reveal .slide ul li {
-  list-style: none; /* Remove default bullets */
+  letter-spacing: -0.025em;
+}
+
+.reveal .slide ul li::marker {
+  list-style-type: disc;
+  color: #AC8300;
+}
+
+/*
+ * This is Cara's original formatting for bullet point lists
+ *
+.reveal .slide ul li {
+  list-style: none; // Remove default bullets
   letter-spacing: -0.025em;
 }
 
 .reveal .slide ul li::before {
-  content: "\25FC";  /* Add content: \2022 is the CSS Code/unicode for a bullet; add a space for easier alignment! */
-  color: #AC8300; /* Change the color*/
-  display: inline-block; /* Needed to add space between the bullet and the text*/
-  width: 1.5em; /* Also needed for space (tweak if needed)*/
-  margin-left: -1.5em; /* Also needed for space (tweak if needed)*/
+  content: "\25FC";      // Add content: \2022 is the CSS Code/unicode for a bullet; add a space for easier alignment!
+  color: #AC8300;        // Change the color
+  display: inline-block; // Needed to add space between the bullet and the text
+  width: 1.5em;          // Also needed for space (tweak if needed)
+  margin-left: -1.5em;   // Also needed for space (tweak if needed)
   font-size: 66%;
 }
+*/
+
 
 .reveal .panel-tabset ul li::before {
   content: ""; /* Remove default bullets */

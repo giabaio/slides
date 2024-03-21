@@ -4,7 +4,6 @@ title: "A very long title for my slides, which may span across two lines"
 shorttitle: "A short title"
 subtitle: ""
 date: ""
-date-format: "D MMMM YYYY"
 conference:
    title: The name of the conference
    location: Where it is
@@ -46,6 +45,7 @@ orchid:
    show: false
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
    icon: '`r fontawesome::fa("orcid",fill="black",height="0.8em")`'
+date-format: "D MMMM YYYY"
 
 
 #' Computed attributes (from other parts of the yml file)
@@ -118,11 +118,12 @@ library(slides)
 
 This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
 
--   Presenting code and LaTeX equations
--   Including computations in slide output
--   Image, video, and iframe backgrounds
--   Fancy transitions and animations
--   Printing to PDF
+- Presenting code and LaTeX equations
+- Including computations in slide output
+- Image, video, and iframe backgrounds
+- Fancy transitions and animations
+- Printing to PDF 
+  - Which is sometimes useful...
 
 ...and much more
 
@@ -461,7 +462,30 @@ Strike
 :::
 
 ::: {.fragment .highlight-red}
-Highlight red
+Highlight red (but green and blue are also built-in)
+:::
+
+. . .
+
+::: {.fragment .highlight-itared}
+Highlight custom colour (defined in `scss` file or can be added on the fly)
+
+````{verbatim}
+```{css}
+#| echo: false
+.reveal .slides section .fragment.highlight-itared {
+  opacity: 1;
+  visibility: inherit;
+}
+.reveal .slides section .fragment.highlight-itared.visible {
+  color: #ce2b37;
+}
+```
+
+::: {.fragment .highlight-itared}
+Text to highlight here...
+:::
+````
 :::
 
 ::: footer
