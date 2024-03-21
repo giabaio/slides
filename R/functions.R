@@ -265,7 +265,12 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' the end; the function takes care of that to avoid needing to remember
 #' whether to include it or not!)
 #' @param directory The directory where the files should be created.
-#' Defaults to `here::here("slides")`
+#' Defaults to `here::here("slides")`. The code can handle different formats
+#' for this string. It could be a full absolute path, eg `~/Desktop/test`, or
+#' a relative path (eg `myslides`, which is then relative to the current
+#' working directory). It can contain a trailing `/` or not -- if needed it
+#' is added automatically to ensure all the relevant files can be copied
+#' over in the right path
 #' @param style Defaults to `gb`, but could create more, in the vain of the
 #' `samplespace` package
 #' @author Cara Thompson, Gianluca Baio
