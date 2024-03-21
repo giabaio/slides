@@ -273,17 +273,14 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' quarto_slides(file="test",directory="~/Desktop/slides-test")
 #'
 quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
-  # Firstly checks that the last character in the string name is a "/"
-  # because if not, then R will throw an error when trying to write the folder
-  # and files to it...
-  if (sub('.*(?=.$)', '', directory, perl=T) != "/") {
-    directory=paste0(directory,"/")
-  }
   # Remove the .qmd ending if it was provided
   file_name <- gsub(".qmd", "", file_name, fixed = TRUE)
   if (!dir.exists(directory)) {
     dir.create(directory)
   }
+  # First normalises the path to the directory
+  directory=normalizePath(directory)
+
   if (file.exists(here::here(directory, paste0(file_name, ".qmd")))) {
     # Prompt to choose a different file name!
     stop(
@@ -292,6 +289,11 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
       ), " already exists! ***\n          \nI won't overwrite your existing file. \nPlease choose a different directory or file name for your new slides (or delete/rename the existing file). "
     )
   } else {
+    if (sub('.*(?=.$)', '', directory, perl=T) != "/") {
+      path_to_files=paste0(directory,"/")
+    } else {
+      path_to_files=directory
+    }
     string_to_swap <- system.file("quarto/", package = "slides")
     if (style == "gb") {
       footer_file <- grep(
@@ -319,11 +321,11 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
           list.files(
             system.file("quarto",package = "slides"), recursive = FALSE,
             full.names = TRUE
-        ), value = TRUE), value = TRUE
+          ), value = TRUE), value = TRUE
       )
       file.copy(
         from = files_to_copy,
-        to = gsub(string_to_swap,directory, files_to_copy)
+        to = gsub(string_to_swap, path_to_files, files_to_copy)
       )
       if (!dir.exists(
         file.path(directory, paste0(file_name,"_files"),
@@ -337,11 +339,11 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
         )
       }
       if (!dir.exists(
-          file.path(
-            directory,
-            paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
-          )
+        file.path(
+          directory,
+          paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
         )
+      )
       ) {
         dir.create(
           file.path(
@@ -355,7 +357,7 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
           package = "slides"
         ),
         to = gsub(
-          string_to_swap,directory,
+          string_to_swap,path_to_files,
           gsub(
             "gb-slides", file_name,
             system.file(
@@ -371,7 +373,7 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
           package = "slides"
         ),
         to = gsub(
-          string_to_swap,directory,
+          string_to_swap,path_to_files,
           gsub(
             "gb-slides", file_name,
             system.file(
@@ -384,13 +386,13 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
       file.copy(
         from = footer_file,
         to = gsub(
-          string_to_swap,directory, gsub(
+          string_to_swap,path_to_files, gsub(
             "gb-slides_files", paste0(file_name,"_files"), footer_file
           )
         )
       )
-      file.rename(here::here(directory, "gb-slides.qmd"),
-                  here::here(directory, paste0(file_name, ".qmd")))
+      file.rename(paste0(path_to_files, "gb-slides.qmd"),
+                  paste0(path_to_files, paste0(file_name, ".qmd")))
     } else {
       stop(message = "I don't recognise that style of slides. Please choose \"gb\" or something else that exists. Thank you!")
     }
@@ -407,8 +409,8 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
       )
     }
     if (!dir.exists(
-        file.path(directory, "_extensions", "jjallaire","code-visibility")
-      )
+      file.path(directory, "_extensions", "jjallaire","code-visibility")
+    )
     ) {
       dir.create(
         file.path(directory, "_extensions", "jjallaire","code-visibility"),
@@ -422,16 +424,16 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
     file.copy(
       from = image_files,
       to = gsub(
-        string_to_swap,directory, image_files
+        string_to_swap,path_to_files, image_files
       )
     )
     file.copy(
       from = system.file("quarto/./_extensions",package = "slides"),
-      to = directory, recursive = TRUE
+      to = path_to_files, recursive = TRUE
     )
     file.copy(
       from = system.file("quarto/./assets",package = "slides"),
-      to = directory, recursive = TRUE
+      to = path_to_files, recursive = TRUE
     )
   }
 }
