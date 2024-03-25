@@ -5,13 +5,14 @@ shorttitle: "A short title"
 subtitle: ""
 date: ""
 conference:
-   title: The name of the conference
+   name: The name of the conference
    location: Where it is
    session: The name of the session
 shortconference: "A shorter title of the conference"
 postit: 
    random-talks: true
    social-media: true
+slidesurl: "[https://gianluca.statistica.it/slides/XXX](https://gianluca.statistica.it/slides/XXX)"
 thank-you: 
    show: true
    file: phoebe
@@ -53,6 +54,7 @@ date-as-string: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$d
 shortdate: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %b %Y")),(Sys.Date() |> format("%e %b %Y")))`'
 shorttitle-string: '`r ifelse((rmarkdown::metadata$shorttitle)!="",paste(rmarkdown::metadata$shorttitle,"&nbsp; | &nbsp;"),"")`'
 shortconference-string: '`r ifelse((rmarkdown::metadata$shortconference)!="",paste(rmarkdown::metadata$shortconference,"&nbsp; | &nbsp;"),"")`'
+slides-url: '`r ifelse((rmarkdown::metadata$slidesurl)!="",paste("&nbsp; | &nbsp; {{< fa circle-info >}} Slides available at ",rmarkdown::metadata$slidesurl),"")`'
 
 
 #' Format
@@ -74,12 +76,12 @@ format:
     height: 800
 #    margin: 0.05
     footer: |
-       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; 
-       [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp; 
-       [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp; 
-       [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp; 
-       [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp; 
-       {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}}
+       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp;
+       [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
+       [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
+       [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
+       [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
+       {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
 
 #' Filters
 filters:
