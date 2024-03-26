@@ -167,6 +167,12 @@ section.has-dark-background a, section.has-dark-background a:hover {
   color: #AC8300;
 }
 
+.reveal .slide ol li::marker {
+//  font-family: Permanent Marker;
+  color: #AC8300;
+  font-weight: 500;
+}
+
 /*
  * This is Cara's original formatting for bullet point lists
  *
