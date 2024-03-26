@@ -18,7 +18,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
 
-$font-family-sans-serif: "Ubuntu", "Arial", Arial,
+$font-family-sans-serif: "Inter Tight", "Ubuntu", "Arial", Arial,
   FreeSerif, serif !default;
 $font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
 
@@ -114,7 +114,8 @@ section.has-dark-background h2 {
 
 .reveal .slide-number{
   color:#b4c0cc;
-  background-color:#fff
+  background-color:#fff;
+  font-family: "Inter Tight"
 }
 
 .reveal .controls {
