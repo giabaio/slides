@@ -15,6 +15,7 @@ postit:
 slidesurl: 
    show: false
    url: "[https://gianluca.statistica.it/slides/XXX](https://gianluca.statistica.it/slides/XXX)"
+   size: "0.75em"
 thank-you: 
    show: true
    file: phoebe
@@ -56,7 +57,12 @@ date-as-string: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$d
 shortdate: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %b %Y")),(Sys.Date() |> format("%e %b %Y")))`'
 shorttitle-string: '`r ifelse((rmarkdown::metadata$shorttitle)!="",paste(rmarkdown::metadata$shorttitle,"&nbsp; | &nbsp;"),"")`'
 shortconference-string: '`r ifelse((rmarkdown::metadata$shortconference)!="",paste(rmarkdown::metadata$shortconference,"&nbsp; | &nbsp;"),"")`'
-slides-url: '`r ifelse((rmarkdown::metadata$slidesurl$show)==TRUE,paste("&nbsp; | &nbsp; {{< fa circle-info >}} Slides available at ",rmarkdown::metadata$slidesurl$url),"")`'
+slides-url: |
+   `r ifelse(
+      (rmarkdown::metadata$slidesurl$show)==TRUE,
+      paste("&nbsp; | &nbsp; [{{< fa circle-info >}} Slides available at ",
+      rmarkdown::metadata$slidesurl$url,"]{style=\"font-size:",rmarkdown::metadata$slidesurl$size,";\"}"),""
+   )`
 
 
 #' Format
