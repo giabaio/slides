@@ -1,0 +1,11 @@
+#!/bin/bash
+# Copy the relevant files/folders to an input directory so that the slides in the current folder can be published online
+# GB2024
+#
+
+# First checks whether the target folder exists and create it if not
+targetdir=$1
+[ -d "$targetdir" ] || mkdir -p $targetdir
+# Then copy the relevant files/folders (*only*!) to it
+cp -R {*.html,*_files,images} $targetdir
+
