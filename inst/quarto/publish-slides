@@ -8,4 +8,6 @@ targetdir=$1
 [ -d "$targetdir" ] || mkdir -p $targetdir
 # Then copy the relevant files/folders (*only*!) to it
 cp -R {*.html,*_files,images} $targetdir
+# Finally rename the .html file to be called 'index.html'
+mv $targetdir/*.html $targetdir/index.html
 

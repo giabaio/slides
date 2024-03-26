@@ -442,3 +442,43 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
     )
   }
 }
+
+
+#' Publish the slides onto a specific folder
+#'
+#' Copies the relevant files/folders onto a specific target, which is used to
+#' publish the slides online
+#'
+#' @param target The path to the folder in which the relevant files and folders
+#' should be copied.
+#' @author Gianluca Baio
+#' @examples
+#' publish_slides("~/Desktop/test")
+#'
+publish_slides=function(target) {
+  # If the target folder doesn't already exist, then create it
+  if (!dir.exists(target)) {
+    dir.create(target)
+  }
+  # First normalises the path to the target directory
+  target=normalizePath(target)
+  if (sub('.*(?=.$)', '', target, perl=T) != "/") {
+    path_to_files=paste0(target,"/")
+  } else {
+    path_to_files=target
+  }
+  files_to_copy <- grep(
+    "*.html|images|*_files",
+    list.files("."),
+    value=TRUE
+  )
+  file.copy(
+    from = files_to_copy,
+    to = path_to_files,
+    recursive=TRUE
+  )
+  file.rename(
+    from=paste0(path_to_files,files_to_copy[grep(".html",files_to_copy)]),
+    to=paste0(path_to_files,"index.html")
+  )
+}
