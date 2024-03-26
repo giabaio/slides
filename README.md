@@ -26,7 +26,7 @@ These are the data that define the specific presentation such as:
    - `conference` (a multi-item field, including details of the `name` of the conference, the `location` of the conference and the name of the `session`. Either of these can be left empty)
    - `shortconference` (a string with a shorter version of the conference name to go into the footer)
    - `postit` (a multi-item field with values `random-talks` and `social-media`; if either is set to `true`, then the post-it is included in the title page)
-   - `slidesurl` (a link to the page at which the slides are hosted/available. Can be left as `""`, in which case nothing appears in the footer)
+   - `slidesurl` (a multi-item field with values `show` and `url`, a link to the page at which the slides are hosted/available. If `show: false`, then nothing appears in the footer)
    - `thank-you` (a multi-item field with values `show` and the name of the `file` containing the thank-you `gif`. If `show` is `true` then shows the thank-you slide at the end of the presentation, according to the value of `file`, whose options are `reese`, `phoebe` and `joey` --- can add as many as needed...)
    - `bibliography` (the full path to the file containing the `bib` file with the references to be used, if needed)
    
