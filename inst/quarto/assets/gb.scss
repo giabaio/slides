@@ -135,6 +135,7 @@ section.has-dark-background h2 {
 
 .reveal a {
   color: #6e5400;
+  font-family: $font-family-monospace;
   letter-spacing: -0.025em;
 }
 
@@ -143,6 +144,7 @@ section.has-dark-background h2 {
 }
 
 .reveal .footer a {
+  font-family: $font-family-sans-serif;
   color: #C6AA51;
 }
 

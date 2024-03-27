@@ -91,6 +91,7 @@ format:
        [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
        {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
 
+
 #' Filters
 filters:
  - code-visibility
