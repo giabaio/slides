@@ -138,6 +138,11 @@ section.has-dark-background h2 {
   letter-spacing: -0.025em;
 }
 
+.reveal a:hover {
+  color: #516372;
+}
+
+/*
 .reveal .slide a {
   color: #6e5400;
   font-family: $font-family-monospace;
@@ -147,6 +152,7 @@ section.has-dark-background h2 {
 .reveal .slide a:hover {
   color: #516372;
 }
+*/
 
 .reveal .footer a {
   color: #C6AA51;
