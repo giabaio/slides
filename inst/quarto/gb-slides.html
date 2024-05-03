@@ -47,7 +47,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -466,7 +466,7 @@
   <link href="gb-slides_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
   <script src="gb-slides_files/libs/leaflet-binding-2.2.2/leaflet.js"></script>
   <script type="ojs-define">
-  {"contents":[{"name":"actors","value":{"x":[-0.2305,-0.3513,0.2306,-1.321,0.3995,-0.3701,-1.8517,0.5061,2.733,0.8151,-0.6509,0.688,-0.12,0.1372,-0.0414,-2.0054,-0.9512,-0.003,-0.0063,-0.8234,-1.95,0.6869,1.352,-0.2399,0.7477,-0.147,-0.8823,0.4287,2.0186,-0.048,-0.6277,-1.64,-0.7984,-0.4107,1.5529,-0.1269,-0.1168,1.5372,-0.7372,1.1804,-1.6494,1.2147,1.1723,0.953,-1.4864,0.5634,-0.1463,0.003,1.6645,-0.406,-0.4547,0.6435,-1.1523,-0.2854,0.7181,0.4545,0.6773,0.9962,-0.21,-0.3621,-0.4541,-1.5705,0.3028,-0.2277,-2.1302,-0.639,-0.5375,-0.3055,0.9175,-0.1722,-0.8566,-0.8694,1.245,-0.1493,-0.5736,1.1682,-1.5538,-1.3285,0.5944,0.5273,-3.4213,0.0032,-1.4164,0.4292,-1.4003,0.1116,0.5763,0.4555,-1.6989,0.0569,-2.3415,2.0425,-1.5467,-1.3048,-0.8895,-0.1541,0.1208,0.2798,0.7857,0.9335],"y":[-1.1844,1.2884,-0.7385,1.8186,0.493,0.0675,-0.7919,0.161,0.2303,-1.2574,0.3676,0.0117,0.842,-0.4234,-0.9758,1.0994,0.5822,0.5447,0.582,0.6404,0.9557,-1.8979,-0.2302,-0.802,0.9981,-1.8707,-0.966,1.1518,0.8108,-1.1506,-0.5981,2.101,-0.2374,0.5257,-0.8506,0.2098,1.392,-0.7892,1.2191,0.2724,0.0484,1.5595,0.7113,-1.574,1.0967,0.894,-0.3647,0.7482,0.6624,2.1519,0.189,0.7581,-0.8165,0.728,2.3948,-2.3587,-0.6019,-0.4016,-1.6807,0.1703,0.9643,-0.3013,-1.8281,-1.0884,-1.9524,2.9705,-0.4941,-0.1135,-1.7009,0.1891,-1.4449,0.9688,0.6696,-1.2976,0.3284,1.5164,-0.9396,-0.2022,0.7834,0.5915,0.3403,-0.7025,1.3094,0.4877,-0.0447,0.0476,0.093,0.5123,-0.9115,0.1717,-0.0458,-1.2839,0.2475,0.9623,-2.166,2.3591,-0.2816,-0.7864,0.7313,0.0217]}}]}
+  {"contents":[{"name":"actors","value":{"x":[0.2107,0.9884,0.5497,-0.0504,0.113,1.0155,-0.0021,-0.4815,-0.0919,0.472,-1.6057,-0.6098,0.2156,0.6745,0.811,-0.4441,-0.8999,-0.5749,0.3341,-2.1399,-1.8606,-1.3701,-1.3086,-1.0045,1.639,1.48,-0.9525,0.6107,1.6548,-1.0908,-1.5654,0.5144,0.564,-0.9314,0.6098,-0.2939,0.997,0.479,0.8158,1.6661,0.1795,1.0425,1.2693,0.4378,0.6617,0.0046,1.3219,1.513,0.0417,0.3317,-0.897,0.9897,0.4115,1.3767,-1.2455,-0.4602,0.0415,1.1728,-1.4571,-0.6277,2.5097,0.7088,-1.1291,-0.2359,-0.9106,1.4385,-0.832,0.1577,0.6282,-0.0182,0.2554,-1.1164,0.0427,0.6695,1.825,-0.4454,-0.0161,-0.3134,-0.6339,-0.4001,1.1071,0.2042,-0.7568,0.3834,-0.441,-0.3534,1.2009,-1.2733,0.1382,-0.5259,1.0015,-0.1776,0.3349,2.0385,0.543,1.4153,-1.0024,-0.8788,0.4524,0.3184],"y":[-0.2372,0.0532,-1.4318,-1.5463,-2.1527,-1.1037,0.5459,0.9966,-0.6718,-1.1783,1.1574,0.0284,0.8129,0.2778,-1.3127,-1.091,-0.6112,-1.2719,-0.073,1.0901,-0.2155,1.1876,-0.7879,-0.8095,-1.3589,-0.0516,-1.9808,0.429,-1.1004,-2.2744,-0.2625,-0.6763,1.0254,-0.1338,-0.9933,2.1551,-1.1484,2.25,-1.4671,1.2568,-1.1289,-0.5007,-0.9284,0.9352,0.8468,-1.7957,-1.1257,-0.2824,1.1474,-0.3465,1.6805,0.3655,1.775,-0.7104,-0.5408,-1.3894,-0.5574,0.6631,-1.5728,0.2001,-0.8559,-0.2651,-0.2946,-0.5746,0.9061,-1.2396,-1.0254,-1.2395,-1.5032,-0.2868,-0.4791,0.0254,-0.3736,0.1544,-1.5452,1.5684,-0.1473,-1.7132,-2.8487,1.0618,0.3293,-0.2273,0.2632,-0.3795,-1.2041,0.429,0.3087,0.2852,-0.3883,-1.032,0.5902,1.3414,-0.2069,-0.152,0.7788,1.4247,-1.3432,-0.1441,0.4003,1.1786]}}]}
   </script>
 </head>
 <body class="quarto-light">
@@ -498,7 +498,7 @@
 <p style="margin:0px; opacity:0.8; font-family: Inter Tight; font-size: 0.95em;">The name of the session</p>
        <p style="margin:0px; opacity:0.8; font-family: Inter Tight; font-size: 0.95em;">The name of the conference, Where it is</p>
   
-<p style="margin-top:10px; font-family: Inter Tight; font-size: 0.9em;">27 March 2024</p>
+<p style="margin-top:10px; font-family: Inter Tight; font-size: 0.9em;">3 May 2024</p>
 
 
 <p><span class="postit1">Check out our departmental podcast “Random Talks” on Soundcloud! <a href="https://soundcloud.com/uclsound/sets/sample-space" style="color: #ff7700;" title="Listen to our podcast"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a></span></p>
@@ -2030,8 +2030,8 @@ a_{21}&amp; =b_{21}&amp;
 <p>Include Jupyter widgets and htmlwidgets in your presentations</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-aa7ad90756bbdfaebe5f" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-aa7ad90756bbdfaebe5f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[-36.852,174.768,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The birthplace of R",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-36.852,-36.852],"lng":[174.768,174.768]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-5b23a9146fcfda18835b" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-5b23a9146fcfda18835b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[-36.852,174.768,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The birthplace of R",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-36.852,-36.852],"lng":[174.768,174.768]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="footer">
@@ -2091,6 +2091,9 @@ a_{21}&amp; =b_{21}&amp;
 <div style="margin-bottom: 0.9em;">
 <p>Quickly jump to other parts of your presentation</p>
 </div>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout="[1, 20]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
@@ -2111,6 +2114,9 @@ a_{21}&amp; =b_{21}&amp;
 <div style="margin-bottom: 0.9em;">
 <p>Free form drawing and slide annotations</p>
 </div>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout="[1, 20]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 4.8%;justify-content: center;">
@@ -2120,6 +2126,9 @@ a_{21}&amp; =b_{21}&amp;
 <p>Use the chalkboard button at the bottom left of the slide to toggle the chalkboard.</p>
 </div>
 </div>
+</div>
+<div>
+
 </div>
 <div class="quarto-layout-panel" data-layout="[1, 20]">
 <div class="quarto-layout-row">
@@ -2218,7 +2227,7 @@ a_{21}&amp; =b_{21}&amp;
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://twitter.com/giabaio" title="Follow me on X"><i class="fa-brands fa-x-twitter" aria-label="x-twitter"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 27 Mar 2024 </p>
+<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://twitter.com/giabaio" title="Follow me on X"><i class="fa-brands fa-x-twitter" aria-label="x-twitter"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 3 May 2024 </p>
 </div>
 </div>
 </section>
@@ -2515,18 +2524,7 @@ a_{21}&amp; =b_{21}&amp;
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -2558,7 +2556,29 @@ a_{21}&amp; =b_{21}&amp;
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2659,7 +2679,7 @@ a_{21}&amp; =b_{21}&amp;
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;

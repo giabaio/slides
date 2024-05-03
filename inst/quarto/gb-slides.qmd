@@ -79,9 +79,9 @@ format:
       buttons: false
     preview-links: auto
     theme: assets/gb.scss
-# default width/height: 1050/700
-    width: 1200 
-    height: 800
+# default width/height: 1050/700; can also try 1200/800 but it's a bit narrow...
+    width: 1500 
+    height: 900
 #    margin: 0.05
     footer: |
        &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp;
@@ -115,6 +115,10 @@ library(slides)
 #' This makes the fonts play nicely within the figures 
 #' (but uses a weird font, not Arial, so can be turned off)
 # knitr::opts_chunk$set(dev = "ragg_png")
+# This sets up the overall options for computation output
+knitr::opts_chunk$set(
+  fig.width = 12, fig.height = 9, out.width = "55%", fig.align = "center"
+)
 
 ```
 

@@ -98,6 +98,10 @@ section.has-dark-background h2 {
   height: 100%;
  }
 
+ .reveal h3, h4 {
+  color: #24568c;
+ }
+
 .reveal .footer {
   color: #CCD1D5;
   background-color: $presentation-heading-color;
@@ -327,6 +331,21 @@ section.has-dark-background a, section.has-dark-background a:hover {
  ******************************************************************************************************************************/
 .myred {
   color: #e62b4f;
+}
+.red {
+  color: #ff0000;
+}
+.blue{
+  color: #0000FF;
+}
+.magenta{
+  color: #FF00FF;
+}
+.myblue {
+  color: #24568c;
+}
+.orange {
+  color: #ff8811;
 }
 .myblue {
   color: #24568c;
