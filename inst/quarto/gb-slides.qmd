@@ -112,14 +112,8 @@ title-slide-attributes:
 library(tidyverse, quietly=TRUE)
 library(slides)
 
-#' This makes the fonts play nicely within the figures 
-#' (but uses a weird font, not Arial, so can be turned off)
-# knitr::opts_chunk$set(dev = "ragg_png")
-# This sets up the overall options for computation output
-knitr::opts_chunk$set(
-  fig.width = 12, fig.height = 9, out.width = "55%", fig.align = "center"
-)
-
+# Runs setup commands from the 'assets/setup.R' file
+source("assets/setup.R")
 ```
 
 ## Disclaimer... {transition="convex-in none-out" transition-speed="fast"}

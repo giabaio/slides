@@ -9,5 +9,6 @@ targetdir=$1
 # Then copy the relevant files/folders (*only*!) to it
 cp -R {*.html,*_files,images} $targetdir
 # Finally rename the .html file to be called 'index.html'
-mv $targetdir/*.html $targetdir/index.html
-
+# NB: uses the tag '-u' to update (so move '*.html' only 
+# if 'index.html' doesn't already exist)
+mv -u $targetdir/*.html $targetdir/index.html
