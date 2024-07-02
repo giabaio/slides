@@ -185,7 +185,7 @@ but in line it would look like this $\color{MidnightBlue}{y\sim \dnorm(\mu,\sigm
 These use the predefined $\rm\LaTeX$ macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output
 
 `r vspace("2rem")`
-For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font)
+For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font). But can also use `$\txt{Some text}$`, which gets rendered as $\txt{Some text}$ --- it's like `\text{...}` but with the current font
 
 
 

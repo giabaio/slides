@@ -5,6 +5,8 @@ MathJax.Hub.Config({
     /* This enables color macros */
     extensions: ["color.js"],
     Macros: {
+      /* A new command \txt equivalent to \text, but which typeset in local font */
+      txt: ["{\\style{font-family:inherit;}{\\text{#1}}}",1],
       /* Probability & mathematical symbols */
       Pr: "{\\style{font-family:inherit; font-size: 110%;}{\\text{Pr}}}",
       exp: "{\\style{font-family:inherit; font-size: 105%;}{\\text{exp}}}",
