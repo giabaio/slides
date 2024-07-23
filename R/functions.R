@@ -273,11 +273,16 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' over in the right path
 #' @param style Defaults to `gb`, but could create more, in the vain of the
 #' `samplespace` package
+#' @param assets A logical value to instruct R to also copy over the
+#' 'assets' folder - if set to FALSE, it will not, which may be helpful
+#' when creating a single folder with several lecture slides and thus only the
+#' existing version of 'assets' may need to be kept in
 #' @author Cara Thompson, Gianluca Baio
 #' @examples
 #' quarto_slides(file="test",directory="~/Desktop/slides-test")
 #'
-quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
+quarto_slides=function(file_name,directory=here::here("slides"),style="gb",
+                       assets=TRUE) {
   # Remove the .qmd ending if it was provided
   file_name <- gsub(".qmd", "", file_name, fixed = TRUE)
   if (!dir.exists(directory)) {
@@ -436,10 +441,12 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb") {
       from = system.file("quarto/./_extensions",package = "slides"),
       to = path_to_files, recursive = TRUE
     )
-    file.copy(
-      from = system.file("quarto/./assets",package = "slides"),
-      to = path_to_files, recursive = TRUE
-    )
+    if(assets) {
+      file.copy(
+        from = system.file("quarto/./assets",package = "slides"),
+        to = path_to_files, recursive = TRUE
+      )
+    }
   }
 }
 
