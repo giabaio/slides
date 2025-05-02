@@ -14,14 +14,27 @@ options(tikzMetricPackages = c(
 
 # Trick to automatically convert pdf graphs generated with dev='tikz' into png so they work in html format
 # see: https://github.com/rstudio/bookdown/issues/275
-# NB: Need to specify 'density=600' in 'image_read' to get same quality as tikz
+# NB: This version also fixes the issue with tikz leaving pdf files around and not saving the png into
+#     the xxx_files/figure-revealjs/ folder
 knitr::opts_hooks$set(dev = function(options) {
   if (identical(options$dev, 'tikz') && !knitr:::is_latex_output()) {
     options$fig.process = function(x) {
-      if (!grepl('[.]pdf$', x)) return(x)
-      x2 = sub('pdf$', 'png', x)
-      magick::image_write(magick::image_read(x,density=600), x2, format = 'png', quality=90, density=600)
-      x2
+      if (!grepl('[.]pdf$', x)) return(x)  
+      fig_dir <- knitr::opts_chunk$get("fig.path")
+      if (is.null(fig_dir)) fig_dir <- "figure/"
+      fig_dir <- sub("/+$", "", fig_dir)    
+      # Use here::here() to get the absolute path for the figure directory
+      output_dir <- here::here()  # Project root
+      full_fig_dir <- file.path(output_dir, fig_dir)
+      dir.create(full_fig_dir, recursive = TRUE, showWarnings = FALSE)
+      # Output file name
+      x2name <- sub('pdf$', 'png', basename(x))
+      x2 <- file.path(full_fig_dir, x2name) 
+      # Convert and save
+      magick::image_write(magick::image_read(x, density = 300), x2, format = 'png', quality = 100)
+      # Clean up the original PDF
+      file.remove(x)# Return RELATIVE path so HTML can reference it
+      file.path(fig_dir, x2name)
     }
   }
   options
