@@ -1,0 +1,381 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Fonts (added by GB) */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+/* Font to do nice numbered items */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+
+$font-family-sans-serif: "Inter Tight", "Ubuntu", "Arial", Arial,
+  FreeSerif, serif !default;
+$font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
+
+$presentation-heading-font: Ubuntu, "Inter Tight", Arial,
+  FreeSerif, serif !default;
+
+$background: #ffffff; // white
+$body-color: #1B1B1B; // dark grey for text
+$link-color: #0033A0; // Sampdoria royal blue
+$code-color: #D5182A; // Sampdoria red
+$heading-color: #0033A0; // blue headers
+$accent: #D5182A; // red
+$highlight: #000000; // black
+$secondary: #cccccc;
+$presentation-font-size-root: 20pt;
+
+/*-- scss:rules --*/
+
+/* This is necessary to remove the box if the h1 happens in a slide with background */
+section.has-dark-background h1 {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px  rgba(0,0,0,0.6);
+}
+
+/* And this over-rides the white colour for h2 titles in a slide with background */
+section.has-dark-background h2 {
+  color: #647d97;
+}
+
+.reveal {
+  background-color: $background;
+  color: $body-color;
+  //font-family: "Helvetica Neue", sans-serif;
+}
+
+.reveal h1 {
+  font-size: 2em;
+  color: $background;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  background-color: $heading-color;
+  padding: 35px 30px 35px 50px; /* extra left padding for stripe */
+  margin-left: 3%;
+  margin-right: 3%;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Red and black vertical stripe on the left */
+.reveal h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #C21718 0,
+    #C21718 7px,
+    black 7px,
+    black 14px
+  );
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  z-index: 1;
+}
+
+.reveal h2 {
+  color: $heading-color;
+  padding-left: 1.2em;
+  margin-bottom: 0.5em;
+  position: relative;
+}
+
+.reveal h3 {
+  color: $heading-color;
+  padding-left: 0px;
+}
+
+.reveal h1::before,
+.reveal h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #D5182A 0%,      /* Sampdoria red */
+    #D5182A 50%,
+    #000000 50%,     /* black */
+    #000000 100%
+  );
+}
+
+.reveal .slide-number {
+  color: #0033A0;  // Sampdoria blue
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.7em;
+  font-weight: bold;
+  font-family: "Inter Tight";
+  background-color: #fff;
+}
+
+.reveal .slide-number a {
+  text-decoration: none!important;
+}
+
+.reveal strong {
+  color: $accent;
+}
+
+.reveal em {
+  color: $highlight;
+  font-style: italic;
+}
+
+.reveal a {
+  color: $link-color;
+  text-decoration: underline;
+}
+.reveal a:hover {
+  color: $accent;
+}
+
+/* Code block styling */
+.reveal pre {
+  background: #f7f7f7;
+  color: $code-color;
+  border-left: 4px solid $accent;
+  padding: 0.75em;
+  border-radius: 4px;
+}
+
+/* Elegant divider band */
+.reveal .slide-background::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right,
+    white 0 20%,
+    #D5182A 20% 40%,   /* red */
+    black 40% 60%,     /* black */
+    white 60% 100%
+  );
+  opacity: 0.8;
+  z-index: 0;
+  font-family: "Inter Tight";
+}
+
+.reveal .footer {
+  background-color: white;
+  font-family: $presentation-heading-font;
+  display: block;
+  position: fixed;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  width: 100%;
+  text-align: center;
+  font-family: "Inter Tight";
+  z-index: 5;
+}
+
+/*******************************************************************************************************************************
+ * Colours
+ * NB: In LaTeX, colors may be defined in rgb (0-1). Can scale up to RGB (0-255) by simply multiplying the three numbers by 255
+ *     then can use 'https://www.google.com/search?channel=fs&client=ubuntu&q=rgb+to+hex' to convert to HEX and can use here.
+ *     These can be used as 'class', so for instance code such as
+ *     `[$y \sim \dnorm(0,100)$]{.spanish-red}`
+ *     will make the LaTeX equation coloured in the red of the Spanish flag
+ ******************************************************************************************************************************/
+.myred {
+  color: #e62b4f;
+}
+.red {
+  color: #ff0000;
+}
+.blue{
+  color: #0000FF;
+}
+.magenta{
+  color: #FF00FF;
+}
+.myblue {
+  color: #24568c;
+}
+.orange {
+  color: #ff8811;
+}
+.myblue {
+  color: #24568c;
+}
+.olive {
+  color: #334f17;
+}
+.ubuntublue {
+  color: #035AA6;
+}
+.spanish-red {
+  color: #c60b1e;
+}
+.spanish-yellow {
+  color: #ffc400;
+}
+.italian-green {
+  color: #009246;
+}
+.italian-red {
+  color: #ce2b37;
+}
+.blue90red60 {
+  color: #7e5dc9;
+}
+.blue60red90 {
+  color: #9350c7;
+}
+.lightgray {
+  color: #ededed; /*#d3d3d3*/
+}
+.uclblue {
+  /* https://www.ucl.ac.uk/cam/sites/cam/files/migrated-files/ucl-visual-identity-poster.pdf */
+  color: #002855;
+}
+.navbargrey{
+  color: #D5D5D5;
+}
+.beamer-yellow {
+  color: #fcd000;
+}
+.amber {
+  color: #FFBF00;
+}
+.green {
+  color: #33a532;
+}
+
+
+/* This makes long tables included in tabsets scrollable vertically */
+.panel-tabset {
+  height: 90%;
+  overflow-y: auto;
+}
+
+/* Creates a marker effect */
+.magic-marker {
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 225, 0, 0.1),
+    rgba(255, 225, 0, 0.7) 4%,
+    rgba(255, 225, 0, 0.3)
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Some new colours for highlighting text in fragments
+ * Of course, can make new ones with differet values for the colour.
+ * NB: This is originally defined in gb-slides_files/libs/revealjs/dist/reveal.css
+*/
+.reveal .slides section .fragment.highlight-blue {
+  opacity: 1;
+  visibility: inherit;
+}
+.reveal .slides section .fragment.highlight-blue.visible {
+  color: blue;
+}
+
+.reveal .slides {
+  overflow: visible !important;
+}
+
+.mydropbtn {
+  color: $heading-color;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-size: 1em;
+}
+
+.mydropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10001;
+}
+
+.mydropdown-content {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: #ffffff;
+  color: $heading-color;
+  min-width: 140px;
+  border: 1px solid #abb3d6;
+  border-radius: .3rem;
+  box-shadow: 8px 5px 5px rgba(0, 0, 0, 0.4);
+  font-size: 0.75em;
+  padding: 5px 5px 5px 14px; /* left padding for the stripe */
+  z-index: 10002;
+  pointer-events: auto;
+
+  /* vertical stripe: red + black */
+  background-image: linear-gradient(
+    to right,
+    #C21718 0px,
+    #C21718 4px,
+    black 4px,
+    black 8px,
+    white 8px
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: left center;
+}
+
+.mydropdown-content a {
+  color: #002c53;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.mydropdown-content a:hover {
+  background-color: #D5D5D5;
+}
+
+.mydropdown:hover .mydropdown-content {
+  display: block;
+}
+
+
+/* Makes the chunks font a bit larger
+code {
+  font-size: 1.3em;
+}
+*/
+
+// Chunk font
+.reveal pre {
+  font-size: 1.05rem;
+}
+
+// In line code
+.reveal code {
+  font-size: 0.95em;
+}
