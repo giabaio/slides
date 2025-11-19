@@ -6,13 +6,13 @@
 /* Fonts (added by GB) */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 /* Font to do nice numbered items */
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
@@ -28,9 +28,9 @@ $presentation-heading-font: Ubuntu, "Inter Tight", Arial,
 $background: #ffffff; // white
 $body-color: #1B1B1B; // dark grey for text
 $link-color: #0033A0; // Sampdoria royal blue
-$code-color: #D5182A; // Sampdoria red
+// $code-color: #D5182A; // Sampdoria red
 $heading-color: #0033A0; // blue headers
-$accent: #D5182A; // red
+$accent: #D5182A; // Sampdoria red
 $highlight: #000000; // black
 $secondary: #cccccc;
 $presentation-font-size-root: 20pt;
@@ -51,7 +51,6 @@ section.has-dark-background h2 {
 .reveal {
   background-color: $background;
   color: $body-color;
-  //font-family: "Helvetica Neue", sans-serif;
 }
 
 .reveal h1 {
@@ -210,9 +209,6 @@ section.has-dark-background h2 {
 .magenta{
   color: #FF00FF;
 }
-.myblue {
-  color: #24568c;
-}
 .orange {
   color: #ff8811;
 }
@@ -363,19 +359,40 @@ section.has-dark-background h2 {
   display: block;
 }
 
-
-/* Makes the chunks font a bit larger
-code {
-  font-size: 1.3em;
+/* --- Code Chunk and Output Styling from Main Theme --- */
+.reveal div.sourceCode {
+  margin: 0;
+  overflow: auto;
+  border-color: $link-color;
 }
-*/
 
-// Chunk font
 .reveal pre {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  max-height: 800px;
 }
 
-// In line code
 .reveal code {
   font-size: 0.95em;
+}
+
+/* For slides using .full-output to disable chunk scroll behavior */
+.full-output .cell-input pre,
+.full-output pre.sourceCode,
+.full-output pre code {
+  max-height: none;
+  overflow-y: visible;
+  white-space: pre-wrap;
+}
+
+/* Remove default gray backgrounds from code chunks and outputs */
+
+.reveal pre,
+.reveal div.sourceCode,
+.reveal .cell-output,
+.reveal .cell-output-display,
+.reveal .cell-output-stdout,
+.reveal .cell-output-stderr {
+  background-color: transparent !important;
+  box-shadow: none;
+  border-left: none !important;
 }

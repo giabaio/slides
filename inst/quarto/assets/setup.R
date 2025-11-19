@@ -1,6 +1,16 @@
 #########################################
 # Set up and common commands & packages #
 #########################################
+# Default ggplot theme
+theme_set(theme_bw())
+
+# Sets global options for running R2jags (available with the latest version --- my PR)
+# No progress bar
+options(r2j.pb="none")
+# Run quietly
+options(r2j.quiet=TRUE)
+# Don't add the name of the program running MCMC as it spans the print table too widly
+options(r2j.print.program=FALSE)
 
 # Sets default fonts for tikz
 library(tikzDevice)

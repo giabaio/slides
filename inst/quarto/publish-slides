@@ -7,10 +7,11 @@
 default="/home/gianluca/Dropbox/Rstuff/Website/public/slides/"$(basename "$PWD")
 targetdir=${1-$default}
 [ -d "$targetdir" ] || mkdir -p $targetdir
+# Figures out the name of the html file
+basename=$(ls -d *_files | sed 's/_files//')
 # Then copy the relevant files/folders (*only*!) to it
-cp -R {*.html,*_files,images} $targetdir
+cp -R "${basename}.html" "${basename}_files" images "$targetdir"
 # Finally rename the .html file to be called 'index.html'
-# NB: uses the tag '-u' to update (so move '*.html' only
-# if 'index.html' doesn't already exist). The tag -n does
-# not move a file if it already exists).
-mv -un $targetdir/*.html $targetdir/index.html
+# NB: uses the tag '-u' to update (so move '*.html' only 
+# if 'index.html' doesn't already exist)
+mv -f "$targetdir/${basename}.html" "$targetdir/index.html"
