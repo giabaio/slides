@@ -14,4 +14,4 @@ cp -R "${basename}.html" "${basename}_files" images "$targetdir"
 # Finally rename the .html file to be called 'index.html'
 # NB: uses the tag '-u' to update (so move '*.html' only 
 # if 'index.html' doesn't already exist)
-mv -f "$targetdir/${basename}.html" "$targetdir/index.html"
+mv -un "$targetdir/${basename}.html" "$targetdir/index.html"
