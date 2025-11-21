@@ -43,8 +43,10 @@ github:
 social: 
   - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
     icon: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`'
-  - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
-    icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
+  # - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
+  #   icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
+  - text: '[gianluca-baio](https://www.linkedin.com/in/gianluca-baio/)'
+    icon: '`r fontawesome::fa("linkedin",fill="#0077B5",height="0.8em")`'
 orchid: 
    show: false
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
@@ -84,13 +86,13 @@ format:
     height: 900
 #    margin: 0.05
     footer: |
-       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp;
+       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
        [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
        [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
        [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
        [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
        {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
-
+       <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
 
 #' Filters
 filters:
