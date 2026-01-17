@@ -32,21 +32,22 @@ email:
    icon: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")`'
 url: 
   - text: "[https://gianluca.statistica.it](https://gianluca.statistica.it)"
-    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+    icon: '`r fontawesome::fa("firefox",fill="#B933E1",height="0.8em")`'
   - text: "[https://egon.stats.ucl.ac.uk/research/statistics-health-economics](https://egon.stats.ucl.ac.uk/research/statistics-health-economics)"
     icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
 github: 
   - text: "[https://github.com/giabaio](https://github.com/giabaio)"
-    icon: '`r fontawesome::fa("github",fill="#993bff",height="0.8em")`'
+    icon: '`r fontawesome::fa("github",fill="green",height="0.8em")`'
   - text: "[https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)"
-    icon: '`r fontawesome::fa("github",fill="#993bff",height="0.8em")`'
+    icon: '`r fontawesome::fa("github",fill="white",height="0.8em")`'
 social: 
   - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
-    icon: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`'
+    icon: '`r fontawesome::fa("mastodon",fill="#6364FF",height="0.8em")`'
   # - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
   #   icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
   - text: '[gianluca-baio](https://www.linkedin.com/in/gianluca-baio/)'
-    icon: '`r fontawesome::fa("linkedin",fill="#0077B5",height="0.8em")`'
+    icon: '`r fontawesome::fa("linkedin",fill="#0A66C2",height="0.8em")`'
+  # #0077B5
 orchid: 
    show: false
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
