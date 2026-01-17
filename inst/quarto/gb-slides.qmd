@@ -80,11 +80,14 @@ format:
     chalkboard: 
       buttons: false
     preview-links: auto
-    theme: assets/gb.scss
+    theme: assets/gb-ucl-new.scss
+# NB: if using the UCLSans font for the new style, needs to uncomment this
+    css: assets/fonts.css
 # default width/height: 1050/700; can also try 1200/800 but it's a bit narrow...
     width: 1500 
     height: 900
 #    margin: 0.05
+#    logo: images/ucl-new-logo.png
     footer: |
        &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
        [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
@@ -105,6 +108,9 @@ title-slide-attributes:
     data-background-size: stretch
     data-background-opacity: "0.08"
 #    data-background-color: "#002248"
+# For the new UCL style uncomment this:
+#    data-background-color: "#361a54"
+
 ---
 
 ```{r}
@@ -282,7 +288,7 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
 :::
 
-# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5}
+# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#361a54" background-opacity=0.5}
 
 Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!
 
