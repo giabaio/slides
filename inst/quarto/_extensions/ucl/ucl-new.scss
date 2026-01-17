@@ -53,6 +53,32 @@ $selection-bg: #95A6B8;
   text-align: left;
 }
 
+.reveal .author {
+  text-align: left;
+  margin-left: 11vw!important;
+  margin-right: 3%;
+  color: #fafafa;
+  font-family: UCLSans; 
+  font-size: 1.2em; 
+}
+
+.reveal .date-conference {
+  font-family: UCLSans; 
+  font-size: 0.9em; 
+  color: #fafafa; 
+  margin-left: 11vw!important; 
+  text-align: left;
+  opacity:0.8; 
+}
+
+.reveal .mail-websites {
+  font-family: 'Ubuntu Mono'; 
+  font-size: .9em; 
+  opacity:0.8;
+  margin-left: 11vw!important; 
+  text-align: left;
+}
+
 /* And this over-rides the white colour for h2 titles in a slide with background */
 section.has-dark-background h2 {
   color: #647d97;
@@ -92,17 +118,16 @@ section.has-dark-background h2 {
 }
 
 /* Inserts logo in the normal slides (but not the title-slide) */
-.reveal .slides section:not(#title-slide):not(#section-title-slide) {
+.reveal .slides section:not(#title-slide):not(#section-title-slide):not([data-background]) {
   background-image: url("images/ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 100px auto; /* adjust size */
 }
 
-.reveal .slide-number{
-  color:#b4c0cc;
-  background-color:#fff;
-  font-family: "Inter Tight"
+.reveal .slide-number {
+  color:#fafafa;
+  font-family: "Inter Tight";
 }
 
 .reveal .controls {
@@ -121,7 +146,7 @@ section.has-dark-background h2 {
 }
 
 .reveal a {
-  color: #6e5400;
+  color: #C6AA51; // #6e5400;
   letter-spacing: -0.025em;
 }
 
@@ -152,7 +177,6 @@ section.has-dark-background h2 {
 section.has-dark-background a, section.has-dark-background a:hover {
   color: #C6AA51;
 }
-
 
 /*
  * This modifies the appearance of the bullet list wrt Cara's original formulation
