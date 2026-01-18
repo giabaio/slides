@@ -1,4 +1,4 @@
-title: gb
+title: sampdoria
 author: Gianluca Baio
 version: 1.0.0
 contributes:
@@ -8,7 +8,7 @@ contributes:
           - title-slide.html
       include-in-header:
           - ./assets/latex_macros.html
-      theme: gb.scss
+      theme: sampdoria.scss
       width: 1500
       height: 900
       title-slide-attributes:

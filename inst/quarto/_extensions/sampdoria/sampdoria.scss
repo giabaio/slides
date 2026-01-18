@@ -396,3 +396,60 @@ section.has-dark-background h2 {
   box-shadow: none;
   border-left: none !important;
 }
+
+/* Added by GB for further customisation */
+.postit1 {
+  position: absolute;
+  top: 75%;
+  left: 1.5%;
+  font-family: Nanum Pen Script;
+  font-size: 75%;
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  margin-left: -40px;
+  height: 6.3em;
+  width: 6.3em;
+  padding: .5em; box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transform: rotate(-8deg);
+  border-bottom-right-radius: 60px 5px;
+}
+
+.postit2 {
+  position: absolute;
+  top:40%;
+  left: 2.5%;
+  font-family: Nanum Pen Script;
+  font-size:75%;
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  display: block;
+  margin-left: -40px;
+  height:6.3em;
+  width:6.3em;
+  padding: .5em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  transform: rotate(6deg);
+  border-bottom-right-radius: 60px 5px;
+}
+
+/* Logo stats */
+.logo-stats {
+  text-decoration:none;
+  display:block;
+  height: 3.5em;
+  width: 3.5em;
+  padding: .5em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
+  background-image: url("images/UCL_Stats_logo.jpeg");
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-size: contain;
+  border-radius: 6px 6px 6px 6px;
+}
+

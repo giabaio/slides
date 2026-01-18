@@ -18,14 +18,6 @@ contributes:
       css: fonts.css
       width: 1500
       height: 900
-      footer: |
-          &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
-          [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
-          [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
-          [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
-          [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
-          {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
-          <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
       title-slide-attributes:
       data-background-size: stretch
       data-background-opacity: "0.08"
