@@ -193,6 +193,27 @@ section.divider-bg li {
   text-align: left;
   color: #fafafa;
 }
+/* For divider-bg - account for missing footer
+   It ***almost*** works, but the image is fiddly and doesn't appear always in the right position...
+.reveal .backgrounds .slide-background.divider-bg {
+  background-image:
+    url("images/ucl-new-title.png"),
+    linear-gradient(
+      to right,
+      #993bff 0%,
+      #993bff 4.5%,
+      #361a54 4.5%,
+      #361a54 14.5%,
+      #993bff 14.5%,
+      #993bff 25.5%,
+      #361a54 25.5%,
+      #361a54 100%
+    ) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: calc(100% - 72px) calc(100% - 120px), left top !important;
+  background-size: 100px auto, 100% 100% !important;
+}
+*/
 
 .reveal .slide-number {
   color:#fafafa;
