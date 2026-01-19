@@ -11,7 +11,7 @@ contributes:
           - ./assets/latex_macros.html
       transition: none
       slide-number: true
-      chalkboard: 
+      chalkboard:
          buttons: false
       preview-links: auto
       theme: ucl-new.scss

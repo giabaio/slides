@@ -18,7 +18,7 @@ slidesurl:
    size: "0.75em"
 thank-you: 
    show: true
-   file: phoebe
+   file: reese
 bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 
 
@@ -72,7 +72,7 @@ slides-url: |
 from: markdown+emoji
 #' Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
 format: 
-  ucl-revealjs:
+  gb-revealjs:
 #' Here defines the elements of the footer
     footer: |
       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
@@ -108,6 +108,7 @@ source("assets/setup.R")
 
 ... Just so you know what [you're about to get yourself into...](https://twitter.com/ManuelaJoore/status/1191397718930939904) :wink:
 
+# Question 1 {.divider}
 
 ## Hello there :wave: {transition="convex-in none-out" transition-speed="fast"}
 
@@ -162,7 +163,7 @@ We can also include maths, using standard $\rm\LaTeX$:
 
 $$\class{italian-green}{p(y\mid\mathcal{D}) = \int p(y\mid\bm\theta)p(\boldsymbol\theta\mid\mathcal{D})d\boldsymbol\theta} $$
 
-To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$`
+To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$` $\DIC=20$
 
 You can define a probabilistic assumption as
 [$$y \mid \bm\theta \sim \dpois(\bm\theta)$$]{.spanish-red}

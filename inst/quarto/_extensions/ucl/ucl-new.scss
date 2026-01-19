@@ -62,6 +62,12 @@ Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;
   font: UCLSans-SemiBold;
 }
 
+/* This is necessary to remove the box if the h1 happens in a slide with background */
+section.has-dark-background h1 {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px  rgba(0,0,0,0.6);
+}
+
 .reveal .author {
   text-align: left;
   margin-left: 11vw!important;
@@ -129,11 +135,16 @@ section.has-dark-background h2 {
 }
 
 /* Inserts logo in the normal slides (but not the title-slide) */
-.reveal .slides section:not(#title-slide):not(#section-title-slide):not([data-background]) {
+.reveal .slides section:not(#title-slide):not(#section-title-slide):not([data-background]):not([data-background-gradient]):not(.divider) {
   background-image: url("images/ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
-  background-size: 100px auto; /* adjust size */
+  background-size: 100px auto; // adjust size
+}
+
+/* This makes the text coloured on the white background for the section/dividers. Not quite like the pptx template, though... */
+.divider h1 {
+  color: #361a54;
 }
 
 .reveal .slide-number {
