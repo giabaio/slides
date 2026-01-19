@@ -361,37 +361,25 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb",
           ), recursive = TRUE
         )
       }
-      file.copy(
-        from = system.file(
-          "quarto/gb-slides_files/libs/revealjs/dist/theme/images/UCL_Stats_logo.jpeg",
-          package = "slides"
-        ),
-        to = gsub(
-          string_to_swap,path_to_files,
-          gsub(
-            "gb-slides", file_name,
-            system.file(
-              "quarto/gb-slides_files/libs/revealjs/dist/theme/images/UCL_Stats_logo.jpeg",
-              package = "slides"
-            )
-          )
+
+      from_dir = system.file(
+        "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
+        package = "slides"
+      )
+      files = list.files(from_dir, recursive = TRUE, full.names = TRUE)
+      to_dir = gsub(
+        string_to_swap,
+        path_to_files,
+        gsub(
+          "gb-slides",
+          file_name,
+          from_dir
         )
       )
       file.copy(
-        from = system.file(
-          "quarto/gb-slides_files/libs/revealjs/dist/theme/images/UCL-stats.png",
-          package = "slides"
-        ),
-        to = gsub(
-          string_to_swap,path_to_files,
-          gsub(
-            "gb-slides", file_name,
-            system.file(
-              "quarto/gb-slides_files/libs/revealjs/dist/theme/images/UCL-stats.png",
-              package = "slides"
-            )
-          )
-        )
+        from = files,
+        to = file.path(to_dir, basename(files)),
+        overwrite = TRUE
       )
       file.copy(
         from = footer_file,

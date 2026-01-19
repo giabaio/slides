@@ -1,4 +1,5 @@
 title: gb
+description: UCL old template (pre 2026)
 author: Gianluca Baio
 version: 1.0.0
 contributes:
@@ -8,6 +9,11 @@ contributes:
           - title-slide.html
       include-in-header:
           - ./assets/latex_macros.html
+      transition: none
+      slide-number: true
+      chalkboard:
+         buttons: false
+      preview-links: auto
       theme: gb.scss
       width: 1500
       height: 900

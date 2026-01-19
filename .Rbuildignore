@@ -1,0 +1,3 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+!quarto/slides.Rproj
