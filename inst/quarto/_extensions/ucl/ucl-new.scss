@@ -33,6 +33,8 @@ $highlight-color: #715600;
 $link-color: #95A6B8;
 $selection-bg: #95A6B8;
 $presentation-font-size-root: 20pt;
+$ucl-gradient: linear-gradient(to right, #993bff 10%, #361a54 10%)!important;
+$ucl-divider: linear-gradient(to right,#993bff 0,#993bff 0.45in,#361a54 0.45in,#361a54 1.8in,#993bff 1.8in,#993bff 4.05in,#361a54 4.05in,#361a54 100%)!important;
 
 /*
 Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;)
@@ -145,6 +147,45 @@ section.has-dark-background h2 {
 /* This makes the text coloured on the white background for the section/dividers. Not quite like the pptx template, though... */
 .divider h1 {
   color: #361a54;
+}
+
+section[data-background],
+section[data-background-gradient] {
+  .divider,
+  h1,
+  h2,
+  h3,
+  p {
+    color: #fafafa;
+  }
+}
+
+/* This makes the dividers exactly like the pptx template. Not sure I like it better, though...
+   if using the code above just add
+   ::: {.footer style="background-color: transparent!important; background: transparent!important"}
+   :::
+   to make the footer go away
+*/
+.divider-bg {
+  background: linear-gradient(
+    to right,
+    #993bff 0%,
+    #993bff 4.5%,
+    #361a54 4.5%,
+    #361a54 18%,
+    #993bff 18%,
+    #993bff 40.5%,
+    #361a54 40.5%,
+    #361a54 100%
+  ) !important;
+}
+section.divider-bg {
+  background: transparent!important;
+  color: #fafafa;
+  margin-left: 12vw;
+  margin-right: 3%;
+  font: UCLSans-SemiBold;
+  text-align: left;
 }
 
 .reveal .slide-number {
