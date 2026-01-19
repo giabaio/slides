@@ -137,12 +137,13 @@ section.has-dark-background h2 {
 }
 
 /* Inserts logo in the normal slides (but not the title-slide) */
-.reveal .slides section:not(#title-slide):not(#section-title-slide):not([data-background]):not([data-background-gradient]):not(.divider) {
+.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider):not(.divider-bg) {
   background-image: url("images/ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 100px auto; // adjust size
 }
+//:not([data-background]):not([data-background-gradient])
 
 /* This makes the text coloured on the white background for the section/dividers. Not quite like the pptx template, though... */
 .divider h1 {
@@ -181,12 +182,18 @@ section[data-background-gradient] {
 }
 section.divider-bg {
   background: transparent!important;
-  color: #fafafa;
-  margin-left: 12vw;
-  margin-right: 3%;
-  font: UCLSans-SemiBold;
-  text-align: left;
 }
+section.divider-bg h1,
+section.divider-bg h2,
+section.divider-bg h3,
+section.divider-bg p,
+section.divider-bg li {
+  margin-left: 22vw;
+  margin-right: 3%;
+  text-align: left;
+  color: #fafafa;
+}
+
 
 .reveal .slide-number {
   color:#fafafa;

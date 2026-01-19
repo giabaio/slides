@@ -268,7 +268,15 @@ Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#ex
 
 Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`)
 
-# And another {.divider-bg background-gradient="linear-gradient(to right, #993bff 0%, #993bff 4.5%, #361a54 4.5%, #361a54 18%, #993bff 18%, #993bff 40.5%, #361a54 40.5%, #361a54 100%)"}
+# And another {.divider-bg}
+
+Using the tag `{.divider-bg}` gives a background in line with the UCL 2026 template
+
+It's also helpful to add at the end of the section slide:    
+`::: {.footer style="background-color: transparent!important; background: transparent!important"}`    
+`:::`    
+to ensure that the footer doesn't interfere with the colours...
+
 ::: {.footer style="background-color: transparent!important; background: transparent!important"}
 :::
 
