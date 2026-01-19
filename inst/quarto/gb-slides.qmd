@@ -120,7 +120,7 @@ This presentation will show you examples of what you can do with Quarto and [Rev
 - Printing to PDF 
   - Which is sometimes useful...
 
-...and much more 
+...and much more *you suck!*
 
 --- 
 

@@ -31,8 +31,16 @@ $body-color: #00142B;
 $highlight-color: #715600;
 /* sets color of controls*/
 $link-color: #95A6B8;
-$presentation-font-size-root: 20pt;
 $selection-bg: #95A6B8;
+$presentation-font-size-root: 20pt;
+
+/*
+Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;)
+- 42pt / 20pt = 2.1em
+- 36pt / 20pt = 1.8em
+- 24pt / 20pt = 1.2em
+- 18pt / 20pt = 0.9em
+*/
 
 /*-- scss:rules --*/
 
@@ -45,12 +53,13 @@ $selection-bg: #95A6B8;
 
 /* Modified by GB */
 .reveal h1 {
-  font-size: 2em;
+  font-size: 2.1em; // 42pt as per pptx template
   margin-left: 11vw;
   margin-right: 3%;
-  font-weight: 500;
+  font-weight: 700;
   color: #fafafa;
   text-align: left;
+  font: UCLSans-SemiBold;
 }
 
 .reveal .author {
@@ -58,24 +67,24 @@ $selection-bg: #95A6B8;
   margin-left: 11vw!important;
   margin-right: 3%;
   color: #fafafa;
-  font-family: UCLSans; 
-  font-size: 1.2em; 
+  font-family: UCLSans;
+  font-size: 1.2em; // 24pt as per pptx template
 }
 
 .reveal .date-conference {
-  font-family: UCLSans; 
-  font-size: 0.9em; 
-  color: #fafafa; 
-  margin-left: 11vw!important; 
+  font-family: UCLSans;
+  font-size: 0.9em; // 18pt as per pptx template
+  color: #fafafa;
+  margin-left: 11vw!important;
   text-align: left;
-  opacity:0.8; 
+  opacity:0.8;
 }
 
 .reveal .mail-websites {
-  font-family: 'Ubuntu Mono'; 
-  font-size: .9em; 
+  font-family: 'Ubuntu Mono';
+  font-size: .8em;
   opacity:0.8;
-  margin-left: 11vw!important; 
+  margin-left: 11vw!important;
   text-align: left;
 }
 
@@ -92,14 +101,16 @@ section.has-dark-background h2 {
 }
 
 .reveal h2 {
-  font-size: 2em;
+  font-size: 1.8em; // 36pt as per pptx template
   padding-bottom: .3em;
-  font-weight: 400; /*700;*/
+  font-weight: 700; /*700;*/
   color: #361a54;
+  font: UCLSans-SemiBold;
 }
 
 .reveal h3 {
   color: #993bff;
+  font-size: 1.2em; // 24pt as per pptx template
  }
 
 .reveal .footer {
