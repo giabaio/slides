@@ -137,13 +137,12 @@ section.has-dark-background h2 {
 }
 
 /* Inserts logo in the normal slides (but not the title-slide) */
-.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider-bg) {
+.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider-bg):not(.thank-you) {
   background-image: url("images/ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 100px auto; // adjust size
 }
-//:not([data-background]):not([data-background-gradient])
 
 /* This makes the text coloured on the white background for the section/dividers. Not quite like the pptx template, though... */
 .divider h1 {
@@ -171,11 +170,11 @@ section[data-background-image] {
     color: #fafafa;
   }
 }
-/* This would add the white logo for slides with backgrounds or images, but it messes up with the thank-you pages...
-section[data-background],
-section[data-background-gradient],
-section[data-background-color],
-section[data-background-image] {
+/* Adds the white logo for slides with backgrounds or images, but not the .thank-you class */
+section[data-background]:not(.thank-you),
+section[data-background-gradient]:not(.thank-you),
+section[data-background-color]:not(.thank-you),
+section[data-background-image]:not(.thank-you) {
   width: 100%!important;
   height: 100%!important;
   background-image: url("images/ucl-new-title.png")!important;
@@ -183,7 +182,6 @@ section[data-background-image] {
   background-position: right bottom!important;
   background-size: 100px auto!important; // adjust size
 }
-*/
 section[data-background]:has(h1),
 section[data-background-gradient]:has(h1),
 section[data-background-color]:has(h1),
