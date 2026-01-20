@@ -812,5 +812,15 @@ Some text after the image.
    - reese
 -->
 ::: {.content-hidden unless-meta="thank-you.show"}
-{{< include assets/thankyou.qmd >}}
+```{r}
+#| echo: false
+file=paste0("images/",rmarkdown::metadata$`thank-you`$file,".gif")
+```
+
+<!-- this adds an empty slide with the "Thank you" gif selected in the yml of the talk -->
+# {background-image="`r file`" background="#002248"}
+::: {.footer style="background-color: transparent!important; background: transparent!important"}
 :::
+
+:::
+

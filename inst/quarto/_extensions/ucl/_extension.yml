@@ -5,6 +5,7 @@ version: 1.0.0
 contributes:
   formats:
     revealjs:
+      css: fonts.css
       template-partials:
           - title-slide.html
       include-in-header:
@@ -15,7 +16,6 @@ contributes:
          buttons: false
       preview-links: auto
       theme: ucl-new.scss
-      css: fonts.css
       width: 1500
       height: 900
       title-slide-attributes:
