@@ -171,6 +171,7 @@ section[data-background-image] {
     color: #fafafa;
   }
 }
+/* This would add the white logo for slides with backgrounds or images, but it messes up with the thank-you pages...
 section[data-background],
 section[data-background-gradient],
 section[data-background-color],
@@ -182,6 +183,7 @@ section[data-background-image] {
   background-position: right bottom!important;
   background-size: 100px auto!important; // adjust size
 }
+*/
 section[data-background]:has(h1),
 section[data-background-gradient]:has(h1),
 section[data-background-color]:has(h1),
@@ -190,7 +192,6 @@ section[data-background-image]:has(h1) {
   flex-direction: column;
   justify-content: center !important;
 }
-
 
 /* This makes the dividers exactly like the pptx template. Not sure I like it better, though...
    if using the code above just add
