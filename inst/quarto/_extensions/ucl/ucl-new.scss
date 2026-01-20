@@ -137,7 +137,7 @@ section.has-dark-background h2 {
 }
 
 /* Inserts logo in the normal slides (but not the title-slide) */
-.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider):not(.divider-bg) {
+.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider-bg) {
   background-image: url("images/ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -149,9 +149,20 @@ section.has-dark-background h2 {
 .divider h1 {
   color: #361a54;
 }
+.reveal .slides section.divider {
+  width: 100%!important;
+  height: 100%!important;
+  // Ensures the text is vertically centered
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+}
 
+/* Deals with slides with a background (image, colour, gradient) */
 section[data-background],
-section[data-background-gradient] {
+section[data-background-gradient],
+section[data-background-color],
+section[data-background-image] {
   .divider,
   h1,
   h2,
@@ -160,6 +171,26 @@ section[data-background-gradient] {
     color: #fafafa;
   }
 }
+section[data-background],
+section[data-background-gradient],
+section[data-background-color],
+section[data-background-image] {
+  width: 100%!important;
+  height: 100%!important;
+  background-image: url("images/ucl-new-title.png")!important;
+  background-repeat: no-repeat!important;
+  background-position: right bottom!important;
+  background-size: 100px auto!important; // adjust size
+}
+section[data-background]:has(h1),
+section[data-background-gradient]:has(h1),
+section[data-background-color]:has(h1),
+section[data-background-image]:has(h1) {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
 
 /* This makes the dividers exactly like the pptx template. Not sure I like it better, though...
    if using the code above just add
@@ -167,6 +198,21 @@ section[data-background-gradient] {
    :::
    to make the footer go away
 */
+// Inserts white logo in the divider-bg slides
+.reveal .slides section.divider-bg {
+  // Ensures the slide has the correct size and so the logo is placed correctly
+  width: 100%!important;
+  height: 100%!important;
+  background-image: url("images/ucl-new-title.png")!important;
+  background-repeat: no-repeat!important;
+  background-position: right bottom!important;
+  background-size: 100px auto!important; // adjust size
+  // Ensures the text is vertically centered
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
 .divider-bg {
   background: linear-gradient(
     to right,
@@ -193,27 +239,6 @@ section.divider-bg li {
   text-align: left;
   color: #fafafa;
 }
-/* For divider-bg - account for missing footer
-   It ***almost*** works, but the image is fiddly and doesn't appear always in the right position...
-.reveal .backgrounds .slide-background.divider-bg {
-  background-image:
-    url("images/ucl-new-title.png"),
-    linear-gradient(
-      to right,
-      #993bff 0%,
-      #993bff 4.5%,
-      #361a54 4.5%,
-      #361a54 14.5%,
-      #993bff 14.5%,
-      #993bff 25.5%,
-      #361a54 25.5%,
-      #361a54 100%
-    ) !important;
-  background-repeat: no-repeat, no-repeat !important;
-  background-position: calc(100% - 72px) calc(100% - 120px), left top !important;
-  background-size: 100px auto, 100% 100% !important;
-}
-*/
 
 .reveal .slide-number {
   color:#fafafa;

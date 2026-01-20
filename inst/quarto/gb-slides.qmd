@@ -268,17 +268,16 @@ Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#ex
 
 Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`)
 
-# And another {.divider-bg}
+# And another {.divider-bg footer="false"}
 
 Using the tag `{.divider-bg}` gives a background in line with the UCL 2026 template
 
-It's also helpful to add at the end of the section slide:    
+The slide looks nicer without the footer. This can be done either by adding
 `::: {.footer style="background-color: transparent!important; background: transparent!important"}`    
 `:::`    
-to ensure that the footer doesn't interfere with the colours...
+to the end of the slide, to ensure that the footer doesn't interfere with the colours...
 
-::: {.footer style="background-color: transparent!important; background: transparent!important"}
-:::
+More simply, can explicitly use the tag `{.divider-bg footer="false"}`
 
 # Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5}
 
