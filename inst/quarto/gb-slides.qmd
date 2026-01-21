@@ -24,7 +24,7 @@ bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 
 #' (Semi-)Fixed attributes (don't need to, but can change these)
 author: 
-  - name: "**Gianluca Baio**"
+  - name: "Gianluca Baio"
 institute:  
    - uni: "Department of Statistical Science &nbsp; | &nbsp; University College London"
 email: 
@@ -52,6 +52,16 @@ orchid:
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
    icon: "[{{< fa brands orcid >}}]{style='color: white; height: 0.8em'}"
 date-format: "D MMMM YYYY"
+#' Here defines the elements of the footer. May want to change the various elements
+footer-content: |
+   &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
+      [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
+      [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
+      [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
+      [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
+      [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
+      {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
+      <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
 
 
 #' Computed attributes (from other parts of the yml file)
@@ -71,17 +81,9 @@ slides-url: |
 from: markdown+emoji
 #' Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
 format: 
-  ucl-revealjs:
-#' Here defines the elements of the footer. May want to change the various elements
-    footer: |
-      &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
-      [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
-      [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
-      [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
-      [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
-      [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
-      {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
-      <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
+  ucl-revealjs
+      
+#' Should the compiled images have a transparent background? (good for UCL2026 style)
 img-bg: true
 
 
@@ -127,6 +129,10 @@ This presentation will show you examples of what you can do with Quarto and [Rev
 Here's a new slide without a title.
 
 ---
+
+## No logo {.no-logo}
+
+Here's a slide with no logo -- just add `{.no-logo}` to the title of the slide
 
 ## Fun with colours & spaces
 
@@ -613,7 +619,7 @@ knitr::kable(mtcars)
 ```
 :::
 
-## Tabsets {transition="slide" .smaller}
+## Tabsets {.no-logo transition="slide" .smaller}
 
 ::: panel-tabset
 ### Plot
@@ -633,9 +639,11 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 
 ### Data 
 
+::: {style="height: 60%!important; overflow: auto; font-size: .63em;"}
 ```{r}
 knitr::kable(mtcars)
 ```
+:::
 
 :::
 

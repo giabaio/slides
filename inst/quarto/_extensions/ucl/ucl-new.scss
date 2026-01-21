@@ -77,6 +77,8 @@ section.has-dark-background h1 {
 
 .reveal .author {
   text-align: left;
+  font-weight: 700;
+  font: UCLSans-SemiBold;
   margin-left: 11vw!important;
   margin-right: 3%;
   color: #fafafa;
@@ -195,6 +197,15 @@ section[data-background-image]:has(h1) {
   flex-direction: column;
   justify-content: center !important;
 }
+
+/* Sets up a class to prevent the logo */
+.reveal .slides section.no-logo {
+  // Ensures the slide has the correct size and so the logo is placed correctly
+  width: 100%!important;
+  height: 100%!important;
+  background-image: none!important;
+}
+
 
 /* This makes the dividers exactly like the pptx template. Not sure I like it better, though...
    if using the code above just add

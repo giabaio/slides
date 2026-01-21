@@ -59,7 +59,7 @@ knitr::opts_chunk$set(
 )
 
 # Additional graphical instructions to add to the normal ./assets/setup.R *only* if the style chosen in ucl-revealjs
-if (names(rmarkdown::metadata$format) == "ucl-revealjs" & rmarkdown::metadata$`img-bg`) {
+if (rmarkdown::metadata$format=="ucl-revealjs" & rmarkdown::metadata$`img-bg`) {
   # Background for base graphs
   knitr::opts_chunk$set(
     dev = "png",
