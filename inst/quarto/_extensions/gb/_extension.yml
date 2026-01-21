@@ -5,6 +5,7 @@ version: 1.0.0
 contributes:
   formats:
     revealjs:
+      css: ./assets/common.css
       template-partials:
           - title-slide.html
       include-in-header:

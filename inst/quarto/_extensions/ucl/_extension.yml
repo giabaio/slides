@@ -5,7 +5,9 @@ version: 1.0.0
 contributes:
   formats:
     revealjs:
-      css: fonts.css
+      css:
+          - fonts.css
+          - ./assets/common.css
       template-partials:
           - title-slide.html
       include-in-header:
