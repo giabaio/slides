@@ -58,38 +58,32 @@ knitr::opts_chunk$set(
   fig.width = 12, fig.height = 9, out.width = "55%", fig.align = "center"
 )
 
-
-####################################################################################
-## These change the default background colours for graphs in base, ggplot and tikz
-## May need to do more work on pure LaTeX images too...
-
-par(bg = "#fafafa")
-
-theme_set(
-  theme_bw() +
-    theme(
-      plot.background  = element_rect(fill = "#fafafa", colour = NA),
-      panel.background = element_rect(fill = "#fafafa", colour = NA),
-      legend.background = element_rect(fill = "#fafafa", colour = NA),
-      legend.key = element_rect(fill = "#fafafa", colour = NA)
-    )
-)
-
-options(
-  tikzLatexPackages = c(
-    getOption("tikzLatexPackages"),
-    "\\usepackage{xcolor}",
-    "\\tikzset{every picture/.style={
-      background rectangle/.style={fill=fafafa},
-      show background rectangle
-    }}"
+# Additional graphical instructions to add to the normal ./assets/setup.R *only* if the style chosen in ucl-revealjs
+if (names(rmarkdown::metadata$format) == "ucl-revealjs" & rmarkdown::metadata$`img-bg`) {
+  # Background for base graphs
+  knitr::opts_chunk$set(
+    dev = "png",
+    dev.args = list(bg = "#fafafa")
   )
-)
 
-knitr::knit_hooks$set(document = function(x) {
-  paste0(
-    "\\usepackage{xcolor}\n",
-    "\\pagecolor{fafafa}\n\n",
-    x
+  # Background for ggplot graphs
+  theme_set(
+    theme_bw() +
+      theme(
+        plot.background  = element_rect(fill = "#fafafa", colour = NA),
+#        panel.background = element_rect(fill = "#fafafa", colour = NA),
+        legend.background = element_rect(fill = "#fafafa", colour = NA),
+        legend.key = element_rect(fill = "#fafafa", colour = NA)
+      )
   )
-})
+
+  # Background for tikz images
+  knitr::opts_hooks$set(engine = function(options) {
+    if (identical(options$engine, "tikz") && !knitr:::is_latex_output()) {
+      original_code <- options$code
+      # Prepend pagecolor (or input your setup file)
+      options$code <- c("\\pagecolor[HTML]{FAFAFA}", original_code)
+    }
+    options
+  })
+}
