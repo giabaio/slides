@@ -29,28 +29,28 @@ institute:
    - uni: "Department of Statistical Science &nbsp; | &nbsp; University College London"
 email: 
    text: "[g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)"
-   icon: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")`'
+   icon: "[{{< fa envelope >}}]{style='color:#00acee; height: 0.8em'}"
 url: 
   - text: "[https://gianluca.statistica.it](https://gianluca.statistica.it)"
-    icon: '`r fontawesome::fa("globe",fill="#00acee",height="0.8em")`'
+    icon: "[{{< fa globe >}}]{style='color: #00acee; height: 0.8em'}"
   - text: "[https://egon.stats.ucl.ac.uk/research/statistics-health-economics](https://egon.stats.ucl.ac.uk/research/statistics-health-economics)"
-    icon: '`r fontawesome::fa("globe",fill="#00acee",height="0.8em")`'
+    icon: "[{{< fa globe >}}]{style='color: #00acee; height: 0.8em'}"
 github: 
   - text: "[https://github.com/giabaio](https://github.com/giabaio)"
-    icon: '`r fontawesome::fa("github",fill="white",height="0.8em")`'
+    icon: "[{{< fa brands github >}}]{style='color: white; height: 0.8em'}"
   - text: "[https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)"
-    icon: '`r fontawesome::fa("github",fill="white",height="0.8em")`'
+    icon: "[{{< fa brands github >}}]{style='color: white; height: 0.8em'}"
 social: 
   - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
-    icon: '`r fontawesome::fa("mastodon",fill="#6364FF",height="0.8em")`'
-  - text: '[gianluca-baio](https://www.linkedin.com/in/gianluca-baio/)'
-    icon: '`r fontawesome::fa("linkedin",fill="#0A66C2",height="0.8em")`'
+    icon: "[{{< fa brands mastodon >}}]{style='color: #6364FF; height: 0.8em'}" 
   # - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
-  #   icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
+  #   icon: "[{{< fa brands x-twitter >}}]{style='color: black; height: 0.8em'}"
+  - text: '[gianluca-baio](https://www.linkedin.com/in/gianluca-baio/)'
+    icon: "[{{< fa brands linkedin >}}]{style='color: #0A66C2; height: 0.8em'}" 
 orchid: 
    show: false
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
-   icon: '`r fontawesome::fa("orcid",fill="black",height="0.8em")`'
+   icon: "[{{< fa brands orcid >}}]{style='color: white; height: 0.8em'}"
 date-format: "D MMMM YYYY"
 
 
@@ -264,6 +264,15 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 ::: footer
 Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
 :::
+
+## A base plot
+
+```{r}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
+```
 
 # A section {.divider}
 

@@ -21,6 +21,9 @@ $endfor$
 
 <p style="margin:0px 15px 0px 15px;" class="mail-websites">$for(social)$$social.icon$ $social.text$ &nbsp; &nbsp;$endfor$</p>
 
+$if(orchid.show)$
+<p style="margin:0px;" class="mail-websites">$orchid.icon$ $orchid.url$</p>
+$endif$
 
 <br>
 
@@ -43,10 +46,6 @@ $for(institute)$
 <p style="margin-top: 6vh;" class="date-conference">$institute.uni$</p>
 $endfor$
 
-
-$if(orchid.show)$
-<p style="margin:0px; font-size: .9em; font-family: 'Ubuntu Mono'; opacity:0.8;">$orchid.icon$ $orchid.url$</p>
-$endif$
 
 $if(postit.random-talks)$
 <p><span class="postit1">Check out our departmental podcast “Random Talks” on Soundcloud! <a href="https://soundcloud.com/uclsound/sets/sample-space" style="color: #ff7700;" title="Listen to our podcast"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a></span></p>
