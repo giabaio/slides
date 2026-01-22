@@ -1,0 +1,5 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/inst/quarto/gb-slides_files/libs/revealjs/dist/theme/*.css
