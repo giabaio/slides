@@ -21,4 +21,4 @@ contributes:
       title-slide-attributes:
       data-background-size: stretch
       data-background-opacity: "0.08"
-      footer: "{{< meta footer-content >}}"
+      footer: "{{< meta footer >}}"

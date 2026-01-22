@@ -24,4 +24,4 @@ contributes:
       data-background-size: stretch
       data-background-opacity: "0.08"
       data-slide-number: "false"
-      footer: "{{< meta footer-content >}}"
+      footer: "{{< meta footer >}}"

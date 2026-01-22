@@ -11,15 +11,26 @@ $for(author)$
 <p style="margin:6vh 0px .3em 0px;" class="author">$author$</p>
 $endfor$
 $for(email)$
-<p style="margin:5px;" class="mail-websites">$email.icon$ $email.text$</p>
+<p style="margin:0px 15px 0px 15px;" class="mail-websites">$email.icon$ $email.text$</p>
 $endfor$
+
+<p style="margin:0px 15px 0px 15px;" class="mail-websites">
 $for(url)$
-<p style="margin:0px 15px 0px 15px;" class="mail-websites">$url.icon$ $url.text$</p>
+  <span style="white-space: no-wrap;">$url.icon$ $url.text$</span>$sep$<span style="color: #fafafa;">&nbsp;|&nbsp;</span>
 $endfor$
+</p>
 
-<p style="margin:0px 15px 0px 15px;" class="mail-websites">$for(github)$$github.icon$ $github.text$ &nbsp; $endfor$</p>
+<p style="margin:0px 15px 0px 15px;" class="mail-websites">
+$for(github)$
+  <span style="white-space: no-wrap;">$github.icon$ $github.text$</span>$sep$<span style="color: #FAFAFA;">&nbsp;|&nbsp;</span>
+$endfor$
+</p>
 
-<p style="margin:0px 15px 0px 15px;" class="mail-websites">$for(social)$$social.icon$ $social.text$ &nbsp; &nbsp;$endfor$</p>
+<p style="margin:0px 15px 0px 15px;" class="mail-websites">
+$for(social)$
+  <span style="white-space: no-wrap;">$social.icon$ $social.text$</span>$sep$<span style="color: #FAFAFA;"> &nbsp;|&nbsp;</span>
+$endfor$
+</p>
 
 $if(orchid.show)$
 <p style="margin:0px;" class="mail-websites">$orchid.icon$ $orchid.url$</p>

@@ -1,4 +1,12 @@
 ---
+#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
+format: 
+  ucl-revealjs
+#' Should the compiled images have a transparent background? (good for UCL2026 style)
+img-bg: true
+from: markdown+emoji
+
+
 #' Dynamic attributes (specific info to the slides being prepared)
 title: "A very long title for my slides, which may span across two lines"
 shorttitle: "A short title"
@@ -53,7 +61,7 @@ orchid:
    icon: "[{{< fa brands orcid >}}]{style='color: white; height: 0.8em'}"
 date-format: "D MMMM YYYY"
 #' Here defines the elements of the footer. May want to change the various elements
-footer-content: |
+footer: |
    &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
       [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
       [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
@@ -62,6 +70,12 @@ footer-content: |
       [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
       {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
       <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
+
+
+#' Filters
+filters:
+ - code-visibility
+lightbox: auto
 
 
 #' Computed attributes (from other parts of the yml file)
@@ -75,22 +89,6 @@ slides-url: |
       paste("&nbsp; | &nbsp; [{{< fa circle-info >}} Slides available at ",
       rmarkdown::metadata$slidesurl$url,"]{style=\"font-size:",rmarkdown::metadata$slidesurl$size,";\"}"),""
    )`
-
-
-#' Format
-from: markdown+emoji
-#' Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
-format: 
-  ucl-revealjs
-      
-#' Should the compiled images have a transparent background? (good for UCL2026 style)
-img-bg: true
-
-
-#' Filters
-filters:
- - code-visibility
-lightbox: auto
 ---
 
 ```{r}
@@ -295,9 +293,14 @@ to the end of the slide, to ensure that the footer doesn't interfere with the co
 
 More simply, can explicitly use the tag `{.divider-bg footer="false"}`
 
-# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5}
+
+# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5 footer="false"}
 
 Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!
+
+::: {.footer-nobg}
+{{< meta footer >}}
+:::
 
 ## Code chunk and output side by side  {auto-animate=true}
 

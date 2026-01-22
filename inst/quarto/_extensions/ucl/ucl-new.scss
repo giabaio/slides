@@ -143,6 +143,16 @@ section.has-dark-background h2 {
   padding-left: 11vw;         /* moves text without affecting gradient */
 }
 
+/* A special footer to add, say, in section background slides. It's almost identical to
+   the normal footer, but it's placed slightly differently... */
+.footer-nobg {
+  font-size: .54em;
+  position: absolute;
+  width: 100%!important;
+  left: 0!important;
+  bottom: 0!important;
+}
+
 /* Inserts logo in the normal slides (but not the title-slide) */
 .reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider-bg):not(.thank-you) {
   background-image: url("images/ucl-new-logo.png");
