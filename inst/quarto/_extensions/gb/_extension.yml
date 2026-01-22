@@ -1,0 +1,24 @@
+title: gb
+description: UCL old template (pre 2026)
+author: Gianluca Baio
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      css: ./assets/common.css
+      template-partials:
+          - title-slide.html
+      include-in-header:
+          - ./assets/latex_macros.html
+      transition: none
+      slide-number: true
+      chalkboard:
+         buttons: false
+      preview-links: auto
+      theme: gb.scss
+      width: 1500
+      height: 900
+      title-slide-attributes:
+      data-background-size: stretch
+      data-background-opacity: "0.08"
+      footer: "{{< meta footer >}}"

@@ -1,4 +1,12 @@
 ---
+#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
+format: 
+  ucl-revealjs
+#' Should the compiled images have a transparent background? (good for UCL2026 style)
+img-bg: true
+from: markdown+emoji
+
+
 #' Dynamic attributes (specific info to the slides being prepared)
 title: "A very long title for my slides, which may span across two lines"
 shorttitle: "A short title"
@@ -18,40 +26,56 @@ slidesurl:
    size: "0.75em"
 thank-you: 
    show: true
-   file: phoebe
+   file: reese
 bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
 
 
 #' (Semi-)Fixed attributes (don't need to, but can change these)
 author: 
-  - name: "**Gianluca Baio**"
+  - name: "Gianluca Baio"
 institute:  
    - uni: "Department of Statistical Science &nbsp; | &nbsp; University College London"
 email: 
    text: "[g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)"
-   icon: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")`'
+   icon: "[{{< fa envelope >}}]{style='color:#00acee; height: 0.8em'}"
 url: 
   - text: "[https://gianluca.statistica.it](https://gianluca.statistica.it)"
-    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+    icon: "[{{< fa globe >}}]{style='color: #00acee; height: 0.8em'}"
   - text: "[https://egon.stats.ucl.ac.uk/research/statistics-health-economics](https://egon.stats.ucl.ac.uk/research/statistics-health-economics)"
-    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+    icon: "[{{< fa globe >}}]{style='color: #00acee; height: 0.8em'}"
 github: 
   - text: "[https://github.com/giabaio](https://github.com/giabaio)"
-    icon: '`r fontawesome::fa("github",fill="black",height="0.8em")`'
+    icon: "[{{< fa brands github >}}]{style='color: white; height: 0.8em'}"
   - text: "[https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)"
-    icon: '`r fontawesome::fa("github",fill="black",height="0.8em")`'
+    icon: "[{{< fa brands github >}}]{style='color: white; height: 0.8em'}"
 social: 
   - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
-    icon: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`'
+    icon: "[{{< fa brands mastodon >}}]{style='color: #6364FF; height: 0.8em'}" 
   # - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
-  #   icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
+  #   icon: "[{{< fa brands x-twitter >}}]{style='color: black; height: 0.8em'}"
   - text: '[gianluca-baio](https://www.linkedin.com/in/gianluca-baio/)'
-    icon: '`r fontawesome::fa("linkedin",fill="#0077B5",height="0.8em")`'
+    icon: "[{{< fa brands linkedin >}}]{style='color: #0A66C2; height: 0.8em'}" 
 orchid: 
    show: false
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
-   icon: '`r fontawesome::fa("orcid",fill="black",height="0.8em")`'
+   icon: "[{{< fa brands orcid >}}]{style='color: white; height: 0.8em'}"
 date-format: "D MMMM YYYY"
+#' Here defines the elements of the footer. May want to change the various elements
+footer: |
+   &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; 
+      [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
+      [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
+      [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
+      [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
+      [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
+      {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
+      <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
+
+
+#' Filters
+filters:
+ - code-visibility
+lightbox: auto
 
 
 #' Computed attributes (from other parts of the yml file)
@@ -65,46 +89,6 @@ slides-url: |
       paste("&nbsp; | &nbsp; [{{< fa circle-info >}} Slides available at ",
       rmarkdown::metadata$slidesurl$url,"]{style=\"font-size:",rmarkdown::metadata$slidesurl$size,";\"}"),""
    )`
-
-
-#' Format
-from: markdown+emoji
-format:
-  revealjs: 
-    template-partials: 
-      - assets/title-slide.html
-    include-in-header: 
-      - assets/latex_macros.html
-    transition: none
-    slide-number: true
-    chalkboard: 
-      buttons: false
-    preview-links: auto
-    theme: assets/gb.scss
-# default width/height: 1050/700; can also try 1200/800 but it's a bit narrow...
-    width: 1500 
-    height: 900
-#    margin: 0.05
-    footer: |
-       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands linkedin >}}](https://www.linkedin.com/in/gianluca-baio/){title='Follow me on LinkedIn'} &nbsp;
-       [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
-       [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
-       [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
-       [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
-       {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
-       <!-- [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp; -->
-
-#' Filters
-filters:
- - code-visibility
-lightbox: auto
-
-#' Title slide attributes
-title-slide-attributes:
-#    data-background-image: "images/ucl-campus.png"
-    data-background-size: stretch
-    data-background-opacity: "0.08"
-#    data-background-color: "#002248"
 ---
 
 ```{r}
@@ -144,6 +128,10 @@ Here's a new slide without a title.
 
 ---
 
+## No logo {.no-logo}
+
+Here's a slide with no logo -- just add `{.no-logo}` to the title of the slide
+
 ## Fun with colours & spaces
 
 ### With a subtitle
@@ -178,17 +166,16 @@ We can also include maths, using standard $\rm\LaTeX$:
 
 $$\class{italian-green}{p(y\mid\mathcal{D}) = \int p(y\mid\bm\theta)p(\boldsymbol\theta\mid\mathcal{D})d\boldsymbol\theta} $$
 
-To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$`
+To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$` 
 
 You can define a probabilistic assumption as
 [$$y \mid \bm\theta \sim \dpois(\bm\theta)$$]{.spanish-red}
 but in line it would look like this $\color{MidnightBlue}{y\sim \dnorm(\mu,\sigma^2)}$ 
 
-These use the predefined $\rm\LaTeX$ macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output
+These use the predefined $\rm\LaTeX$ macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output; example: `$\DIC=2345$` is typeset as $\DIC=2345$.
 
 `r vspace("2rem")`
 For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font). But can also use `$\txt{Some text}$`, which gets rendered as $\txt{Some text}$ --- it's like `\text{...}` but with the current font
-
 
 
 ## Pretty Code {auto-animate="true"}
@@ -282,9 +269,38 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
 :::
 
-# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5}
+## A base plot
+
+```{r}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
+```
+
+# A section {.divider}
+
+Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`)
+
+# And another {.divider-bg footer="false"}
+
+Using the tag `{.divider-bg}` gives a background in line with the UCL 2026 template
+
+The slide looks nicer without the footer. This can be done either by adding
+`::: {.footer style="background-color: transparent!important; background: transparent!important"}`    
+`:::`    
+to the end of the slide, to ensure that the footer doesn't interfere with the colours...
+
+More simply, can explicitly use the tag `{.divider-bg footer="false"}`
+
+
+# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5 footer="false"}
 
 Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!
+
+::: {.footer-nobg}
+{{< meta footer >}}
+:::
 
 ## Code chunk and output side by side  {auto-animate=true}
 
@@ -606,7 +622,7 @@ knitr::kable(mtcars)
 ```
 :::
 
-## Tabsets {transition="slide" .smaller}
+## Tabsets {.no-logo transition="slide" .smaller}
 
 ::: panel-tabset
 ### Plot
@@ -626,9 +642,11 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 
 ### Data 
 
+::: {style="height: 60%!important; overflow: auto; font-size: .63em;"}
 ```{r}
 knitr::kable(mtcars)
 ```
+:::
 
 :::
 

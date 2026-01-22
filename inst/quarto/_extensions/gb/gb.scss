@@ -1,0 +1,160 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Fonts (added by GB) */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+/* Font to do nice numbered items */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+
+$font-family-sans-serif: "Inter Tight", "Ubuntu", "Arial", Arial,
+  FreeSerif, serif !default;
+$font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
+
+// headings
+$presentation-heading-font: Ubuntu, "Inter Tight", Arial,
+  FreeSerif, serif !default;
+$presentation-heading-color: #002248 !default;
+
+// other variables
+$body-bg: #ffffff;
+$body-color: #00142B;
+$highlight-color: #715600;
+/* sets color of controls*/
+$link-color: #95A6B8;
+$presentation-font-size-root: 20pt;
+$selection-bg: #95A6B8;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $link-color;
+  color: $presentation-heading-color;
+  padding-left: 0.6em;
+  background: #F4F5F6;
+}
+
+/* Modified by GB */
+.reveal h1 {
+  font-size: 2em;
+  color: #647d97;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px  rgba(0,0,0,0.6);
+  border-radius: 15px;
+  background-color: #002c53;
+  padding: 35px 30px 35px 30px;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-weight: 500;
+}
+
+/* This is necessary to remove the box if the h1 happens in a slide with background */
+section.has-dark-background h1 {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px  rgba(0,0,0,0.6);
+}
+
+/* And this over-rides the white colour for h2 titles in a slide with background */
+section.has-dark-background h2 {
+  color: #647d97;
+}
+
+.reveal h2 {
+  font-size: 2em;
+  padding-bottom: .3em;
+  font-weight: 400; /*700;*/
+  margin-bottom: 0.5em;
+  margin-left: calc(-50vw);
+  border-left: calc(50vw) solid #002c53;
+  margin-right: calc(-50vw);
+  border-right: calc(50vw) solid #002c53;
+  background-color: #002c53;
+  padding-top: 1.2em;
+  margin-top: -1.55em;
+  padding-right: 4.2em;
+  color: #647d97; /* #FFFFFF; */
+  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
+  background-image: url("images/UCL-stats.png"); /* header-logo.png"); */
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 4.8em;
+}
+
+.reveal h3 {
+  color: #24568c;
+ }
+
+.reveal h3 {
+  color: #24568c;
+ }
+
+.reveal h2 img {
+  position: absolute;
+  right: 0%;
+  width: 5%;
+  height: 100%;
+ }
+
+
+.reveal .footer {
+  color: #CCD1D5;
+  background-color: $presentation-heading-color;
+  font-family: $presentation-heading-font;
+  display: block;
+  position: fixed;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  width: 100%;
+  text-align: center;
+  font-family: "Inter Tight";
+  z-index: 5;
+}
+
+.reveal div.sourceCode {
+  margin: 0;
+  overflow: auto;
+  border-color: $link-color;
+}
+
+.reveal .slide-number{
+  color:#b4c0cc;
+  background-color:#fff;
+  font-family: "Inter Tight"
+}
+
+.reveal a {
+  color: #6e5400;
+  letter-spacing: -0.025em;
+}
+
+
+/* Logo stats */
+.logo-stats {
+  text-decoration:none;
+  display:block;
+  height: 3.5em;
+  width: 3.5em;
+  padding: .5em;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
+  background-image: url("images/UCL_Stats_logo.jpeg");
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-size: contain;
+  border-radius: 6px 6px 6px 6px;
+}
+
+

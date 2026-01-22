@@ -1,0 +1,27 @@
+title: ucl
+description: UCL 2026 template
+author: Gianluca Baio
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      css:
+          - fonts.css
+          - ./assets/common.css
+      template-partials:
+          - title-slide.html
+      include-in-header:
+          - ./assets/latex_macros.html
+      transition: none
+      slide-number: true
+      chalkboard:
+         buttons: false
+      preview-links: auto
+      theme: ucl-new.scss
+      width: 1500
+      height: 900
+      title-slide-attributes:
+      data-background-size: stretch
+      data-background-opacity: "0.08"
+      data-slide-number: "false"
+      footer: "{{< meta footer >}}"

@@ -1,0 +1,304 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Fonts (added by GB) */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+/* Font to do nice numbered items */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+$font-family-sans-serif: "UCLSans", "Ubuntu", "Arial", "FreeSerif", "serif" !default;
+$font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
+
+// headings
+$presentation-heading-font: "UCLSans", "Ubuntu", "Inter Tight", "Arial",
+  FreeSerif, serif !default;
+$presentation-heading-color: #002248 !default;
+
+// other variables
+$body-bg: #fafafa;
+$body-color: #00142B;
+$highlight-color: #715600;
+/* sets color of controls*/
+$link-color: #95A6B8;
+$selection-bg: #95A6B8;
+$presentation-font-size-root: 20pt;
+$ucl-gradient: linear-gradient(to right, #993bff 10%, #361a54 10%)!important;
+$ucl-divider: linear-gradient(to right,#993bff 0,#993bff 0.45in,#361a54 0.45in,#361a54 1.8in,#993bff 1.8in,#993bff 4.05in,#361a54 4.05in,#361a54 100%)!important;
+
+/*
+Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;)
+- 42pt / 20pt = 2.1em
+- 36pt / 20pt = 1.8em
+- 24pt / 20pt = 1.2em
+- 18pt / 20pt = 0.9em
+*/
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $link-color;
+  color: $presentation-heading-color;
+  padding-left: 0.6em;
+  background: #F4F5F6;
+}
+
+/* Modified by GB */
+.reveal h1 {
+  font-size: 2.1em; // 42pt as per pptx template
+  margin-left: 11vw;
+  margin-right: 3%;
+  font-weight: 700;
+  color: #fafafa;
+  text-align: left;
+  font: UCLSans-SemiBold;
+}
+
+/* Formats the colour for the subtitle in the title page */
+.reveal section#title-slide h3 {
+  color: #fafafa;
+}
+
+/* This is necessary to remove the box if the h1 happens in a slide with background */
+section.has-dark-background h1 {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px  rgba(0,0,0,0.6);
+}
+
+.reveal .author {
+  text-align: left;
+  font-weight: 700;
+  font: UCLSans-SemiBold;
+  margin-left: 11vw!important;
+  margin-right: 3%;
+  color: #fafafa;
+  font-family: UCLSans;
+  font-size: 1.2em; // 24pt as per pptx template
+}
+
+.reveal .date-conference {
+  font-family: UCLSans;
+  font-size: 0.9em; // 18pt as per pptx template
+  color: #fafafa;
+  margin-left: 11vw!important;
+  text-align: left;
+  opacity:0.8;
+}
+
+.reveal .mail-websites {
+  font-family: 'Ubuntu Mono';
+  font-size: .8em;
+  opacity:0.8;
+  margin-left: 11vw!important;
+  text-align: left;
+}
+
+/* And this over-rides the white colour for h2 titles in a slide with background */
+section.has-dark-background h2 {
+  color: #647d97;
+}
+
+/* Target the first slide's dynamic background div */
+.reveal .backgrounds .slide-background:first-child {
+  background: linear-gradient(to right, #993bff 10%, #361a54 10%) !important;
+  background-size: 100% 100% !important;
+  opacity: 1 !important;  /* override any inline opacity */
+}
+
+.reveal h2 {
+  font-size: 1.8em; // 36pt as per pptx template
+  padding-bottom: .3em;
+  font-weight: 700; /*700;*/
+  color: #361a54;
+  font: UCLSans-SemiBold;
+}
+
+.reveal h3 {
+  color: #993bff;
+  font-size: 1.2em; // 24pt as per pptx template
+ }
+
+.reveal .footer {
+  color: #CCD1D5;
+  background: linear-gradient(to right, #993bff 10%, #361a54 10%)!important;
+  font-family: $presentation-heading-font;
+  display: block;
+  position: fixed;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  width: 100%;
+  text-align: left!important;
+  z-index: 5;
+  box-sizing: border-box;     /* ensures padding does not expand background */
+  padding-left: 11vw;         /* moves text without affecting gradient */
+}
+
+/* A special footer to add, say, in section background slides. It's almost identical to
+   the normal footer, but it's placed slightly differently... */
+.footer-nobg {
+  font-size: .54em;
+  position: absolute;
+  width: 100%!important;
+  left: 0!important;
+  bottom: 0!important;
+}
+
+/* Inserts logo in the normal slides (but not the title-slide) */
+.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider-bg):not(.thank-you) {
+  background-image: url("images/ucl-new-logo.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 100px auto; // adjust size
+}
+
+/* This makes the text coloured on the white background for the section/dividers. Not quite like the pptx template, though... */
+.divider h1 {
+  color: #361a54;
+}
+.reveal .slides section.divider {
+  width: 100%!important;
+  height: 100%!important;
+  // Ensures the text is vertically centered
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
+/* Deals with slides with a background (image, colour, gradient) */
+section[data-background],
+section[data-background-gradient],
+section[data-background-color],
+section[data-background-image] {
+  .divider,
+  h1,
+  h2,
+  h3,
+  p {
+    color: #fafafa;
+  }
+}
+/* Adds the white logo for slides with backgrounds or images, but not the .thank-you class */
+section[data-background]:not(.thank-you),
+section[data-background-gradient]:not(.thank-you),
+section[data-background-color]:not(.thank-you),
+section[data-background-image]:not(.thank-you) {
+  width: 100%!important;
+  height: 100%!important;
+  background-image: url("images/ucl-new-title.png")!important;
+  background-repeat: no-repeat!important;
+  background-position: right bottom!important;
+  background-size: 100px auto!important; // adjust size
+}
+section[data-background]:has(h1),
+section[data-background-gradient]:has(h1),
+section[data-background-color]:has(h1),
+section[data-background-image]:has(h1) {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
+/* Sets up a class to prevent the logo */
+.reveal .slides section.no-logo {
+  // Ensures the slide has the correct size and so the logo is placed correctly
+  width: 100%!important;
+  height: 100%!important;
+  background-image: none!important;
+}
+
+
+/* This makes the dividers exactly like the pptx template. Not sure I like it better, though...
+   if using the code above just add
+   ::: {.footer style="background-color: transparent!important; background: transparent!important"}
+   :::
+   to make the footer go away
+*/
+// Inserts white logo in the divider-bg slides
+.reveal .slides section.divider-bg {
+  // Ensures the slide has the correct size and so the logo is placed correctly
+  width: 100%!important;
+  height: 100%!important;
+  background-image: url("images/ucl-new-title.png")!important;
+  background-repeat: no-repeat!important;
+  background-position: right bottom!important;
+  background-size: 100px auto!important; // adjust size
+  // Ensures the text is vertically centered
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
+.divider-bg {
+  background: linear-gradient(
+    to right,
+    #993bff 0%,
+    #993bff 4.5%,
+    #361a54 4.5%,
+    #361a54 14.5%,
+    #993bff 14.5%,
+    #993bff 25.5%,
+    #361a54 25.5%,
+    #361a54 100%
+  ) !important;
+}
+section.divider-bg {
+  background: transparent!important;
+}
+section.divider-bg h1,
+section.divider-bg h2,
+section.divider-bg h3,
+section.divider-bg p,
+section.divider-bg li {
+  margin-left: 30%!important;
+  margin-right: 3%;
+  text-align: left;
+  color: #fafafa;
+}
+
+.reveal .slide-number {
+  color:#fafafa;
+  font-family: "Inter Tight";
+}
+
+.reveal div.sourceCode {
+  margin: 0;
+  overflow: auto;
+  border-color: $link-color;
+}
+
+.reveal a {
+  color: #C6AA51; // #6e5400;
+  letter-spacing: -0.025em;
+}
+
+.reveal a:hover {
+  color: #516372;
+}
+
+/* Logo stats */
+.logo-stats {
+  position: absolute;
+  display: block;
+  height: 7.5em;
+  width: 12em;
+//  padding: .5em;
+  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
+  background-image: url("images/ucl-new-title.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right bottom;
+  bottom: 0%;
+  right: 0%;
+}
+
+

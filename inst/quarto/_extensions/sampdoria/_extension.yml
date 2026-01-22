@@ -1,0 +1,16 @@
+title: sampdoria
+author: Gianluca Baio
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      template-partials:
+          - title-slide.html
+      include-in-header:
+          - ./assets/latex_macros.html
+      theme: sampdoria.scss
+      width: 1500
+      height: 900
+      title-slide-attributes:
+      data-background-size: stretch
+      data-background-opacity: "0.08"
