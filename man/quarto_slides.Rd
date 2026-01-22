@@ -4,7 +4,7 @@
 \alias{quarto_slides}
 \title{Create Quarto slides using a `gb` predefined template}
 \usage{
-quarto_slides(file_name, directory = here::here("slides"), style = "gb")
+quarto_slides(file_name, directory = here::here("slides"), assets = TRUE)
 }
 \arguments{
 \item{file_name}{The file name for your .qmd file (with or without ".qmd" at
@@ -19,8 +19,10 @@ working directory). It can contain a trailing `/` or not -- if needed it
 is added automatically to ensure all the relevant files can be copied
 over in the right path}
 
-\item{style}{Defaults to `gb`, but could create more, in the vain of the
-`samplespace` package}
+\item{assets}{A logical value to instruct R to also copy over the
+'assets' folder - if set to FALSE, it will not, which may be helpful
+when creating a single folder with several lecture slides and thus only the
+existing version of 'assets' may need to be kept in}
 }
 \description{
 Create Quarto slides using a `gb` (similar to the

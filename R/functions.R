@@ -271,8 +271,6 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' working directory). It can contain a trailing `/` or not -- if needed it
 #' is added automatically to ensure all the relevant files can be copied
 #' over in the right path
-#' @param style Defaults to `gb`, but could create more, in the vain of the
-#' `samplespace` package
 #' @param assets A logical value to instruct R to also copy over the
 #' 'assets' folder - if set to FALSE, it will not, which may be helpful
 #' when creating a single folder with several lecture slides and thus only the
@@ -281,8 +279,7 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' @examples
 #' quarto_slides(file="test",directory="~/Desktop/slides-test")
 #'
-quarto_slides=function(file_name,directory=here::here("slides"),style="gb",
-                       assets=TRUE) {
+quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE) {
   # Remove the .qmd ending if it was provided
   file_name <- gsub(".qmd", "", file_name, fixed = TRUE)
   if (!dir.exists(directory)) {
@@ -305,95 +302,92 @@ quarto_slides=function(file_name,directory=here::here("slides"),style="gb",
       path_to_files=directory
     }
     string_to_swap <- system.file("quarto/", package = "slides")
-    if (style == "gb") {
-      footer_file <- grep(
-        "quarto-support/footer.css",
+    footer_file <- grep(
+      "quarto-support/footer.css",
+      list.files(
+        system.file(
+          "quarto/gb-slides_files/libs",package = "slides"
+        ), recursive = TRUE,full.names = TRUE
+      ), value = TRUE
+    )
+    header_logo_file <- grep(
+      "libs/revealjs/dist/theme/images",
+      list.files(
+        system.file(
+          "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
+          package = "slides"
+        ), recursive = TRUE,
+        full.names = TRUE
+      ), value = TRUE
+    )
+    files_to_copy <- grep(
+      ".qmd|.scss|title-slide.html|slides.Rproj|latex_macros.html|publish-slides",
+      grep(
+        "gb|title-slide|slides|latex_macros",
         list.files(
-          system.file(
-            "quarto/gb-slides_files/libs",package = "slides"
-          ), recursive = TRUE,full.names = TRUE
-        ), value = TRUE
-      )
-      header_logo_file <- grep(
-        "libs/revealjs/dist/theme/images",
-        list.files(
-          system.file(
-            "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
-            package = "slides"
-          ), recursive = TRUE,
+          system.file("quarto",package = "slides"), recursive = FALSE,
           full.names = TRUE
-        ), value = TRUE
-      )
-      files_to_copy <- grep(
-        ".qmd|.scss|title-slide.html|slides.Rproj|latex_macros.html|publish-slides",
-        grep(
-          "gb|title-slide|slides|latex_macros",
-          list.files(
-            system.file("quarto",package = "slides"), recursive = FALSE,
-            full.names = TRUE
-          ), value = TRUE), value = TRUE
-      )
-      file.copy(
-        from = files_to_copy,
-        to = gsub(string_to_swap, path_to_files, files_to_copy)
-      )
-      if (!dir.exists(
-        file.path(directory, paste0(file_name,"_files"),
-                  "libs", "revealjs","plugin", "quarto-support"))) {
-        dir.create(
-          file.path(
-            directory, paste0(file_name,"_files"), "libs", "revealjs",
-            "plugin", "quarto-support"
-          ),
-          recursive = TRUE
-        )
-      }
-      if (!dir.exists(
+        ), value = TRUE), value = TRUE
+    )
+    file.copy(
+      from = files_to_copy,
+      to = gsub(string_to_swap, path_to_files, files_to_copy)
+    )
+    if (!dir.exists(
+      file.path(directory, paste0(file_name,"_files"),
+                "libs", "revealjs","plugin", "quarto-support"))) {
+      dir.create(
         file.path(
-          directory,
-          paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
-        )
+          directory, paste0(file_name,"_files"), "libs", "revealjs",
+          "plugin", "quarto-support"
+        ),
+        recursive = TRUE
       )
-      ) {
-        dir.create(
-          file.path(
-            directory, paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
-          ), recursive = TRUE
-        )
-      }
-
-      from_dir = system.file(
-        "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
-        package = "slides"
-      )
-      files = list.files(from_dir, recursive = TRUE, full.names = TRUE)
-      to_dir = gsub(
-        string_to_swap,
-        path_to_files,
-        gsub(
-          "gb-slides",
-          file_name,
-          from_dir
-        )
-      )
-      file.copy(
-        from = files,
-        to = file.path(to_dir, basename(files)),
-        overwrite = TRUE
-      )
-      file.copy(
-        from = footer_file,
-        to = gsub(
-          string_to_swap,path_to_files, gsub(
-            "gb-slides_files", paste0(file_name,"_files"), footer_file
-          )
-        )
-      )
-      file.rename(paste0(path_to_files, "gb-slides.qmd"),
-                  paste0(path_to_files, paste0(file_name, ".qmd")))
-    } else {
-      stop(message = "I don't recognise that style of slides. Please choose \"gb\" or something else that exists. Thank you!")
     }
+    if (!dir.exists(
+      file.path(
+        directory,
+        paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
+      )
+    )
+    ) {
+      dir.create(
+        file.path(
+          directory, paste0(file_name,"_files"), "libs", "revealjs", "dist", "theme","images"
+        ), recursive = TRUE
+      )
+    }
+
+    from_dir = system.file(
+      "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
+      package = "slides"
+    )
+    files = list.files(from_dir, recursive = TRUE, full.names = TRUE)
+    to_dir = gsub(
+      string_to_swap,
+      path_to_files,
+      gsub(
+        "gb-slides",
+        file_name,
+        from_dir
+      )
+    )
+    file.copy(
+      from = files,
+      to = file.path(to_dir, basename(files)),
+      overwrite = TRUE
+    )
+    file.copy(
+      from = footer_file,
+      to = gsub(
+        string_to_swap,path_to_files, gsub(
+          "gb-slides_files", paste0(file_name,"_files"), footer_file
+        )
+      )
+    )
+    file.rename(paste0(path_to_files, "gb-slides.qmd"),
+                paste0(path_to_files, paste0(file_name, ".qmd")))
+
     if (!dir.exists(file.path(directory, "images"))) {
       dir.create(file.path(directory, "images"))
     }
