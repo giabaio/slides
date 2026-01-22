@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 !quarto/slides.Rproj
 !quarto/assets/setup.R
+^inst/quarto/.quarto$
