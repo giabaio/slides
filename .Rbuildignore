@@ -3,3 +3,7 @@
 !quarto/slides.Rproj
 !quarto/assets/setup.R
 ^inst/quarto/.quarto$
+^inst/quarto/gb-slides_files/figure-revealjs$
+^inst/quarto/gb-slides_files/figure-revealjs/dist/$
+^inst/quarto/gb-slides_files/figure-revealjs/plugin$
+!^inst/quarto/gb-slides_files/figure-revealjs/libs/revealjs$
