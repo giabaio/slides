@@ -320,6 +320,10 @@ section.divider-bg li {
   min-height: 100%;
 }
 
+.reveal section#title-slide h1 {
+  margin-top: 7vh; // Adjust this value to shift it down more
+}
+
 .institute {
   font-family: UCLSans;
   font-size: 0.9em; // 18pt as per pptx template

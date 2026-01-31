@@ -128,7 +128,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
 /* Added by GB for further customisation */
 .postit1 {
   position: absolute;
-  top: 75%;
+  top: 65%;
   left: 1.5%;
   font-family: Nanum Pen Script;
   font-size: 75%;
@@ -146,7 +146,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
 
 .postit2 {
   position: absolute;
-  top:40%;
+  top: 38%;
   left: 2.5%;
   font-family: Nanum Pen Script;
   font-size:75%;
