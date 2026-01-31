@@ -297,8 +297,36 @@ section.divider-bg li {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right bottom;
-  bottom: 0%;
   right: 0%;
+  /* removing bottom: 0%; makes the logo go at the very bottom of the slide */
+  bottom: 0%;
 }
 
+/*
+.reveal .institute {
+  font-family: UCLSans;
+  font-size: 0.9em; // 18pt as per pptx template
+  color: #fafafa;
+  margin-left: 11vw!important;
+  text-align: left;
+  opacity:0.8;
+}
+*/
 
+/* Ensures that in the title page we occupy the whole slide */
+.reveal #title-slide {
+  display: flex !important;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.institute {
+  font-family: UCLSans;
+  font-size: 0.9em; // 18pt as per pptx template
+  color: #fafafa;
+  margin-left: 11vw!important;
+  text-align: left;
+  opacity: 0.8;
+  margin-top: auto !important; // This pushes it to the bottom
+  margin-bottom: 12px !important;
+}

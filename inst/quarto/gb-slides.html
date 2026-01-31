@@ -22,6 +22,9 @@
   <link rel="stylesheet" href="gb-slides_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="gb-slides_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -100,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="gb-slides_files/libs/revealjs/dist/theme/quarto-4f798a9ed868a0cbd5db9cb8be79c7d4.css">
+  <link rel="stylesheet" href="gb-slides_files/libs/revealjs/dist/theme/quarto-420e1ee07953709cb75c2814cc603d6f.css">
   <link rel="stylesheet" href="_extensions/ucl/fonts.css">
   <link rel="stylesheet" href="./assets/common.css">
   <link href="gb-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -261,9 +264,9 @@
   </script>
   <script type="module" src="gb-slides_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
   <link href="gb-slides_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-  <link href="gb-slides_files/libs/htmltools-fill-0.5.9.9000/fill.css" rel="stylesheet">
+  <link href="gb-slides_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
   <script src="gb-slides_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="gb-slides_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="gb-slides_files/libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
   <link href="gb-slides_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
   <script src="gb-slides_files/libs/leaflet-1.3.1/leaflet.js"></script>
   <link href="gb-slides_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
@@ -272,14 +275,15 @@
   <link href="gb-slides_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
   <script src="gb-slides_files/libs/leaflet-binding-2.2.3/leaflet.js"></script>
   <script type="ojs-define">
-  {"contents":[{"name":"actors","value":{"x":[0.3038,1.3131,-0.338,0.8458,-0.3975,0.6459,-2.1331,-1.8184,-0.4556,0.0854,0.6867,0.635,0.422,-0.0106,-0.6809,1.1097,-1.1422,0.5013,0.4485,0.8583,-1.8355,0.2562,-0.7565,-1.0468,-0.3566,-0.8971,-0.8638,-0.6143,0.3904,-0.2261,-0.8373,0.6578,1.0165,1.6395,-0.7111,-0.6912,0.1254,1.0124,0.8956,1.1399,-1.3398,0.8047,0.7174,0.2595,-1.9207,-1.5102,1.2226,-0.4924,-0.6722,0.7319,0.543,1.4573,-0.4615,0.1472,-0.9043,-1.0664,0.0524,0.2556,-0.2294,-1.3361,-1.5535,0.342,0.6122,-1.3049,-0.4732,0.9765,1.541,0.5186,-0.4525,-0.0405,0.4319,-1.1069,-0.2142,-1.1766,0.3878,0.9211,-1.4634,0.0626,0.296,0.9056,0.5836,-0.1478,0.8129,-1.0014,-0.5301,0.0539,1.6275,-0.1938,-0.8159,-0.3344,0.1843,1.4076,-0.2851,-0.0261,0.2704,0.2527,0.9688,-1.625,-1.1673,1.476],"y":[0.4347,-1.8153,-0.0116,-0.3046,-0.5377,-0.6641,0.1824,0.4239,0.8102,-1.2912,0.8372,-0.879,0.182,1.1768,1.679,0.7062,-1.2397,-0.3136,0.4653,-0.2839,0.6847,1.0253,-0.039,2.0505,0.1841,-1.2541,-2.2452,0.6683,0.4621,1.2917,0.7796,-0.2892,0.4469,-1.3979,0.942,-1.2309,-0.1709,-0.5112,-0.4751,-0.6589,0.7492,-0.1475,-1.7385,0.3943,-0.516,-0.6879,-1.8383,-1.3461,0.8363,0.1773,-0.8225,0.9776,0.7378,1.382,-0.6153,-1.0188,-0.944,-0.3908,-1.082,-0.2869,-0.8678,-1.342,0.4001,-0.2914,-0.1589,1.2511,1.1871,-1.088,-1.5889,-0.7602,-1.1875,0.6317,1.6299,0.3432,-0.4429,1.4219,0.9039,-1.8793,0.5374,-0.2839,0.3449,-1.2864,1.5022,-1.0935,0.659,1.8285,-0.4915,-0.4795,1.4986,-0.2621,-0.6888,0.2861,-1.1039,-1.2555,0.2662,-1.3438,1.2138,1.0356,-0.5619,0.1637]}}]}
+  {"contents":[{"name":"actors","value":{"x":[-1.28139330763446,0.398489249066956,0.84279550531981,0.991391690765546,-1.6416148727859,-1.84957737942657,-1.68552492166589,-0.720029914406826,0.374883286317741,1.30035943350829,-2.13893379557133,-0.0406073611912282,0.130625246110956,-1.08016961664689,-0.247381582599661,0.922733107127111,0.593877569012828,0.606376932510734,-0.0793483851648204,2.1217407157353,0.750429186084981,1.03030365881181,0.256272362880185,0.0618924451102181,1.35528277573385,-2.88428754820364,-0.190566191298487,1.2392609630675,0.545920047923495,0.84972567252312,1.48638082571892,0.353869297825751,0.712970384960644,0.595127952913529,0.195827330360721,0.768129814469416,-1.17233227785129,-0.206786496190511,0.932415732443748,0.541382222119923,0.214959307187667,0.450293094072473,-0.241082054630223,0.273654303351323,-1.2663220133236,-0.362129276323499,-2.1604297858482,0.857557369209311,-2.70456828397437,0.687072581904867,0.57615717718719,1.48015271494683,1.02249228934383,-1.22077268084565,-0.963522503638548,-0.233992607230702,-0.129187246836283,-1.46344241925069,1.08012701694788,1.78264855438039,-1.22315662391717,-0.302224719578363,-0.859993533505398,-1.01728710196864,0.212637455363334,1.4120189139156,0.429544608233966,-1.62921182590663,1.73849317091498,0.604263884742269,-0.955393694695916,1.13700791861154,-2.06779468846829,0.0412736195351661,0.166159904449584,-1.2702131450807,0.450322676899178,0.985584135969691,-0.83681447318832,1.35560020196852,0.15749650829053,0.431821930475228,-0.90069283948767,-0.45828090820828,1.12608295294072,0.147030143755964,0.0398472400070529,-0.437742867417527,0.361971216816113,0.253145067628257,-1.10162789815202,0.0507332068525685,0.198581257797892,0.877381384470399,0.518800307401506,-1.29382731901762,1.42485799957471,-3.8959256935039,0.524276467288013,-0.84908345750656],"y":[0.34936455710927,0.159297167267624,1.1317707150004,-1.23725170142075,-0.501687277971178,-0.0416101819993728,-0.0274871375856441,0.924064217870473,-0.408949475248072,-0.122947556406752,-0.560884236835246,-0.182529221616142,-1.34543238834,-0.403348725801956,-0.710133090444709,0.668033684550105,0.880239215338586,0.0370605003150299,1.47601813516692,-1.10127148204013,0.0614153046114893,0.298733551755558,1.83712968703221,1.75905167776784,1.01981429671797,0.534304104443331,-0.885105031098241,-0.350563301159343,0.713925633874914,0.368820230077386,-2.8613256647149,0.451396924155255,-0.0809020395855374,0.0281617407125533,0.868077573869792,0.568299267665055,-0.682567861688161,0.646261199398341,-1.20116274434496,-0.898266960277215,-0.330663213265116,0.357812169416443,-0.258843947093737,0.721648287860928,0.0172625930207021,-1.77328692920807,0.285614761462446,0.065995026857175,0.50046680310532,1.69978861370367,1.25389304331049,-1.04690560404475,-0.403729641840891,0.266715062646265,-1.35715944059328,-1.44373988260244,0.741087941073181,-1.66403035868905,0.853659126139929,1.79541128187508,-1.57848015432021,-1.62194608012543,1.02946316794047,0.423942644148392,-1.02381336148263,0.922810001771557,0.394662887249244,-0.110808870774402,-0.468242582293054,0.144011561378248,0.166128004485974,0.0778207307628237,1.65741388532558,0.0728432040415582,-0.637038537627021,-0.707420692919642,0.189467824500794,0.697913916218826,0.453134458216697,0.0684776836230432,-0.594419123585881,-1.63220716568388,0.103349457411832,-0.588636695156808,-1.33694939332897,0.546361850648165,-1.52358052134794,-0.387702791149779,0.0867462057745775,-0.971448906191679,0.854333887397331,0.215184980828164,1.27198533120892,-2.12812516282358,0.396205830769389,-1.28102199085098,-1.665407999776,0.106813697045131,1.06790208204252,-1.11946232511311]}}]}
   </script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" =""="" class="center">
+<!-- Here, add 'data-footer="false"' to remove the footer from the title page -->
+<section id="title-slide" =""="" data-footer="false" class="center">
   <h1 class="title">A very long title for my slides, which may span across two lines</h1>
 
 
@@ -303,24 +307,27 @@
 
 <br>
 
-<p style="margin-top:20px;" class="date-conference">22 January 2026</p>
+<p style="margin-top:3vw!important;" class="date-conference">31 January 2026</p>
 
 <p style="margin:0px;" class="date-conference">The name of the session</p>
        <p style="margin:0px;" class="date-conference">The name of the conference, Where it is</p>
   
 <br>
 
-<p style="margin-top: 6vh;" class="date-conference">Department of Statistical Science &nbsp; | &nbsp; University College London</p>
-
 
 <p><span class="postit1">Check out our departmental podcast “Random Talks” on Soundcloud! <a href="https://soundcloud.com/uclsound/sets/sample-space" style="color: #ff7700;" title="Listen to our podcast"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a></span></p>
 
 <p><span class="postit2">Follow our departmental social media accounts <a href="url=%22https://twitter.com/stats_ucl" style="color: #000000;" title="Follow us on X"><i class="fa-brands fa-x-twitter" aria-label="x-twitter"></i></a> <a href="https://www.linkedin.com/in/statistical-science-ucl-906b9a201" style="color: #0A66C2;" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a href="https://www.instagram.com/ucl.stats/" style="color: #8a3ab9;" title="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-label="instagram"></i></a> + magazine <a href="https://sample-space.org/" style="color: #434252;" title="Read our online magazine">“Sample Space”</a></span></p>
 
-<p style="margin-top: 2vh;"><span class="logo-stats"></span></p>
+<!--  style="margin-top: 2vh;" -->
+<p><span class="logo-stats"></span></p>
+
+<!-- Add this spacer div to send the institute at the bottom of the page -->
+<div style="flex-grow: 1;"></div>
+
+<p class="institute">Department of Statistical Science &nbsp; | &nbsp; University College London</p>
 
 </section>
-
 <section id="disclaimer" class="slide level2" data-transition="convex-in none-out" data-transition-speed="fast">
 <h2>Disclaimer…</h2>
 <p><a href="images/screenshot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/screenshot.png"></a></p>
@@ -494,9 +501,6 @@ Can add vertical space using `fragments`
 <code>:::</code><br>
 to the end of the slide, to ensure that the footer doesn’t interfere with the colours…</p>
 <p>More simply, can explicitly use the tag <code>{.divider-bg footer="false"}</code></p>
-<div class="footer-nobg">
-<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://www.linkedin.com/in/gianluca-baio/" title="Follow me on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 22 Jan 2026 </p>
-</div>
 </section>
 
 <section>
@@ -504,7 +508,7 @@ to the end of the slide, to ensure that the footer doesn’t interfere with the 
 <h1>Section title slide</h1>
 <p>Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!</p>
 <div class="footer-nobg">
-<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://www.linkedin.com/in/gianluca-baio/" title="Follow me on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 22 Jan 2026 </p>
+<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://www.linkedin.com/in/gianluca-baio/" title="Follow me on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 31 Jan 2026 </p>
 </div>
 </section>
 <section id="code-chunk-and-output-side-by-side" class="slide level2" data-auto-animate="true">
@@ -1875,8 +1879,8 @@ a_{21}&amp; =b_{21}&amp;
 <p>Include Jupyter widgets and htmlwidgets in your presentations</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-8e5ac9fc218a19f473c7" style="width:55%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-8e5ac9fc218a19f473c7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[-36.852,174.768,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The birthplace of R",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-36.852,-36.852],"lng":[174.768,174.768]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-9beca542e20ad9d9e204" style="width:55%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9beca542e20ad9d9e204">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[-36.852,174.768,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The birthplace of R",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-36.852,-36.852],"lng":[174.768,174.768]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="footer">
@@ -1888,9 +1892,9 @@ a_{21}&amp; =b_{21}&amp;
 <p>Turn presentations into applications with Observable and Shiny. Use component layout to position inputs and outputs.</p>
 <div class="layout-sidebar layout-sidebar-left">
 <div class="cell panel-sidebar">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb13" data-startfrom="690" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 689;"><span id="cb13-690"><a href=""></a>viewof talentWeight <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"talent weight"</span> })</span>
-<span id="cb13-691"><a href=""></a>viewof looksWeight <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"looks weight"</span> })</span>
-<span id="cb13-692"><a href=""></a>viewof minimum <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"min fame"</span> })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb13" data-startfrom="687" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 686;"><span id="cb13-687"><a href=""></a>viewof talentWeight <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"talent weight"</span> })</span>
+<span id="cb13-688"><a href=""></a>viewof looksWeight <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"looks weight"</span> })</span>
+<span id="cb13-689"><a href=""></a>viewof minimum <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> { <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"min fame"</span> })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -2066,7 +2070,7 @@ a_{21}&amp; =b_{21}&amp;
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://www.linkedin.com/in/gianluca-baio/" title="Follow me on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 22 Jan 2026 </p>
+<p>© Gianluca Baio (UCL) &nbsp; | &nbsp; <a href="https://www.linkedin.com/in/gianluca-baio/" title="Follow me on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> &nbsp; <a href="https://mas.to/@gianlubaio" title="Follow me on Mastodon"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> &nbsp; <a href="https://github.com/giabaio" title="Check out my repos"><i class="fa-brands fa-github" aria-label="github"></i></a> &nbsp; <a href="mailto:g.baio@ucl.ac.uk" title="Email me"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> &nbsp; <a href="https://gianluca.statistica.it" title="Visit my website"><i class="fa-brands fa-firefox" aria-label="firefox"></i></a> &nbsp; | &nbsp; A short title &nbsp; | &nbsp; A shorter title of the conference &nbsp; | &nbsp; 31 Jan 2026 </p>
 </div>
 </div></div>
 

@@ -40,8 +40,12 @@ knitr::opts_hooks$set(dev = function(options) {
       # Output file name
       x2name <- sub('pdf$', 'png', basename(x))
       x2 <- file.path(full_fig_dir, x2name)
+      # Process the image
+      img <- magick::image_read(x, density = 300)
+      # Can also make white transparent, by default...
+      #      img <- magick::image_transparent(img, "white")
       # Convert and save
-      magick::image_write(magick::image_read(x, density = 300), x2, format = 'png', quality = 100)
+      magick::image_write(img, x2, format = 'png', quality = 100)
       # Clean up the original PDF
       file.remove(x)# Return RELATIVE path so HTML can reference it
       file.path(fig_dir, x2name)
@@ -55,29 +59,50 @@ knitr::opts_hooks$set(dev = function(options) {
 # knitr::opts_chunk$set(dev = "ragg_png")
 # This sets up the overall options for computation output
 knitr::opts_chunk$set(
-  fig.width = 12, fig.height = 9, out.width = "55%", fig.align = "center"
+  fig.width = 7, fig.height = 5, out.width = "55%", fig.align = "center"
 )
 
 # Additional graphical instructions to add to the normal ./assets/setup.R *only* if the style chosen in ucl-revealjs
-if (rmarkdown::metadata$format=="ucl-revealjs" & rmarkdown::metadata$`img-bg`) {
-  # Background for base graphs
+if (rmarkdown::metadata$format=="ucl-revealjs") {
+
+  # UCL colour palette - official colour scaling
+  ucl_palette = c(
+    "#5487ff", #blue
+    "#ed367d", #fucsia
+    "#57b444", #teal green
+    "#e36c2a", #orange
+    "#005e5c", #dark green
+    "#9e1a54", #dark fucsia
+    "#781c1c", #dark orange
+    "#002ea6"  #dark blue
+  )
+
+  # Specialised ggplot theme
+  theme_ucl <- function(ignore_panel = TRUE) {
+    th <- theme_bw() +
+      theme(
+        plot.background  = element_rect(fill = "#fafafa", colour = NA),
+        legend.background = element_rect(fill = "#fafafa", colour = NA),
+        legend.key = element_rect(fill = "#fafafa", colour = NA)
+      )
+    if (!ignore_panel) {
+      th <- th + theme(panel.background = element_rect(fill = "#fafafa", colour = NA))
+    }
+    th
+  }
+  options(
+    ggplot2.discrete.colour = ucl_palette,
+    ggplot2.discrete.fill = ucl_palette
+  )
+  theme_set(theme_ucl(ignore_panel=rmarkdown::metadata$`img-bg`))
+
+  # Removes background for base graphs
   knitr::opts_chunk$set(
     dev = "png",
     dev.args = list(bg = "#fafafa")
   )
 
-  # Background for ggplot graphs
-  theme_set(
-    theme_bw() +
-      theme(
-        plot.background  = element_rect(fill = "#fafafa", colour = NA),
-#        panel.background = element_rect(fill = "#fafafa", colour = NA),
-        legend.background = element_rect(fill = "#fafafa", colour = NA),
-        legend.key = element_rect(fill = "#fafafa", colour = NA)
-      )
-  )
-
-  # Background for tikz images
+  # Removes background for tikz images
   knitr::opts_hooks$set(engine = function(options) {
     if (identical(options$engine, "tikz") && !knitr:::is_latex_output()) {
       original_code <- options$code
