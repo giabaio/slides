@@ -67,6 +67,10 @@ Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;
 /* Formats the colour for the subtitle in the title page */
 .reveal section#title-slide h3 {
   color: #fafafa;
+  margin-left: 11vw;
+  margin-right: 3%;
+  text-align: left;
+  font: UCLSans-SemiBold;
 }
 
 /* This is necessary to remove the box if the h1 happens in a slide with background */

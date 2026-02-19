@@ -6,8 +6,8 @@ contributes:
   formats:
     revealjs:
       css:
-          - fonts.css
-          - ./assets/common.css
+          - ./css/fonts.css
+          - ./css/common.css
       template-partials:
           - title-slide.html
       include-in-header:
