@@ -129,7 +129,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .postit1 {
   position: absolute;
   top: 65%;
-  left: 1.5%;
+/*  left: 1.5%; */
   font-family: Nanum Pen Script;
   font-size: 75%;
   text-decoration: none;
@@ -147,7 +147,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .postit2 {
   position: absolute;
   top: 38%;
-  left: 2.5%;
+/*  left: 2.5%; */
   font-family: Nanum Pen Script;
   font-size:75%;
   text-decoration: none;
@@ -162,6 +162,11 @@ section.has-dark-background a, section.has-dark-background a:hover {
   transform: rotate(6deg);
   border-bottom-right-radius: 60px 5px;
 }
+
+/* This makes the left-positioning of the post-its responsive */
+.postit1 { left: clamp(-37.5px, calc(12vw - 157.5px), 22.5px); }
+.postit2 { left: clamp(-37.5px, calc(15vw - 187.5px), 37.5px); }
+
 
 /*******************************************************************************************************************************
  * Colours
