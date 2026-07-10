@@ -12,6 +12,7 @@ contributes:
           - title-slide.html
       include-in-header:
           - ./assets/latex_macros.html
+          - ./assets/decktape_tag.html
       transition: none
       slide-number: true
       chalkboard:

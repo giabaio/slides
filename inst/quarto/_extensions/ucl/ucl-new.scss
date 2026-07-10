@@ -327,3 +327,31 @@ section.divider-bg li {
   margin-top: auto !important; // This pushes it to the bottom
   margin-bottom: 12px !important;
 }
+
+/* Defines a special `no-link` class in which a hyperlink is not coloured like the normal ones */
+.no-link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Fixes the size of the footer when printing to pdf via `decktape`
+html.decktape .reveal div.footer.footer-default {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  line-height: 1.2 !important;
+}
+html.decktape .reveal div.footer.footer-default,
+html.decktape .reveal div.footer.footer-default * {
+  font-size: 0.75em !important;
+}
+html.decktape .reveal div.slide-number,
+html.decktape .reveal div.slide-number * {
+  padding-bottom: 0px !important;
+  font-size: 0.75em !important;
+}
+/*
+html.decktape .reveal div.footer.footer-default > *,
+html.decktape .reveal div.footer.footer-default p {
+  margin: 0 !important;
+}
+*/
