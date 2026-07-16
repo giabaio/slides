@@ -1,7 +1,7 @@
 ---
 #' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
 format: 
-  ucl-revealjs
+  ucl-beamer
 #' Should the compiled images have a transparent background? (good for UCL2026 style)
 img-bg: true
 from: markdown+emoji
@@ -162,17 +162,17 @@ Can add vertical space using `fragments`
 
 ## Some maths
 
-We can also include maths, using standard $\rm\LaTeX$:
+We can also include maths, using standard LaTeX:
 
 $$\class{italian-green}{p(y\mid\mathcal{D}) = \int p(y\mid\bm\theta)p(\boldsymbol\theta\mid\mathcal{D})d\boldsymbol\theta} $$
 
-To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$` 
+To use colours with LaTeX, needs a little hack: `$\class{color}{expression}$` 
 
 You can define a probabilistic assumption as
 [$$y \mid \bm\theta \sim \dpois(\bm\theta)$$]{.spanish-red}
 but in line it would look like this $\color{MidnightBlue}{y\sim \dnorm(\mu,\sigma^2)}$ 
 
-These use the predefined $\rm\LaTeX$ macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output; example: `$\DIC=2345$` is typeset as $\DIC=2345$.
+These use the predefined LaTeX macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output; example: `$\DIC=2345$` is typeset as $\DIC=2345$.
 
 `r vspace("2rem")`
 For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font). But can also use `$\txt{Some text}$`, which gets rendered as $\txt{Some text}$ --- it's like `\text{...}` but with the current font
@@ -226,6 +226,7 @@ function(input, output) {
 Learn more: [Code Animations](https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations)
 :::
 
+::: {.content-visible when-format="revealjs"}
 ## Line Highlighting
 
 -   Highlight specific lines for emphasis
@@ -247,6 +248,7 @@ plt.show()
 ::: footer
 Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
 :::
+:::
 
 ## Text formatting
 
@@ -254,6 +256,7 @@ Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#
 >
 > More quoted text
 
+::: {.content-visible when-format="revealjs"}
 ## Executable Code
 
 ```{r}
@@ -267,6 +270,7 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 
 ::: footer
 Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
+:::
 :::
 
 ## A base plot
@@ -302,6 +306,7 @@ Setting the background colour to a dark colour automatically changes the colour 
 {{< meta footer >}}
 :::
 
+::: {.content-visible when-format="revealjs"}
 ## Code chunk and output side by side  {auto-animate=true}
 
 ```{r}
@@ -317,8 +322,9 @@ ggplot(palmerpenguins::penguins,
   geom_point() +
   colorblindr::scale_color_OkabeIto()
 ```
+:::
 
-
+::: {.content-visible when-format="revealjs"}
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
 ```{r}
@@ -336,9 +342,9 @@ ggplot(palmerpenguins::penguins,
   theme_minimal() +
   colorblindr::scale_color_OkabeIto()
 ```
+:::
 
-
-
+::: {.content-visible when-format="revealjs"}
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
 This time with hidden lines 
@@ -358,10 +364,9 @@ ggplot(palmerpenguins::penguins,
   theme_minimal() +
   colorblindr::scale_color_OkabeIto()
 ```
+:::
 
-
-
-
+::: {.content-visible when-format="revealjs"}
 ## LaTeX Equations
 
 See code for creating columns
@@ -405,6 +410,7 @@ a_{21}& =b_{21}&
 
 ::: footer
 Learn more: [LaTeX Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
+:::
 :::
 
 ## Make all the text smaller{.smaller}
@@ -613,7 +619,8 @@ The next few slides will transition using the `slide` transition
 Learn more: [Slide Transitions](https://quarto.org/docs/presentations/revealjs/advanced.html#slide-transitions)
 :::
 
-## A long, scrollable table 
+
+## A long, scrollable table
 ### Using `fragments`...
 
 ::: {style="height: 80%; overflow: auto; font-size: .65em;"}
@@ -661,6 +668,7 @@ Include Jupyter widgets and htmlwidgets in your presentations
 ```{r}
 #| echo: false
 #| fig-height: 5
+#| eval: !expr knitr::is_html_output()
 library(leaflet)
 leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
@@ -671,6 +679,7 @@ leaflet() %>%
 Learn more: [Jupyter widgets](https://quarto.org/docs/interactive/widgets/jupyter.html), [htmlwidgets](https://quarto.org/docs/interactive/widgets/htmlwidgets.html)
 :::
 
+::: {.content-hidden when-format="beamer"}
 ## Interactive Slides {.smaller transition="slide"}
 
 Turn presentations into applications with Observable and Shiny. Use component layout to position inputs and outputs.
@@ -692,6 +701,7 @@ viewof minimum = Inputs.range([-2, 2], { value: 1, step: 0.01, label: "min fame"
 ::: footer
 Learn more: [Observable](https://quarto.org/docs/interactive/ojs/), [Shiny](https://quarto.org/docs/interactive/shiny/), [Component Layout](https://quarto.org/docs/interactive/layout.html)
 :::
+:::
 
 ## Preview Links
 
@@ -707,6 +717,7 @@ Use the `preview-links` option to open links in an iframe on top of your slides.
 Learn more: [Preview Links](https://quarto.org/docs/presentations/revealjs/presenting.html#preview-links)
 :::
 
+::: {.content-visible when-format="revealjs"}
 ## Easy Navigation
 
 ::: {style="margin-bottom: 0.9em;"}
@@ -724,7 +735,9 @@ You can also press `m` to toggle the menu open and closed.
 ::: footer
 Learn more: [Navigation](https://quarto.org/docs/presentations/revealjs/presenting.html#navigation-menu)
 :::
+:::
 
+::: {.content-visible when-format="revealjs"}
 ## Chalkboard {chalkboard-buttons="true"}
 
 ::: {style="margin-bottom: 0.9em;"}
@@ -748,7 +761,10 @@ You can also press `b` to toggle the chalkboard or `c` to toggle the notes canva
 ::: footer
 Learn more: [Chalkboard](https://quarto.org/docs/presentations/revealjs/presenting.html#chalkboard)
 :::
+:::
 
+
+::: {.content-visible when-format="revealjs"}
 ## Point of View
 
 Press `o` to toggle overview mode:
@@ -834,4 +850,5 @@ Some text after the image.
 -->
 ::: {.content-hidden unless-meta="thank-you.show"}
 {{< include assets/thankyou.qmd >}}
+:::
 :::
