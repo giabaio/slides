@@ -226,7 +226,7 @@ function(input, output) {
 Learn more: [Code Animations](https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations)
 :::
 
-::: {.content-visible when-format="revealjs"}
+:::: {.content-visible when-format="revealjs"}
 ## Line Highlighting
 
 -   Highlight specific lines for emphasis
@@ -248,7 +248,7 @@ plt.show()
 ::: footer
 Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
 :::
-:::
+::::
 
 ## Text formatting
 
@@ -256,7 +256,7 @@ Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#
 >
 > More quoted text
 
-::: {.content-visible when-format="revealjs"}
+
 ## Executable Code
 
 ```{r}
@@ -270,7 +270,6 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 
 ::: footer
 Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
-:::
 :::
 
 ## A base plot
@@ -306,7 +305,6 @@ Setting the background colour to a dark colour automatically changes the colour 
 {{< meta footer >}}
 :::
 
-::: {.content-visible when-format="revealjs"}
 ## Code chunk and output side by side  {auto-animate=true}
 
 ```{r}
@@ -322,9 +320,7 @@ ggplot(palmerpenguins::penguins,
   geom_point() +
   colorblindr::scale_color_OkabeIto()
 ```
-:::
 
-::: {.content-visible when-format="revealjs"}
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
 ```{r}
@@ -342,9 +338,7 @@ ggplot(palmerpenguins::penguins,
   theme_minimal() +
   colorblindr::scale_color_OkabeIto()
 ```
-:::
 
-::: {.content-visible when-format="revealjs"}
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
 This time with hidden lines 
@@ -364,9 +358,8 @@ ggplot(palmerpenguins::penguins,
   theme_minimal() +
   colorblindr::scale_color_OkabeIto()
 ```
-:::
 
-::: {.content-visible when-format="revealjs"}
+:::: {.content-visible when-format="revealjs"}
 ## LaTeX Equations
 
 See code for creating columns
@@ -411,9 +404,9 @@ a_{21}& =b_{21}&
 ::: footer
 Learn more: [LaTeX Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
 :::
-:::
+::::
 
-## Make all the text smaller{.smaller}
+## Make all the text smaller (only in `revealjs`) {.smaller}
 
 All the text on this slide is smaller. Not entirely sure what the use case is! Maybe long quotes?
 
@@ -500,7 +493,7 @@ Highlight red (but green and blue are also built-in)
 
 . . .
 
-::: {.fragment .highlight-itared}
+:::: {.fragment .highlight-itared}
 Highlight custom colour (defined in `scss` file or can be added on the fly)
 
 ````{verbatim}
@@ -519,13 +512,13 @@ Highlight custom colour (defined in `scss` file or can be added on the fly)
 Text to highlight here...
 :::
 ````
-:::
+::::
 
 ::: footer
 Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
 :::
 
-## Slide Backgrounds {background="#43464B"}
+## Slide Backgrounds (only in `revealjs`) {background="#43464B"}
 
 Set the `background` attribute on a slide to change the background color (all CSS color formats are supported).
 
@@ -535,7 +528,7 @@ Different background transitions are available via the `background-transition` o
 Learn more: [Slide Backgrounds](https://quarto.org/docs/presentations/revealjs/#color-backgrounds)
 :::
 
-## Media Backgrounds {background="#43464B" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg"}
+## Media Backgrounds (only in `revealjs`)  {background="#43464B" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg"}
 
 You can also use the following as a slide background:
 
@@ -548,7 +541,7 @@ Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#
 :::
 
 
-## Media Backgrounds with brand colour {background="#002248" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background-opacity="0.5"}
+## Media Backgrounds with brand colour (only in `revealjs`) {background="#002248" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background-opacity="0.5"}
 
 You can also use the following as a slide background:
 
@@ -560,7 +553,7 @@ You can also use the following as a slide background:
 Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
 :::
 
-
+:::: {.content-visible when-format="revealjs"}
 ## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
 
 Auto-animate tries to automatically find the bits to match across slides. To override, see:
@@ -602,7 +595,7 @@ Automatically animate matching elements across slides with Auto-Animate.
 Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
 :::
 
-## Slide Transitions {.smaller}
+## Slide Transitions  {.smaller}
 
 The next few slides will transition using the `slide` transition
 
@@ -679,7 +672,6 @@ leaflet() %>%
 Learn more: [Jupyter widgets](https://quarto.org/docs/interactive/widgets/jupyter.html), [htmlwidgets](https://quarto.org/docs/interactive/widgets/htmlwidgets.html)
 :::
 
-::: {.content-hidden when-format="beamer"}
 ## Interactive Slides {.smaller transition="slide"}
 
 Turn presentations into applications with Observable and Shiny. Use component layout to position inputs and outputs.
@@ -701,7 +693,6 @@ viewof minimum = Inputs.range([-2, 2], { value: 1, step: 0.01, label: "min fame"
 ::: footer
 Learn more: [Observable](https://quarto.org/docs/interactive/ojs/), [Shiny](https://quarto.org/docs/interactive/shiny/), [Component Layout](https://quarto.org/docs/interactive/layout.html)
 :::
-:::
 
 ## Preview Links
 
@@ -717,7 +708,7 @@ Use the `preview-links` option to open links in an iframe on top of your slides.
 Learn more: [Preview Links](https://quarto.org/docs/presentations/revealjs/presenting.html#preview-links)
 :::
 
-::: {.content-visible when-format="revealjs"}
+:::: {.content-visible when-format="revealjs"}
 ## Easy Navigation
 
 ::: {style="margin-bottom: 0.9em;"}
@@ -735,9 +726,7 @@ You can also press `m` to toggle the menu open and closed.
 ::: footer
 Learn more: [Navigation](https://quarto.org/docs/presentations/revealjs/presenting.html#navigation-menu)
 :::
-:::
 
-::: {.content-visible when-format="revealjs"}
 ## Chalkboard {chalkboard-buttons="true"}
 
 ::: {style="margin-bottom: 0.9em;"}
@@ -761,10 +750,7 @@ You can also press `b` to toggle the chalkboard or `c` to toggle the notes canva
 ::: footer
 Learn more: [Chalkboard](https://quarto.org/docs/presentations/revealjs/presenting.html#chalkboard)
 :::
-:::
 
-
-::: {.content-visible when-format="revealjs"}
 ## Point of View
 
 Press `o` to toggle overview mode:
@@ -851,4 +837,5 @@ Some text after the image.
 ::: {.content-hidden unless-meta="thank-you.show"}
 {{< include assets/thankyou.qmd >}}
 :::
-:::
+
+::::

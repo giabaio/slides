@@ -25,7 +25,7 @@ function Math(el)
   return el
 end
 
--- 3. FIX: Render CodeBlocks cleanly while erasing conflicting revealjs animation attributes
+-- 3. FIX: Render CodeBlocks cleanly while escaping LaTeX triggers (#, $, ', ~, and _)
 function CodeBlock(el)
   if not is_latex() then return nil end
 
@@ -50,6 +50,13 @@ function CodeBlock(el)
   -- Escape single quotes (') with literal quote text commands (\textquotesingle)
   code = code:gsub("'", "{\\textquotesingle}")
 
+  -- Escape the tilde character (~) using a safe LaTeX font string override
+  code = code:gsub("~", "\\ensuremath{\\sim}")
+
+  -- FIX: Escape underscore characters (_) so R function names (geom_point, geom_smooth)
+  -- do not trigger LaTeX subscript math mode and crash the compiler.
+  code = code:gsub("_", "\\_")
+
   -- If the code block is printing literal math environment code strings,
   -- escape the structural backslashes so unicode-math skips scanning them safely.
   if code:match("\\begin") or code:match("gather") or code:match("align") then
@@ -57,7 +64,6 @@ function CodeBlock(el)
     code = code:gsub("{", "\\{")
     code = code:gsub("}", "\\}")
     code = code:gsub("&", "\\&")
-    code = code:gsub("_", "\\_")
     code = code:gsub("\n", " \\\\ \n")
 
     local safe_latex = "{\\ttfamily\\footnotesize\\setlength{\\baselineskip}{9pt}\n"
