@@ -231,7 +231,6 @@ function Meta(meta)
   -- Inject rows cleanly into our dedicated macro register
   if #rows > 0 then
     local social_tex = "{\\setlength{\\baselineskip}{9pt}" .. table.concat(rows, " \\\\ ") .. "}"
-    table.insert(header_extras, "\\providecommand{\\insertsocials}{" .. social_tex .. "}")
     table.insert(header_extras, "\\gdef\\insertsocials{" .. social_tex .. "}")
   end
 
@@ -318,3 +317,25 @@ function Str(el)
   return el
 end
 
+
+----------------------------------------------------------------------
+-- Per-slide {.no-logo} class support
+----------------------------------------------------------------------
+-- Under revealjs this is a CSS class that hides the logo. Under beamer
+-- we translate it into a boolean the footline template checks. When a
+-- level-2 heading (i.e. a slide) carries {.no-logo}, we insert raw
+-- LaTeX just after it that sets \uclNoLogotrue. The footline template
+-- reads this once, then resets it — so the effect is confined to one
+-- slide. Requires \newif\ifuclNoLogo in ucl-beamer.tex.
+function Header(el)
+  if not (FORMAT:match("beamer") or FORMAT:match("latex")) then
+    return nil
+  end
+  if el.level ~= 2 then return nil end
+  for _, cls in ipairs(el.classes) do
+    if cls == "no-logo" then
+      return { el, pandoc.RawBlock("latex", "\\global\\uclNoLogotrue") }
+    end
+  end
+  return nil
+end

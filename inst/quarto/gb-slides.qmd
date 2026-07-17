@@ -285,6 +285,7 @@ plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 
 Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`)
 
+:::: {.content-visible when-format="revealjs"}
 # And another {.divider-bg footer="false"}
 
 Using the tag `{.divider-bg}` gives a background in line with the UCL 2026 template
@@ -295,7 +296,6 @@ The slide looks nicer without the footer. This can be done either by adding
 to the end of the slide, to ensure that the footer doesn't interfere with the colours...
 
 More simply, can explicitly use the tag `{.divider-bg footer="false"}`
-
 
 # Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5 footer="false"}
 
@@ -359,7 +359,6 @@ ggplot(palmerpenguins::penguins,
   colorblindr::scale_color_OkabeIto()
 ```
 
-:::: {.content-visible when-format="revealjs"}
 ## LaTeX Equations
 
 See code for creating columns
@@ -368,7 +367,7 @@ See code for creating columns
 
 ::: columns
 ::: {.column width="40%"}
-``` tex
+```latex
 \begin{gather*}
 a_1=b_1+c_1\\
 a_2=b_2+c_2-d_2+e_2
@@ -404,13 +403,13 @@ a_{21}& =b_{21}&
 ::: footer
 Learn more: [LaTeX Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
 :::
-::::
 
-## Make all the text smaller (only in `revealjs`) {.smaller}
+## Make all the text smaller {.smaller}
 
 All the text on this slide is smaller. Not entirely sure what the use case is! Maybe long quotes?
 
 *"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."*
+::::
 
 ## Column Layout
 
@@ -518,6 +517,7 @@ Text to highlight here...
 Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
 :::
 
+:::: {.content-visible when-format="revealjs"}
 ## Slide Backgrounds (only in `revealjs`) {background="#43464B"}
 
 Set the `background` attribute on a slide to change the background color (all CSS color formats are supported).
@@ -553,7 +553,6 @@ You can also use the following as a slide background:
 Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
 :::
 
-:::: {.content-visible when-format="revealjs"}
 ## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
 
 Auto-animate tries to automatically find the bits to match across slides. To override, see:
@@ -708,7 +707,6 @@ Use the `preview-links` option to open links in an iframe on top of your slides.
 Learn more: [Preview Links](https://quarto.org/docs/presentations/revealjs/presenting.html#preview-links)
 :::
 
-:::: {.content-visible when-format="revealjs"}
 ## Easy Navigation
 
 ::: {style="margin-bottom: 0.9em;"}

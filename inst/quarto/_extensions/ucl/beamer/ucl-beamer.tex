@@ -2,8 +2,7 @@
 %%%  UCL Beamer theme
 %%%  Companion to the UCL 2026 revealjs Quarto extension
 %%%  Requires: xelatex (or lualatex), fontspec, tikz, tcolorbox,
-%%%            soul, xcolor, fontawesome5, unicode-math,
-%%%            amssymb, amsmath
+%%%            soul, xcolor, fontawesome5, unicode-math
 %%%============================================================
 
 \usepackage{fontspec}
@@ -13,8 +12,11 @@
 \usepackage{xcolor}
 \usepackage{fontawesome5}
 \usetikzlibrary{calc, positioning}
-% \usepackage{amssymb}
-% \usepackage{amsmath}
+
+% Per-frame boolean: true = skip logo on this frame. Set by the lua
+% filter when a slide heading has {.no-logo}; reset by the footline
+% template after each frame, so the effect is local to one slide.
+\newif\ifuclNoLogo
 
 %%%------------------------------------------------------------
 %%%  MathJax / Unicode-Math compatibility
@@ -150,26 +152,30 @@
 \setbeamerfont{institute}{family=\sffamily, size=\footnotesize}
 \setbeamerfont{footline}{family=\sffamily, size=\scriptsize}
 
-% MAPPED 36pt SLIDE TITLE: Clean, bold, and authoritative
-\setbeamerfont{frametitle}{family=\sffamily, series=\bfseries}
+% MAPPED SLIDE TITLE: Clean, bold, and authoritative
+% Frame title = 1.5× body (matches PowerPoint 36pt title / 24pt body).
+% We capture the documentclass base font size in \uclbasesize at
+% BeginDocument, then compute the title size proportionally. This means
+% changing 'fontsize:' in YAML scales the frame title with everything else.
+\newlength{\uclbasesize}
+\makeatletter
+\AtBeginDocument{\uclbasesize=\f@size pt}
+\makeatother
+\setbeamerfont{frametitle}{family=\sffamily, series=\bfseries,
+  size=\fontsize{\dimexpr1.5\uclbasesize\relax}{\dimexpr1.8\uclbasesize\relax}\selectfont}
 \setbeamertemplate{frametitle}{%
   \nointerlineskip
   \vspace{0.6ex}
   \begin{beamercolorbox}[wd=\paperwidth, ht=3.5ex, dp=1.2ex,
                          leftskip=0.05\paperwidth]{frametitle}%
     \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}%
-    \fontsize{20pt}{24pt}\selectfont\insertframetitle%
+    \insertframetitle%
   \end{beamercolorbox}%
 }
 
-% MAPPED SLIDE BODY TEXT: Balanced at 11pt with 15pt linespread
-% This removes the chunkiness, lets text flow, and leaves plenty of space for content.
-\setbeamerfont{normal text}{}
-\AtBeginDocument{%
-  \fontsize{11pt}{15pt}\selectfont%
-  \setlength{\baselineskip}{15pt}%
-  \usebeamerfont{normal text}%
-}
+% Body text: no hardcoded size — respects documentclass fontsize option.
+% Line spacing is left at beamer's default (tight but readable); if you want
+% more airy body text, add \linespread{1.05}\selectfont here.
 
 
 %%%------------------------------------------------------------
@@ -267,13 +273,25 @@
       \node[anchor=east, font=\sffamily\scriptsize, text=uclfootertext]
         at ([xshift=-0.02\paperwidth, yshift=0.275cm]current page.south east)
         {\insertframenumber/\inserttotalframenumber};
-      % UCL logo, sitting on top of the footer bar, bottom-right
-      \node[anchor=south east, inner sep=2pt]
-        at ([xshift=-0.01\paperwidth, yshift=0.55cm]current page.south east)
-        {\includegraphics[height=0.6cm]{\UCLimgpath ucl-new-logo.png}};
+      % UCL logo, sitting on top of the footer bar, bottom-right.
+      % Suppressed on this frame if \ifuclNoLogo is true (set by the
+      % lua filter when a slide heading carries {.no-logo}).
+      \ifuclNoLogo\else
+        \node[anchor=south east, inner sep=2pt]
+          at ([xshift=-0.01\paperwidth, yshift=0.55cm]current page.south east)
+          {\includegraphics[height=0.6cm]{\UCLimgpath ucl-new-logo.png}};
+      \fi
     \end{tikzpicture}%
     \vspace*{0.55cm}%
+    \global\uclNoLogofalse
   \fi
+      % UCL logo, sitting on top of the footer bar, bottom-right
+%      \node[anchor=south east, inner sep=2pt]
+%        at ([xshift=-0.01\paperwidth, yshift=0.55cm]current page.south east)
+%        {\includegraphics[height=0.6cm]{\UCLimgpath ucl-new-logo.png}};
+%    \end{tikzpicture}%
+%    \vspace*{0.55cm}%
+%  \fi
 }
 
 %%%------------------------------------------------------------
@@ -297,44 +315,58 @@
       at (current page.south east)
       {\includegraphics[height=1.0cm]{\UCLimgpath ucl-new-title.png}};
 
-    % MAPPED 42pt TITLE BLOCK
-    \node[anchor=north west, text=uclbg,
-          font=\sffamily\bfseries\fontsize{24pt}{25pt}\selectfont,
-          text width=0.82\paperwidth, align=left]
-      at ([xshift=0.11\paperwidth, yshift=-0.14\paperheight]current page.north west)
-      {\inserttitle};
+    % TITLE BLOCK — local \linespread{0.85} to tighten multi-line titles
+%    \node[anchor=north west, text=uclbg,
+%          font=\sffamily\bfseries\Huge,
+%          text width=0.82\paperwidth, align=left]
+%      at ([xshift=0.11\paperwidth, yshift=-0.14\paperheight]current page.north west)
+%      {\selectfont\inserttitle};
+
+    % TITLE BLOCK — explicit minipage lets us control \baselineskip
+    % reliably (which TikZ's text-width paragraph mechanism sometimes
+    % ignores when \linespread is set inside the node body).
+    % 1em = current font size, so 1em baselineskip = zero external
+    % leading (tight); 1.1em gives a small breathing gap. Tune as
+    % needed; the value auto-scales with the font size.
+    \node[anchor=north west] at ([xshift=0.11\paperwidth, yshift=-0.14\paperheight]current page.north west)
+      {\color{uclbg}\sffamily\bfseries\Huge
+       \begin{minipage}[t]{0.82\paperwidth}%
+         \setlength{\baselineskip}{1em}%
+         \raggedright
+         \inserttitle
+       \end{minipage}};
 
     % MAPPED 24pt SUBTITLE BLOCK
     \node[anchor=north west, text=uclbg,
-          font=\sffamily\fontsize{14pt}{16pt}\selectfont,
+          font=\sffamily\Large,
           text width=0.82\paperwidth, align=left]
       at ([xshift=0.11\paperwidth, yshift=-0.35\paperheight]current page.north west)
       {\color{uclbg!70!ucldarkpurple}\insertsubtitle};
 
-    % MAPPED 24pt AUTHOR BLOCK
+    % AUTHOR BLOCK — matched to date size
     \node[anchor=north west, text=uclbg,
-          font=\sffamily\bfseries\fontsize{14pt}{16pt}\selectfont,
+          font=\sffamily\bfseries\normalsize,
           text width=0.82\paperwidth, align=left]
       at ([xshift=0.11\paperwidth, yshift=-0.45\paperheight]current page.north west)
       {\insertauthor};
 
-    % SOCIALS BLOCK - Slid downwards slightly to clear the larger author footprint
+    % SOCIALS BLOCK
     \node[anchor=north west, text=uclgold,
-          font=\sffamily\fontsize{6.5pt}{7.5pt}\selectfont,
+          font=\sffamily\scriptsize,
           text width=0.82\paperwidth, align=left]
       at ([xshift=0.11\paperwidth, yshift=-0.50\paperheight]current page.north west)
       {\insertsocials\par};
 
     % MAPPED DATE BLOCK - Balanced at 11pt/14pt to prevent the typewriter font from overpowering the author text
     \node[anchor=north west, text=uclbg,
-          font=\sffamily\fontsize{11pt}{12pt}\selectfont,
+          font=\sffamily\normalsize,
           text width=0.82\paperwidth, align=left]
       at ([xshift=0.11\paperwidth, yshift=-0.68\paperheight]current page.north west)
       {\color{uclbg!75!ucldarkpurple}\insertdate};
 
     % institute at the bottom (empty = nothing rendered)
     \node[anchor=south west, text=uclbg,
-          font=\sffamily\fontsize{10pt}{12pt}\selectfont,
+          font=\sffamily\small,
           text width=0.82\paperwidth, align=left]
       at ([xshift=0.11\paperwidth, yshift=0.05\paperheight]current page.south west)
       {\color{uclbg!75!ucldarkpurple}\insertinstitute};
@@ -347,6 +379,7 @@
 % Mirrors the .divider-bg class in the SCSS: four vertical stripes
 % then a section title anchored at ~30% from the left.
 \AtBeginSection[]{%
+  \global\uclNoLogofalse
   \begin{frame}[plain, noframenumbering]
     \begin{tikzpicture}[remember picture, overlay]
       \fill[uclbrightpurple]
