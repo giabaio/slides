@@ -122,6 +122,22 @@ This presentation will show you examples of what you can do with Quarto and [Rev
 
 ...and much more 
 
+## Different output
+
+- The default output is `html` via `revealjs`. This is managed by the option 
+  ```yaml
+  format: 
+     ucl-revealjs
+  ```
+  in the `yml` of the `.qmd` file.
+
+- Alternatively, the slides can be produced in `pdf` directly via `beamer`. This is obtained by specifying 
+  ```yaml
+  format: 
+     ucl-beamer
+  ```
+  instead.
+  
 --- 
 
 Here's a new slide without a title.
@@ -283,7 +299,7 @@ plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 
 # A section {.divider}
 
-Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`)
+Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`) 
 
 :::: {.content-visible when-format="revealjs"}
 # And another {.divider-bg footer="false"}
