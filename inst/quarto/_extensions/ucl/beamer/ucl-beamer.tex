@@ -152,7 +152,6 @@
 \setbeamerfont{institute}{family=\sffamily, size=\footnotesize}
 \setbeamerfont{footline}{family=\sffamily, size=\scriptsize}
 
-% MAPPED SLIDE TITLE: Clean, bold, and authoritative
 % Frame title = 1.5× body (matches PowerPoint 36pt title / 24pt body).
 % We capture the documentclass base font size in \uclbasesize at
 % BeginDocument, then compute the title size proportionally. This means
@@ -285,13 +284,6 @@
     \vspace*{0.55cm}%
     \global\uclNoLogofalse
   \fi
-      % UCL logo, sitting on top of the footer bar, bottom-right
-%      \node[anchor=south east, inner sep=2pt]
-%        at ([xshift=-0.01\paperwidth, yshift=0.55cm]current page.south east)
-%        {\includegraphics[height=0.6cm]{\UCLimgpath ucl-new-logo.png}};
-%    \end{tikzpicture}%
-%    \vspace*{0.55cm}%
-%  \fi
 }
 
 %%%------------------------------------------------------------
@@ -314,13 +306,6 @@
     \node[anchor=south east, inner sep=10pt]
       at (current page.south east)
       {\includegraphics[height=1.0cm]{\UCLimgpath ucl-new-title.png}};
-
-    % TITLE BLOCK — local \linespread{0.85} to tighten multi-line titles
-%    \node[anchor=north west, text=uclbg,
-%          font=\sffamily\bfseries\Huge,
-%          text width=0.82\paperwidth, align=left]
-%      at ([xshift=0.11\paperwidth, yshift=-0.14\paperheight]current page.north west)
-%      {\selectfont\inserttitle};
 
     % TITLE BLOCK — explicit minipage lets us control \baselineskip
     % reliably (which TikZ's text-width paragraph mechanism sometimes
