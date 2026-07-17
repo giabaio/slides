@@ -51,7 +51,7 @@ function CodeBlock(el)
   code = code:gsub("'", "{\\textquotesingle}")
 
   -- Escape the tilde character (~) using a safe LaTeX font string override
-  code = code:gsub("~", "\\ensuremath{\\sim}")
+     code = code:gsub("~", "\\textasciitilde{}")
 
   -- FIX: Escape underscore characters (_) so R function names (geom_point, geom_smooth)
   -- do not trigger LaTeX subscript math mode and crash the compiler.
