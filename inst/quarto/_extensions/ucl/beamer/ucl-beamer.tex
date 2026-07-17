@@ -24,8 +24,16 @@
 \usepackage{unicode-math}
 
 % Cleanly override math bold formatting macros for LuaLaTeX
-\protected\def\bm#1{\symbfit{#1}}
-\protected\def\boldsymbol#1{\symbfit{#1}}
+\protected\def\bm#1{\symbf{#1}}
+\protected\def\boldsymbol#1{\symbf{#1}}
+
+% Restore the familiar Computer Modern calligraphic \mathcal.
+% unicode-math points \mathcal at the math font's script slot, which
+% for Latin Modern Math looks quite different from the classical LaTeX
+% calligraphic that most maths papers use. This override sends
+% \mathcal back to CM Math Symbols (OMS/cmsy) — same glyphs as
+% pdflatex + amssymb, so \mathcal{S}, \mathcal{D} etc. look expected.
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 
 %%%------------------------------------------------------------
 %%%  MathJax compatibility
@@ -392,6 +400,27 @@
     \end{tikzpicture}
   \end{frame}
 }
+
+%%%------------------------------------------------------------
+%%%  Custom .divider frame
+%%%------------------------------------------------------------
+% Solid dark-purple background with the section title and any content
+% that followed the {.divider} heading in the qmd. Called by the lua
+% filter, which also removes the Header from the AST so pandoc does not
+% emit \section and \AtBeginSection does not fire.
+\newcommand{\uclDividerFrameStart}[1]{%
+  % The frame is emitted by pandoc with an empty title, but beamer's
+  % frametitle template still draws an empty bar at the top. Suppress
+  % it for this frame only.
+  \setbeamertemplate{frametitle}{}%
+  \vspace*{0.18\paperheight}%
+  \hspace*{0.08\paperwidth}\begin{minipage}[t]{0.80\paperwidth}%
+    \sffamily
+    {\color{ucldarkpurple}\bfseries\Huge #1\par}
+    \vspace{1em}
+    \color{ucltext}\normalsize
+}
+\newcommand{\uclDividerFrameEnd}{\end{minipage}}
 
 %%%------------------------------------------------------------
 %%%  Utility commands used by the lua filter

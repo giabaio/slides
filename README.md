@@ -49,3 +49,16 @@ The rest of the `yml` defines the format of the `revealjs` slide. The title page
 ```
 where the file `assets/template.html` is added (from [here](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/revealjs/pandoc/template.html)) and modified as required.
 
+In addition, **for the UCL** theme only, the slides can be rendered using either `revealjs` (to `html`) or `beamer` (to `pdf`). This is controlled by the input
+```
+#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
+format: 
+  ucl-XXX
+```
+where `XXX` is either `revealjs` or `beamer`. The `_extensions` folder contains a number of subfolders, each defining a specific theme: 
+
+- `gb` (old UCL template)
+- `sampdoria` (a theme based on the Sampdoria palette)
+- `ucl` (current UCL theme).
+
+The folder `ucl` contains a further subfolder `beamer`, in which the `beamer` theme is coded up in the `ucl-template.tex` file. There are also a number of `.lua` filters that can be used to aid `pandoc` processing through LaTeX.

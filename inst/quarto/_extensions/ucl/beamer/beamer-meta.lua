@@ -306,6 +306,26 @@ function Meta(meta)
   return meta
 end
 
+----------------------------------------------------------------------
+-- Rewrite \color{#RRGGBB} → \color[HTML]{RRGGBB} in math
+----------------------------------------------------------------------
+-- MathJax accepts \color{#hex} because it has a CSS-aware colour
+-- parser. LaTeX does not: `#` is the macro-parameter character, so
+-- `\color{#24568c}` raises "Illegal parameter number". Rewrite hex
+-- colour arguments in math to the standard LaTeX two-argument form.
+function Math(el)
+  if not (FORMAT:match("beamer") or FORMAT:match("latex")) then
+    return nil
+  end
+  local new_text, count = el.text:gsub("\\color%s*{%s*#(%x+)%s*}",
+                                        "\\color[HTML]{%1}")
+  if count > 0 then
+    el.text = new_text
+    return el
+  end
+  return nil
+end
+
 -- FIX: Automatically intercept ALL Unicode emojis and wrap them in the fallback font
 function Str(el)
   if FORMAT:match("beamer") or FORMAT:match("latex") then
@@ -339,3 +359,79 @@ function Header(el)
   end
   return nil
 end
+
+----------------------------------------------------------------------
+-- Per-section {.divider} class support
+----------------------------------------------------------------------
+-- When a level-1 heading has {.divider}, we want a single frame that
+-- combines the section-divider styling with the paragraph(s) that
+-- follow the heading in the qmd. Pandoc's default is two: the
+-- \AtBeginSection frame, then an implicit level-2 frame for the
+-- orphaned content. Here we walk the block list, consume the
+-- {.divider} header + everything up to the next header, and emit
+-- one custom frame in place of the header. Because the Header is
+-- removed from the AST, pandoc never emits \section for it, so
+-- \AtBeginSection is not triggered — no double divider, no need
+-- for a flag mechanism. Trade-off: no TOC entry for divider slides.
+--
+-- Requires \uclDividerFrameStart, \uclDividerFrameEnd in
+-- ucl-beamer.tex.
+function Pandoc(doc)
+  if not (FORMAT:match("beamer") or FORMAT:match("latex")) then
+    return nil
+  end
+
+  local new_blocks = {}
+  local i = 1
+  while i <= #doc.blocks do
+    local block = doc.blocks[i]
+    local is_divider = false
+    if block.t == "Header" and block.level == 1 then
+      for _, cls in ipairs(block.classes) do
+        if cls == "divider" then is_divider = true; break end
+      end
+    end
+
+    if is_divider then
+      local title = pandoc.utils.stringify(block.content)
+
+      -- Instead of removing the header (which desyncs pandoc's frame
+      -- state and produces stray \end{frame}s), transform it into a
+      -- level-2 heading with empty title and .plain/.noframenumbering
+      -- classes. Pandoc then emits \begin{frame}[plain,noframenumbering]{}
+      -- and \end{frame} in the right places; we only inject the
+      -- divider styling and title text into the frame body.
+      block.level = 2
+      block.content = pandoc.List{}
+      block.attr = pandoc.Attr("", {"noframenumbering"}, {})
+
+      table.insert(new_blocks, block)
+
+      -- Prepend our custom tikz-drawn background + title. The macro
+      -- also suppresses the empty frametitle bar that beamer would
+      -- otherwise draw at the top of a [plain] frame.
+      table.insert(new_blocks, pandoc.RawBlock("latex",
+        "\\uclDividerFrameStart{" .. title .. "}"))
+
+      -- Consume subsequent blocks up to the next Header. They flow
+      -- naturally into pandoc's auto-generated frame.
+      local j = i + 1
+      while j <= #doc.blocks and doc.blocks[j].t ~= "Header" do
+        table.insert(new_blocks, doc.blocks[j])
+        j = j + 1
+      end
+
+      -- Close only our minipage; \end{frame} is emitted by pandoc.
+      table.insert(new_blocks, pandoc.RawBlock("latex", "\\uclDividerFrameEnd"))
+
+      i = j
+    else
+      table.insert(new_blocks, block)
+      i = i + 1
+    end
+  end
+
+  doc.blocks = new_blocks
+  return doc
+end
+

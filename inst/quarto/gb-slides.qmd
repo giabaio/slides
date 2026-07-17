@@ -297,6 +297,10 @@ Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#ex
 plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 ```
 
+:::: {.content-visible when-format="beamer"}
+# A section
+::::
+
 # A section {.divider}
 
 Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`) 
