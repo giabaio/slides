@@ -435,3 +435,55 @@ function Pandoc(doc)
   return doc
 end
 
+
+----------------------------------------------------------------------
+-- Fragment highlight support: {.fragment .highlight-XXX}
+----------------------------------------------------------------------
+-- In revealjs, this means "content visible from the start; changes to
+-- XXX colour when the fragment is revealed on click". Pandoc's beamer
+-- writer only sees .fragment and wraps in \uncover<+->{...} — content
+-- hidden before reveal, no colour change. We swap that behaviour:
+-- strip .fragment (so pandoc emits no \uncover wrap) and inject an
+-- overlay-aware colour switch. Content stays visible from overlay 1;
+-- colour flips to XXX on the next auto-overlay increment.
+--
+-- Colour names must resolve to \definecolor names in ucl-beamer.tex.
+-- The mapping below matches the LaTeX side, not the CSS class name
+-- directly, since the CSS and LaTeX palettes use different names.
+
+local highlight_colors = {
+  ["highlight-red"]      = "red",
+  ["highlight-green"]    = "green",
+  ["highlight-blue"]     = "blue",
+  ["highlight-itared"]   = "italian-red",
+  ["highlight-itagreen"] = "italian-green",
+}
+
+function Div(el)
+  if not (FORMAT:match("beamer") or FORMAT:match("latex")) then
+    return nil
+  end
+  local has_fragment = false
+  local color = nil
+  for _, cls in ipairs(el.classes) do
+    if cls == "fragment" then has_fragment = true end
+    if highlight_colors[cls] then color = highlight_colors[cls] end
+  end
+  if not (has_fragment and color) then return nil end
+
+  -- Strip .fragment so pandoc does not wrap the div in \uncover<+->
+  local kept = pandoc.List{}
+  for _, cls in ipairs(el.classes) do
+    if cls ~= "fragment" then kept:insert(cls) end
+  end
+  el.classes = kept
+
+  -- Wrap the div content in a group with an overlay-aware colour.
+  -- \color<+->{X} switches colour from the next auto-overlay onward;
+  -- before that, the surrounding colour is unchanged.
+  el.content:insert(1, pandoc.RawBlock("latex",
+    "{\\color<+->{" .. color .. "}%"))
+  el.content:insert(pandoc.RawBlock("latex", "}%"))
+
+  return el
+end

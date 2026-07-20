@@ -537,6 +537,26 @@ Text to highlight here...
 Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
 :::
 
+:::: {.content-visible when-format="beamer"}
+## Fragments (in beamer)
+
+- The file `beamer-meta.lua` defines a filter to map the code `::: {.fragment .highlight-XXX}`, which is specific to `revealjs`
+-  More colours can be defined and added to the filter, in the part
+   ```{=latex}
+   \begin{verbatim}
+    local highlight_colors = {
+      ["highlight-red"]      = "red",
+      ["highlight-green"]    = "green",
+      ["highlight-blue"]     = "blue",
+      ["highlight-itared"]   = "italian-red",
+      ["highlight-itagreen"] = "italian-green",
+      ["new-colour"]         = "new-colour"
+   }
+   \end{verbatim}
+   ```
+   and the `new-colour` must also be defined in the `ucl-beamer.tex` template (both under `_extensions/ucl/beamer`)
+::::
+
 :::: {.content-visible when-format="revealjs"}
 ## Slide Backgrounds (only in `revealjs`) {background="#43464B"}
 
