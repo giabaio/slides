@@ -2,7 +2,7 @@
 #' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'.
 #' Can also output to beamer with ucl-beamer and that creates a native pdf presentation
 format: 
-  ucl-revealjs
+  ucl-beamer
 #' Should the compiled images have a transparent background? (good for UCL2026 style)
 img-bg: true
 from: markdown+emoji

@@ -33,6 +33,9 @@ contributes:
       fig-format: png
       fig-dpi: 300
       aspectratio: 1610
+      # lualatex is the default and handles all perfectly.
+      # xelatex is also OK, but misses emojis (though symbols like :wink: can be included in the qmd file).
+      # pdflatex also works, but cannot handle emojis (and so symbols like :wink: must be removed from the qmd file).
       pdf-engine: lualatex
       keep-tex: false
       slide-level: 2

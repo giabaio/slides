@@ -85,10 +85,15 @@ function Meta(meta)
   if not is_latex() then return nil end
 
   local header_extras = {}
-  -- FIX: Force LuaLaTeX to load an Emoji font fallback engine
-  table.insert(header_extras, "\\usepackage{fontspec}")
-  table.insert(header_extras, "\\newfontfamily\\emojifont{Noto Color Emoji}[Renderer=HarfBuzz]")
-  table.insert(header_extras, "\\DeclareTextFontCommand{\\textemoji}{\\emojifont}")
+  -- Wrap emoji setup in \ifluatex so XeLaTeX/pdfLaTeX ignore it completely
+  table.insert(header_extras, "\\usepackage{iftex}")
+  table.insert(header_extras, "\\ifluatex")
+  table.insert(header_extras, "  \\usepackage{fontspec}")
+  table.insert(header_extras, "  \\newfontfamily\\emojifont{Noto Color Emoji}[Renderer=HarfBuzz]")
+  table.insert(header_extras, "  \\DeclareTextFontCommand{\\textemoji}{\\emojifont}")
+  table.insert(header_extras, "\\else")
+  table.insert(header_extras, "  \\providecommand{\\textemoji}[1]{#1}")
+  table.insert(header_extras, "\\fi")
 
   ------------------------------------------------------------------
   -- Institute
