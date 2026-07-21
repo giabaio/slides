@@ -34,6 +34,7 @@ contributes:
       fig-dpi: 300
       aspectratio: 1610
       pdf-engine: lualatex
+      keep-tex: true
       slide-level: 2
       # Defines the basic font-size. Can be increased if necessary and all fonts will increase proportionally
       fontsize: 10pt
