@@ -63,7 +63,7 @@ knitr::opts_chunk$set(
 )
 
 # Additional graphical instructions to add to the normal ./assets/setup.R *only* if the style chosen in ucl-revealjs
-if (rmarkdown::metadata$format=="ucl-revealjs") {
+if (rmarkdown::metadata$format %in% c("ucl-revealjs", "ucl-beamer")) {
 
   # UCL colour palette - official colour scaling
   ucl_palette = c(

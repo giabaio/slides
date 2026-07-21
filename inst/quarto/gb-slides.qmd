@@ -1,5 +1,6 @@
 ---
-#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
+#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'.
+#' Can also output to beamer with ucl-beamer and that creates a native pdf presentation
 format: 
   ucl-revealjs
 #' Should the compiled images have a transparent background? (good for UCL2026 style)
@@ -122,6 +123,22 @@ This presentation will show you examples of what you can do with Quarto and [Rev
 
 ...and much more 
 
+## Different output
+
+- The default output is `html` via `revealjs`. This is managed by the option 
+  ```yaml
+  format: 
+     ucl-revealjs
+  ```
+  in the `yml` of the `.qmd` file.
+
+- Alternatively, the slides can be produced in `pdf` directly via `beamer`. This is obtained by specifying 
+  ```yaml
+  format: 
+     ucl-beamer
+  ```
+  instead.
+  
 --- 
 
 Here's a new slide without a title.
@@ -162,17 +179,17 @@ Can add vertical space using `fragments`
 
 ## Some maths
 
-We can also include maths, using standard $\rm\LaTeX$:
+We can also include maths, using standard LaTeX:
 
 $$\class{italian-green}{p(y\mid\mathcal{D}) = \int p(y\mid\bm\theta)p(\boldsymbol\theta\mid\mathcal{D})d\boldsymbol\theta} $$
 
-To use colours with $\rm\LaTeX$, needs a little hack: `$\class{color}{expression}$` 
+To use colours with LaTeX, needs a little hack: `$\class{color}{expression}$` 
 
 You can define a probabilistic assumption as
 [$$y \mid \bm\theta \sim \dpois(\bm\theta)$$]{.spanish-red}
 but in line it would look like this $\color{MidnightBlue}{y\sim \dnorm(\mu,\sigma^2)}$ 
 
-These use the predefined $\rm\LaTeX$ macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output; example: `$\DIC=2345$` is typeset as $\DIC=2345$.
+These use the predefined LaTeX macros, saved in the file [`latex_macros.html`](latex_macros.html). More can be (re)defined by simply adding to the file, which gets pre-loaded at the beginning of the resulting `.html` output; example: `$\DIC=2345$` is typeset as $\DIC=2345$.
 
 `r vspace("2rem")`
 For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font). But can also use `$\txt{Some text}$`, which gets rendered as $\txt{Some text}$ --- it's like `\text{...}` but with the current font
@@ -226,6 +243,7 @@ function(input, output) {
 Learn more: [Code Animations](https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations)
 :::
 
+:::: {.content-visible when-format="revealjs"}
 ## Line Highlighting
 
 -   Highlight specific lines for emphasis
@@ -247,12 +265,14 @@ plt.show()
 ::: footer
 Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
 :::
+::::
 
 ## Text formatting
 
 > Blockquote
 >
 > More quoted text
+
 
 ## Executable Code
 
@@ -278,10 +298,15 @@ Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#ex
 plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 ```
 
+:::: {.content-visible when-format="beamer"}
+# A section
+::::
+
 # A section {.divider}
 
-Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`)
+Using the tag `{.divider}` makes for some nicer `css` formatting (especially under `ucl-revealjs`) 
 
+:::: {.content-visible when-format="revealjs"}
 # And another {.divider-bg footer="false"}
 
 Using the tag `{.divider-bg}` gives a background in line with the UCL 2026 template
@@ -292,7 +317,6 @@ The slide looks nicer without the footer. This can be done either by adding
 to the end of the slide, to ensure that the footer doesn't interfere with the colours...
 
 More simply, can explicitly use the tag `{.divider-bg footer="false"}`
-
 
 # Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5 footer="false"}
 
@@ -318,7 +342,6 @@ ggplot(palmerpenguins::penguins,
   colorblindr::scale_color_OkabeIto()
 ```
 
-
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
 ```{r}
@@ -336,8 +359,6 @@ ggplot(palmerpenguins::penguins,
   theme_minimal() +
   colorblindr::scale_color_OkabeIto()
 ```
-
-
 
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
@@ -359,9 +380,6 @@ ggplot(palmerpenguins::penguins,
   colorblindr::scale_color_OkabeIto()
 ```
 
-
-
-
 ## LaTeX Equations
 
 See code for creating columns
@@ -370,7 +388,7 @@ See code for creating columns
 
 ::: columns
 ::: {.column width="40%"}
-``` tex
+```latex
 \begin{gather*}
 a_1=b_1+c_1\\
 a_2=b_2+c_2-d_2+e_2
@@ -407,11 +425,12 @@ a_{21}& =b_{21}&
 Learn more: [LaTeX Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
 :::
 
-## Make all the text smaller{.smaller}
+## Make all the text smaller {.smaller}
 
 All the text on this slide is smaller. Not entirely sure what the use case is! Maybe long quotes?
 
 *"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."*
+::::
 
 ## Column Layout
 
@@ -494,7 +513,7 @@ Highlight red (but green and blue are also built-in)
 
 . . .
 
-::: {.fragment .highlight-itared}
+:::: {.fragment .highlight-itared}
 Highlight custom colour (defined in `scss` file or can be added on the fly)
 
 ````{verbatim}
@@ -513,13 +532,34 @@ Highlight custom colour (defined in `scss` file or can be added on the fly)
 Text to highlight here...
 :::
 ````
-:::
+::::
 
 ::: footer
 Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
 :::
 
-## Slide Backgrounds {background="#43464B"}
+:::: {.content-visible when-format="beamer"}
+## Fragments (in beamer)
+
+- The file `beamer-meta.lua` defines a filter to map the code `::: {.fragment .highlight-XXX}`, which is specific to `revealjs`
+-  More colours can be defined and added to the filter, in the part
+   ```{=latex}
+   \begin{verbatim}
+    local highlight_colors = {
+      ["highlight-red"]      = "red",
+      ["highlight-green"]    = "green",
+      ["highlight-blue"]     = "blue",
+      ["highlight-itared"]   = "italian-red",
+      ["highlight-itagreen"] = "italian-green",
+      ["new-colour"]         = "new-colour"
+   }
+   \end{verbatim}
+   ```
+   and the `new-colour` must also be defined in the `ucl-beamer.tex` template (both under `_extensions/ucl/beamer`)
+::::
+
+:::: {.content-visible when-format="revealjs"}
+## Slide Backgrounds (only in `revealjs`) {background="#43464B"}
 
 Set the `background` attribute on a slide to change the background color (all CSS color formats are supported).
 
@@ -529,7 +569,7 @@ Different background transitions are available via the `background-transition` o
 Learn more: [Slide Backgrounds](https://quarto.org/docs/presentations/revealjs/#color-backgrounds)
 :::
 
-## Media Backgrounds {background="#43464B" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg"}
+## Media Backgrounds (only in `revealjs`)  {background="#43464B" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg"}
 
 You can also use the following as a slide background:
 
@@ -542,7 +582,7 @@ Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#
 :::
 
 
-## Media Backgrounds with brand colour {background="#002248" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background-opacity="0.5"}
+## Media Backgrounds with brand colour (only in `revealjs`) {background="#002248" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background-opacity="0.5"}
 
 You can also use the following as a slide background:
 
@@ -553,7 +593,6 @@ You can also use the following as a slide background:
 ::: footer
 Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
 :::
-
 
 ## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
 
@@ -596,7 +635,7 @@ Automatically animate matching elements across slides with Auto-Animate.
 Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
 :::
 
-## Slide Transitions {.smaller}
+## Slide Transitions  {.smaller}
 
 The next few slides will transition using the `slide` transition
 
@@ -613,7 +652,8 @@ The next few slides will transition using the `slide` transition
 Learn more: [Slide Transitions](https://quarto.org/docs/presentations/revealjs/advanced.html#slide-transitions)
 :::
 
-## A long, scrollable table 
+
+## A long, scrollable table
 ### Using `fragments`...
 
 ::: {style="height: 80%; overflow: auto; font-size: .65em;"}
@@ -661,6 +701,7 @@ Include Jupyter widgets and htmlwidgets in your presentations
 ```{r}
 #| echo: false
 #| fig-height: 5
+#| eval: !expr knitr::is_html_output()
 library(leaflet)
 leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
@@ -835,3 +876,5 @@ Some text after the image.
 ::: {.content-hidden unless-meta="thank-you.show"}
 {{< include assets/thankyou.qmd >}}
 :::
+
+::::
