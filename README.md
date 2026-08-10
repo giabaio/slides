@@ -62,3 +62,43 @@ where `XXX` is either `revealjs` or `beamer`. The `_extensions` folder contains 
 - `ucl` (current UCL theme).
 
 The folder `ucl` contains a further subfolder `beamer`, in which the `beamer` theme is coded up in the `ucl-template.tex` file. There are also a number of `.lua` filters that can be used to aid `pandoc` processing through LaTeX.
+
+## Printing the `html` slides
+
+The `revealjs` slides can be printed to pdf more efficiently using `decktape`. It's possible to use the default pathway from `quarto` (press `e` then print to pdf),
+but this may not handle title page background or some formulae very well.
+
+`decktape` is installed with
+```
+npm install -g decktape
+```
+and then can be used with command line such as
+```
+decktape reveal --size 1600x900 \
+  "https://gianluca.statistica.it/slides/presentation/" \
+  presentation.pdf
+```
+
+Useful flags include:
+- `--size 1600x900` matches Quarto's default reveal width/height
+- `--slides 1-30` if you want a range
+- `--pause 1500` gives `MathJax` more time before each screenshot (bump this if any equation looks half-rendered)
+- `--fragments true` renders each fragment step as its own page
+
+NB: to use some of these, it may be helpful to use explicitly the command `decktape reval` not just `decktape`.
+
+This command can also be scripted, for instance as
+```
+#!/usr/bin/env bash
+# render-pdf.sh
+URL=${1:-"http://localhost:4321"}
+OUT=${2:-"slides.pdf"}
+decktape reveal --size 1600x900 --pause 1500 "$URL" "$OUT"
+```
+to make the pdf files. It may fail with sites hosted on `netflify`, as it doesn't want to give access to the 
+`xxx_files` folder. In that case, just do the local render.
+
+For password protected sites can do
+```
+decktape https://user:password@site.com --options
+```
