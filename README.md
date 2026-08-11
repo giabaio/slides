@@ -6,7 +6,7 @@ This package is written initially to create templated `xaringan` slides.
 The first type of presentation templates created is using [`xaringan`](https://github.com/yihui/xaringan). This works really well and is quite flexible. It allows `LaTeX`-like notation (eg for mathematics) but outputs the slides onto `html` using `remark.js`. When the `slides` package is installed, then in `Rstudio` the slides appear as one of the templates. Click on `File` -> `New File` -> `R Markdown` and then select `From Template`. From there use the `UCL Presentation` template. It is also possible to select the folder in which the template is saved and a suitable `Rproj` created. Then can edit the templated slides and produce the relevant `html` presentation. This can be simply uploaded on a website for presentation and dissemination.
 
 ## `quarto`
-More recently and building on the work of Cara Thompson (for the package `samplespace`, which contains UCL Stats Science-themed slides), a new template based on `quarto` and `reveal.js`. This is a bit more modern and, to some extent, more powerful. The template is very similar to the `xaringan` one --- differences are really minor. The way in which the slides are created is one and is based on the `slides` function `quarto_slides`. This takes as inputs the name of the file and the folder into which the presentation is to be saved.
+More recently and building on the work of Cara Thompson (for the package `samplespace`, which contains UCL Stats Science-themed slides), a new template based on `quarto` and `reveal.js`. This is a bit more modern and, to some extent, more powerful -- and it also uses the newest (2026) UCL official template, which is not implemented in `xaringan`. The general structure of the `quarto` templates is very similar to the `xaringan` one --- differences are really minor. The way in which the slides are created is one and is based on the `slides` function `quarto_slides`. This takes as inputs the name of the file and the folder into which the presentation is to be saved.
 ```
 slides::quarto_slides(
    file_name="index",
@@ -43,7 +43,13 @@ These are the data that define the specific presentation such as:
 3. Computed attributes (from other parts of the yml file)
    - These are `R` code used to create variable using the dynamic information provided in the `yml` to be then passed to other parts of the `yml`, eg to create the footer
    
-The rest of the `yml` defines the format of the `revealjs` slide. The title page can be modified by changing the template in `assets/title-page.html`. The appearance of the actual slides can also be modified by adding the code 
+The rest of the `yml` defines the format of the `revealjs` slide. The `_extensions` folder contains a number of subfolders, each defining a specific theme: 
+
+- `gb` (old UCL template)
+- `sampdoria` (a theme based on the Sampdoria palette)
+- `ucl` (current UCL theme).
+
+The title page can be modified by changing the template in `_extentsion/XXX/title-page.html`. The appearance of the actual slides can also be modified by adding the code 
 ```
 - template: "assets/template.html"
 ```
@@ -55,11 +61,7 @@ In addition, **for the UCL** theme only, the slides can be rendered using either
 format: 
   ucl-XXX
 ```
-where `XXX` is either `revealjs` or `beamer`. The `_extensions` folder contains a number of subfolders, each defining a specific theme: 
-
-- `gb` (old UCL template)
-- `sampdoria` (a theme based on the Sampdoria palette)
-- `ucl` (current UCL theme).
+where `XXX` is either `revealjs` or `beamer`. 
 
 The folder `ucl` contains a further subfolder `beamer`, in which the `beamer` theme is coded up in the `ucl-template.tex` file. There are also a number of `.lua` filters that can be used to aid `pandoc` processing through LaTeX.
 
