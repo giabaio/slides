@@ -274,3 +274,25 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .reveal .slides section .fragment.highlight-blue.visible {
   color: blue;
 }
+
+/* The code below can be used to increase the font-size for the R chunks --
+   just need to un-comment the line with font-size.
+*/
+.reveal div.sourceCode {
+  margin: 0;
+  overflow: auto;
+  border-color: $link-color;
+  // font-size: 1.25em;
+}
+
+/* The code blocks have a fixed height by default, set by a 500px `max-height`
+   on `.reveal pre code` that Quarto has with `!important`. Need to override
+   with `!important` too.
+   This changes the default setting for the height of the code chunks and
+   scales with the slide viewport, so it stays consistent across screen sizes.
+   Can use 90vh if want to push further, but leave some room for the slide title.
+   Can also do `none !important` to remove the cap entirely.
+*/
+.reveal pre code {
+  max-height: 85vh !important;
+}

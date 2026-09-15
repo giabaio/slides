@@ -15,7 +15,7 @@ options(r2j.print.program=FALSE)
 # Sets default fonts for tikz
 library(tikzDevice)
 options(tikzLatexPackages=c(
-  getOption("tikzLatexPackages"),"\\usepackage{inconsolata,}",
+  getOption("tikzLatexPackages"),"\\usepackage{inconsolata,}","\\usepackage{amsmath}",
   "\\usepackage[scaled=.89]{helvet}\n\\renewcommand{\\familydefault}{\\sfdefault}\n")
 )
 options(tikzMetricPackages = c(
@@ -78,23 +78,43 @@ if (rmarkdown::metadata$format %in% c("ucl-revealjs", "ucl-beamer")) {
   )
 
   # Specialised ggplot theme
-  theme_ucl <- function(ignore_panel = TRUE) {
+  theme_ucl <- function(ignore_panel = TRUE, legend_pos = NULL) {
+    # Determine legend background and key background fill based on position
+    leg_fill <- if (identical(legend_pos, "inside")) "transparent" else "#fafafa"
+
     th <- theme_bw() +
       theme(
-        plot.background  = element_rect(fill = "#fafafa", colour = NA),
-        legend.background = element_rect(fill = "#fafafa", colour = NA),
-        legend.key = element_rect(fill = "#fafafa", colour = NA)
+        plot.background   = element_rect(fill = "#fafafa", colour = NA),
+        legend.background = element_rect(fill = leg_fill, colour = NA),
+        legend.key        = element_rect(fill = leg_fill, colour = NA)
       )
     if (!ignore_panel) {
       th <- th + theme(panel.background = element_rect(fill = "#fafafa", colour = NA))
     }
+    if (!is.null(legend_pos)) {
+      th <- th + theme(legend.position = legend_pos)
+    }
     th
   }
+
+  # Define palettes
   options(
     ggplot2.discrete.colour = ucl_palette,
     ggplot2.discrete.fill = ucl_palette
   )
+
+  # Sets theme_ucl() as default if `img-bg=TRUE`
   theme_set(theme_ucl(ignore_panel=rmarkdown::metadata$`img-bg`))
+
+  ## Newly created plots are by default formatted using theme_ucl(), but
+  ## this behaviour can be "forced" by simply adding this command to the
+  ## ggplot2 chain, for instance:
+  ## tibble(x=rnorm(100),y=rnorm(100)) |> ggplot(aes(x,y)) + geom_line() +
+  ## theme_ucl(legend_pos="inside") +
+  ##   theme(
+  ##     legend.position.inside = c(.8,.8),
+  ##     legend.key=element_rect(fill="transparent")
+  ##   )
 
   # Removes background for base graphs
   knitr::opts_chunk$set(
