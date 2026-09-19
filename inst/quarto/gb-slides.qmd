@@ -109,7 +109,6 @@ source("assets/setup.R")
 
 ... Just so you know what [you're about to get yourself into...](https://twitter.com/ManuelaJoore/status/1191397718930939904) :wink:
 
-
 ## Hello there :wave: {transition="convex-in none-out" transition-speed="fast"}
 
 This presentation will show you examples of what you can do with Quarto and [Reveal.js](https://revealjs.com), including:
@@ -148,6 +147,16 @@ Here's a new slide without a title.
 ## No logo {.no-logo}
 
 Here's a slide with no logo -- just add `{.no-logo}` to the title of the slide
+
+## Embedding sites
+
+- Can also embed websites as `iframes`, using the code
+````
+## {background-iframe="https://gianluca.statistica.it" background-interactive="true" data-preload="true" .no-logo}
+````
+
+- This creates a title-less slide with the full space occupied by the website.
+   - Use the options `background-interactive="true"` and `data-preload="true"` for best control and maximum load speed
 
 ## Fun with colours & spaces
 
@@ -556,6 +565,31 @@ Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.
    \end{verbatim}
    ```
    and the `new-colour` must also be defined in the `ucl-beamer.tex` template (both under `_extensions/ucl/beamer`)
+::::
+
+## Frame-Controlled Fragments
+
+- Some initial bullet point
+- And another
+   - Possibly nested...
+
+:::: {style="display: grid;"}
+::: {.fragment .fade-out fragment-index=3 style="grid-area: 1/1;"}
+
+::: {.fragment .fade-in fragment-index=1  style="grid-area: 1/1; margin-top: -20px;"}
+- Some text here
+   - And some other
+:::
+
+::: {.fragment .current-visible fragment-index=2 style="grid-area: 1/1; margin-top: -20px;"}
+- Some more text
+:::
+:::
+
+::: {.fragment .fade-in fragment-index=3 style="grid-area: 1/1; margin-top: -20px;"}
+- More still
+- And that's it
+:::
 ::::
 
 :::: {.content-visible when-format="revealjs"}

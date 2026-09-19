@@ -6,6 +6,15 @@ file=paste0("images/",rmarkdown::metadata$`thank-you`$file,".gif")
 <!-- this adds an empty slide with the "Thank you" gif selected in the yml of the talk -->
 # {.thank-you background-image="`r file`" background="#002248" footer="false"}
 
+<!-- This helps de-pixelate the image. can play with the values of blur and brightness -->
+```{=html}
+<style>
+.reveal .slide-background.thank-you .slide-background-content {
+  filter: blur(4px) brightness(1);
+}
+</style>
+```
+
 <!--
 ::: {.footer style="background-color: transparent!important; background: transparent!important"}
 :::
