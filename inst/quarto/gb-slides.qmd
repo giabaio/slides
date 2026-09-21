@@ -222,6 +222,19 @@ function(input, output) {
 }
 ```
 
+:::{.callout-important}
+The font size in code chunks is controlled by the default `css` style. This can be increase by modifying the file `./css/common.css` by changing the value for `font-size`
+```
+.reveal div.sourceCode {
+  margin: 0;
+  overflow: auto;
+  border-color: $link-color;
+  font-size: 1.10em;
+}
+```
+
+:::
+
 ::: footer
 Learn more: [Syntax Highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting)
 :::
@@ -342,6 +355,7 @@ Setting the background colour to a dark colour automatically changes the colour 
 #| echo: true
 #| fig-width: 6
 #| fig-height: 4
+#| out-width: "100%"
 
 ggplot(palmerpenguins::penguins, 
        aes(x = bill_length_mm, 
@@ -349,6 +363,10 @@ ggplot(palmerpenguins::penguins,
            color = species)) +
   geom_point() +
   colorblindr::scale_color_OkabeIto()
+```
+
+::: {.callout-note}
+By default, `ggplot` uses a specialised `theme_ucl()` function (defined in `.assets/setup.R`) to format the graphs. This aligns with the background colour of the slides.
 ```
 
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
@@ -359,6 +377,7 @@ ggplot(palmerpenguins::penguins,
 #| echo: true
 #| fig-width: 6
 #| fig-height: 4
+#| out-width: "100%"
 
 ggplot(palmerpenguins::penguins, 
        aes(x = bill_length_mm, 
@@ -379,6 +398,7 @@ This time with hidden lines
 #| echo: true
 #| fig-width: 6
 #| fig-height: 4
+#| out-width: "100%"
 
 ggplot(palmerpenguins::penguins, 
        aes(x = bill_length_mm, 
@@ -451,7 +471,7 @@ Arrange content into columns of varying widths:
 ::: {.column width="35%"}
 #### Motor Trend Car Road Tests
 
-The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.
+The data were extracted from the 1974 Motor Trend US magazine and comprise fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.
 :::
 
 ::: {.column width="3%"}
@@ -459,9 +479,13 @@ The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel
 
 ::: {.column width="62%"}
 ```{r}
-knitr::kable(head(mtcars)[,c("mpg",	"cyl", "disp", "hp", "wt")])
+head(mtcars)[,c("mpg",	"cyl", "disp", "hp", "wt")] |> tinytable::tt()
 ```
 :::
+:::
+
+::: {style="margin-top: 50px;"}
+**NB**: Can use the package `tinytable` to format tables in a very efficient way...
 :::
 
 ::: footer
@@ -522,7 +546,6 @@ Highlight red (but green and blue are also built-in)
 
 . . .
 
-:::: {.fragment .highlight-itared}
 Highlight custom colour (defined in `scss` file or can be added on the fly)
 
 ````{verbatim}
@@ -541,7 +564,6 @@ Highlight custom colour (defined in `scss` file or can be added on the fly)
 Text to highlight here...
 :::
 ````
-::::
 
 ::: footer
 Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
