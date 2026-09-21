@@ -282,7 +282,12 @@ section.has-dark-background a, section.has-dark-background a:hover {
   margin: 0;
   overflow: auto;
   border-color: $link-color;
-  font-size: 1.10em;
+//  font-size: 1.10em;
+}
+
+/* This controls the font size of the output of R chunks */
+.reveal pre:not(.sourceCode) {
+  font-size: .65em;
 }
 
 /* The code blocks have a fixed height by default, set by a 500px `max-height`
@@ -295,4 +300,10 @@ section.has-dark-background a, section.has-dark-background a:hover {
 */
 .reveal pre code {
   max-height: 85vh !important;
+}
+
+/* This ensures that the footer stays in position, even when slides are accidentally too large */
+.reveal .footer {
+  position: absolute !important;
+  bottom: 0 !important;
 }

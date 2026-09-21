@@ -367,7 +367,7 @@ ggplot(palmerpenguins::penguins,
 
 ::: {.callout-note}
 By default, `ggplot` uses a specialised `theme_ucl()` function (defined in `.assets/setup.R`) to format the graphs. This aligns with the background colour of the slides.
-```
+:::
 
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
 
