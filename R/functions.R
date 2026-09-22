@@ -459,12 +459,12 @@ publish_slides <- function(target) {
   if (!dir.exists(target)) {
     dir.create(target, recursive = TRUE)
   }
-  
+
   # Find the base name by looking for *_files
   files_in_dir <- list.files(".")
   files_dir_match <- grep("_files$", files_in_dir, value = TRUE)
   base_name <- sub("_files$", "", files_dir_match[1])
-  
+
   # Files/folders to copy (matching your bash script: html, _files, images, css)
   files_to_copy <- c(
     paste0(base_name, ".html"),
@@ -472,10 +472,10 @@ publish_slides <- function(target) {
     "images",
     "css"
   )
-  
+
   # Filter to only copy items that actually exist in the current folder
   files_to_copy <- files_to_copy[files_to_copy %in% files_in_dir]
-  
+
   # Copy files/folders to target
   file.copy(
     from = files_to_copy,
@@ -483,12 +483,77 @@ publish_slides <- function(target) {
     recursive = TRUE,
     overwrite = TRUE
   )
-  
+
   # Conditionally rename the html file to index.html if basename != "index"
   if (base_name != "index") {
     file.rename(
       from = file.path(target, paste0(base_name, ".html")),
       to = file.path(target, "index.html")
     )
+  }
+}
+
+
+#' Prints the revealjs slides to pdf using decktape
+#'
+#' Prints the revealjs slides to pdf using `decktape` and `ps2pdf` for file
+#' compression (both of which must be installed on the machine)
+#'
+#' @param filein The path to the html revealjs slides file
+#' @param fileout The path to the pdf file to be created
+#' @param size The size in pixels of the slides (default "1600x900")
+#' @param pause The pause duration before the next slide (longer time may be
+#' needed for the page to fully load to capture the whole content). Default to
+#' "3000"
+#' @param fragment Should fragments (frame animation) all be printed. Default
+#' to TRUE (in which case there's a single slide per animation)
+#' @param range The range of pages to be printed (e.g. "1-3,5-8")
+#' @param compression The compression level for the resulting pdf file. Default
+#' to "ebook" and other options are "screen" (smallest file/worst resolution),
+#' "printer" (bigger than "ebook", but larger), "prepress" (best resolution but
+#' larger file). This parameter is passed to ps2pdf
+#' @author Gianluca Baio
+#' @examples
+#' revealjs2pdf("index.html","slides.pdf")
+#'
+revealjs2pdf=function(filein,fileout,size="1600x900",pause="3000",fragment=TRUE,range,compression="ebook") {
+  # Build decktape arguments
+  decktape_args <- c("reveal", "--size", size, "--pause", pause)
+
+  if (isTRUE(fragment)) {
+    decktape_args <- c(decktape_args, "--fragments")
+  }
+
+  if (!missing(range) && !is.null(range)) {
+    decktape_args <- c(decktape_args, "--slides", as.character(range))
+  }
+
+  decktape_args <- c(decktape_args, filein, fileout)
+
+  # Run decktape
+  message("Executing decktape...")
+  res <- system2("decktape", args = decktape_args)
+  if (res != 0) {
+    stop("Decktape execution failed with status code ", res)
+  }
+
+  # Create a temporary file for uncompressed output before running ps2pdf
+  temp_out <- tempfile(fileext = ".pdf")
+  file.copy(fileout, temp_out, overwrite = TRUE)
+
+  # Run ps2pdf compression
+  message(sprintf("Compressing PDF using ps2pdf (-dPDFSETTINGS=/%s)...", compression))
+  pdf_args <- c(paste0("-dPDFSETTINGS=/", compression), temp_out, fileout)
+  res_ps <- system2("ps2pdf", args = pdf_args)
+
+  # Clean up temporary file
+  if (file.exists(temp_out)) {
+    file.remove(temp_out)
+  }
+
+  if (res_ps != 0) {
+    warning("ps2pdf compression failed or returned a non-zero exit status, but the uncompressed PDF may still exist.")
+  } else {
+    message("Done: ", fileout)
   }
 }
