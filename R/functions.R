@@ -454,30 +454,41 @@ quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE,css=
 #' @examples
 #' publish_slides("~/Desktop/test")
 #'
-publish_slides=function(target) {
-  # If the target folder doesn't already exist, then create it
+publish_slides <- function(target) {
+  # Create target directory if it doesn't exist
   if (!dir.exists(target)) {
-    dir.create(target)
+    dir.create(target, recursive = TRUE)
   }
-  # First normalises the path to the target directory
-  target=normalizePath(target)
-  if (sub('.*(?=.$)', '', target, perl=T) != "/") {
-    path_to_files=paste0(target,"/")
-  } else {
-    path_to_files=target
-  }
-  files_to_copy <- grep(
-    "*.html|images|*_files",
-    list.files("."),
-    value=TRUE
+  
+  # Find the base name by looking for *_files
+  files_in_dir <- list.files(".")
+  files_dir_match <- grep("_files$", files_in_dir, value = TRUE)
+  base_name <- sub("_files$", "", files_dir_match[1])
+  
+  # Files/folders to copy (matching your bash script: html, _files, images, css)
+  files_to_copy <- c(
+    paste0(base_name, ".html"),
+    paste0(base_name, "_files"),
+    "images",
+    "css"
   )
+  
+  # Filter to only copy items that actually exist in the current folder
+  files_to_copy <- files_to_copy[files_to_copy %in% files_in_dir]
+  
+  # Copy files/folders to target
   file.copy(
     from = files_to_copy,
-    to = path_to_files,
-    recursive=TRUE
+    to = target,
+    recursive = TRUE,
+    overwrite = TRUE
   )
-  file.rename(
-    from=paste0(path_to_files,files_to_copy[grep(".html",files_to_copy)]),
-    to=paste0(path_to_files,"index.html")
-  )
+  
+  # Conditionally rename the html file to index.html if basename != "index"
+  if (base_name != "index") {
+    file.rename(
+      from = file.path(target, paste0(base_name, ".html")),
+      to = file.path(target, "index.html")
+    )
+  }
 }
