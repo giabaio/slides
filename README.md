@@ -104,3 +104,9 @@ For password protected sites can do
 ```
 decktape https://user:password@site.com --options
 ```
+
+The resulting `pdf` output is usually a large file, which can be compressed to a smaller one using
+```
+ps2pdf -dQUIET -dPDFSETTINGS=/ebooks large-file.pdf smaller-file.pdf
+```
+This is also scripted in the file `revealjs2pdf`.
