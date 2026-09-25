@@ -4,7 +4,6 @@ Title: Creates a set of templates for 'quarto' and 'xaringan' slides
 Version: 0.8.0
 Authors@R: c(
     person("Gianluca", "Baio", role = c("aut", "cre"), email = "g.baio@ucl.ac.uk", comment = c(ORCID = "0000-0003-4314-2570")),
-    # contributors ordered alphabetically below 
     person("Cara", "Thompson", role = "ctb")
     )
 Maintainer: Gianluca Baio <g.baio@ucl.ac.uk>
@@ -20,5 +19,7 @@ Imports:
    xaringanExtra,
    RefManageR,
    tikzDevice,
-   fontawesome
-RoxygenNote: 7.3.2.9000
+   fontawesome,
+   here,
+   htmltools
+RoxygenNote: 7.3.3

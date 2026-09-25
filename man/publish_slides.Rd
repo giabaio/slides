@@ -15,7 +15,9 @@ Copies the relevant files/folders onto a specific target, which is used to
 publish the slides online
 }
 \examples{
+\dontrun{
 publish_slides("~/Desktop/test")
+}
 
 }
 \author{

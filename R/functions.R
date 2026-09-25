@@ -1,6 +1,7 @@
 #' Uses R to create HTML code to make space
 #'
 #' @param space The amount of vertical space to include (default to "-20px")
+#' @export
 #'
 vspace=function(space="-20px") {
   paste('<span style="display:block; margin-top:',space,';"></span>')
@@ -9,7 +10,7 @@ vspace=function(space="-20px") {
 #' Creates a 'tab' function that adds horizontal space(s)
 #'
 #' @param x The number of 'tabs' to be added (defaults to 1)
-#'
+#' @noRd
 tab=function(x=1) {
   cat(rep("&nbsp;",x),sep="")
 }
@@ -192,6 +193,7 @@ postit=function(text="This is some text",top="50%",left="2.5%",fontsize="85%",he
 }
 
 # Creates HTML code to include the samptux icon + link to gianluca.statistica.it
+#' @noRd
 samptux=function(path="assets/logo.png",width="2.0%",text="") {
   paste0('<span><a href="https://gianluca.statistica.it/"><img src="',path,'" title="Go home" width="',width,'"></a>',text,'</span>')
   # But could use other links/icons, eg
@@ -199,6 +201,7 @@ samptux=function(path="assets/logo.png",width="2.0%",text="") {
   # Also, could use the 'xaringanExtra::use_logo()' function as well (which does pretty much the same thing...)
 }
 
+#' @noRd
 twitter=function(alt="") {
   icon="assets/images/twitter.png"
   link="https://twitter.com/gianlubaio"
@@ -207,6 +210,8 @@ twitter=function(alt="") {
                     htmltools::tags$img(src = icon, alt = alt, width = "32", height = "32", style = "border: none;")
   )
 }
+
+#' @noRd
 linkedin=function(alt="") {
   icon="images/linkedin.png"
   link="https://www.linkedin.com/in/gianluca-baio-b893879/"
@@ -215,6 +220,8 @@ linkedin=function(alt="") {
                     htmltools::tags$img(src = icon, alt = alt, width = "32", height = "32", style = "border: none;")
   )
 }
+
+#' @noRd
 github=function(alt="") {
   icon="images/github.png"
   link="https://www.github.com/giabaio"
@@ -223,6 +230,8 @@ github=function(alt="") {
                     htmltools::tags$img(src = icon, alt = alt, width = "32", height = "32", style = "border: none;")
   )
 }
+
+#' @noRd
 scholar=function(alt="") {
   icon="images/scholar.png"
   link="https://scholar.google.com/citations?user=ro0QvGsAAAAJ&hl=en"
@@ -231,6 +240,8 @@ scholar=function(alt="") {
                     htmltools::tags$img(src = icon, alt = alt, width = "32", height = "32", style = "border: none;")
   )
 }
+
+#' @noRd
 researchgate=function(alt="") {
   icon="images/researchgate.png"
   link="https://www.researchgate.net/profile/Gianluca_Baio"
@@ -245,6 +256,7 @@ researchgate=function(alt="") {
 #' path of the main theme css, so cannot include the logo using the css code
 #'
 #' @param url The path to the file
+#' @noRd
 #'
 logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
   paste0(
@@ -280,9 +292,11 @@ logo_stats=function(url="assets/images/UCL_Stats_logo.jpeg"){
 #' when creating a single folder with several lecture slides and thus only the
 #' existing version of 'assets' may need to be kept in
 #' @author Cara Thompson, Gianluca Baio
+#' @export
 #' @examples
-#' quarto_slides(file="test",directory="~/Desktop/slides-test")
-#'
+#' \donttest{
+#' quarto_slides("test",directory=tempfile("slides-test"))
+#' }
 quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE,css=TRUE) {
   # Remove the .qmd ending if it was provided
   file_name <- gsub(".qmd", "", file_name, fixed = TRUE)
@@ -451,8 +465,11 @@ quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE,css=
 #' @param target The path to the folder in which the relevant files and folders
 #' should be copied.
 #' @author Gianluca Baio
+#' @export
 #' @examples
+#' \dontrun{
 #' publish_slides("~/Desktop/test")
+#' }
 #'
 publish_slides <- function(target) {
   # Create target directory if it doesn't exist
@@ -513,8 +530,11 @@ publish_slides <- function(target) {
 #' "printer" (bigger than "ebook", but larger), "prepress" (best resolution but
 #' larger file). This parameter is passed to ps2pdf
 #' @author Gianluca Baio
+#' @export
 #' @examples
+#' \dontrun{
 #' revealjs2pdf("index.html","slides.pdf")
+#' }
 #'
 revealjs2pdf=function(filein,fileout,size="1600x900",pause="3000",fragment=TRUE,range,compression="ebook") {
   # Build decktape arguments
