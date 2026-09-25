@@ -2,4 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
-/inst/quarto/gb-slides_files/libs/revealjs/dist/theme/*.css
+/inst/quarto/.quarto/
+/inst/quarto/gb-slides_files/

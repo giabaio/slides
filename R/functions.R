@@ -22,7 +22,7 @@ tab=function(x=1) {
 #' use xaringan colors for equations, eg '.red[$$x^2$$]'. If a color is not
 #' named (but defined in the .css file), need to use the MathJax command
 #' \code{\\class}, eg \code{$\\class{color}{x^2}$}
-#'
+#' @export
 sftext=function(x) {
   paste0("\\style{font-family:inherit;}{\\text{",x,"}}")
 }
@@ -35,7 +35,7 @@ sftext=function(x) {
 #' current Rmd presentation is stored. But a full directory can be passed on
 #' @param width The width of the image (default 100\%)
 #' @param title The string of text to define the alt tag for the image
-#'
+#' @export
 include_fig=function(img,dir="./img",width="100%",title="INCLUDE TEXT HERE") {
   filename=file.path(dir,img)
   paste0("<center><img src=",filename," width='",width,"' title='",title,"'></center>")
@@ -50,7 +50,7 @@ include_fig=function(img,dir="./img",width="100%",title="INCLUDE TEXT HERE") {
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_social=function(social,url,title,fill="#bcc0c4",scale=".8em",style="border-bottom: 0px!important;") {
   icon=paste0('fontawesome::fa("',social,'",height=scale,fill=fill)')
   paste0('&nbsp;<a style="',style,'" href="',url,'" title="',title,'">',eval(parse(text=icon)),'</a>&nbsp;')
@@ -64,7 +64,7 @@ add_social=function(social,url,title,fill="#bcc0c4",scale=".8em",style="border-b
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;',style=NULL)
-#'
+#' @export
 add_twitter=function(url="https://twitter.com/giabaio",title="Follow me on Twitter",fill="#bcc0c4",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("twitter",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -77,7 +77,7 @@ add_twitter=function(url="https://twitter.com/giabaio",title="Follow me on Twitt
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;',style=NULL)
-#'
+#' @export
 add_x=function(url="https://twitter.com/giabaio",title="Follow me on X",fill="#bcc0c4",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("x-twitter",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -90,7 +90,7 @@ add_x=function(url="https://twitter.com/giabaio",title="Follow me on X",fill="#b
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_mastodon=function(url="https://mas.to/@gianlubaio",title="Follow me on Mastodon",fill="#bcc0c4",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("mastodon",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -104,7 +104,7 @@ add_mastodon=function(url="https://mas.to/@gianlubaio",title="Follow me on Masto
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_email=function(email="g.baio@ucl.ac.uk",title="Email me",fill="#bcc0c4",scale="0.8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="mailto:',email,'" title="',title,'">',fontawesome::fa("envelope",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -117,7 +117,7 @@ add_email=function(email="g.baio@ucl.ac.uk",title="Email me",fill="#bcc0c4",scal
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_website=function(url="https://gianluca.statistica.it",title="Visit my website",fill="#bcc0c4",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("firefox",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -130,7 +130,7 @@ add_website=function(url="https://gianluca.statistica.it",title="Visit my websit
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_github=function(url="https://github.com/giabaio",title="Check out my repos",fill="#bcc0c4",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("github",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -143,7 +143,7 @@ add_github=function(url="https://github.com/giabaio",title="Check out my repos",
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_linkedin=function(url="https://www.linkedin.com/in/gianluca-baio-b893879/",title="Follow me on LinkedIn",fill="#2867b2",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("linkedin",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -156,7 +156,7 @@ add_linkedin=function(url="https://www.linkedin.com/in/gianluca-baio-b893879/",t
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_instagram=function(url="https://www.instagram.com/ucl.stats/",title="Follow us on Instagram",fill="#2867b2",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("instagram",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -169,7 +169,7 @@ add_instagram=function(url="https://www.instagram.com/ucl.stats/",title="Follow 
 #' @param fill A string or a HEX code with the color of the icon
 #' @param scale A number indicating the scale of the icon (default = 0.8)
 #' @param style A string with some css style options (e.g. 'border-bottom: 0px;')
-#'
+#' @export
 add_podcast=function(url="https://soundcloud.com/uclsound/sets/sample-space",title="Random Talks",fill="#FE5000",scale=".8em",style=NULL) {
   paste0('&nbsp;<a style="',style,';" href="',url,'" title="',title,'">',fontawesome::fa("soundcloud",fill=fill,height=scale),'</a>&nbsp;')
 }
@@ -183,7 +183,7 @@ add_podcast=function(url="https://soundcloud.com/uclsound/sets/sample-space",tit
 #' @param height The height of the enclosing post it (default at "4em")
 #' @param width The width of the enclosing post it (default at "4em")
 #' @param rotate The rotation for the post it (default at "6deg")
-#'
+#' @export
 postit=function(text="This is some text",top="50%",left="2.5%",fontsize="85%",height="4em",width="4em",rotate="6deg") {
   paste0(
     '<p style="position: absolute; top:',top,'; left:',left,'; font-family: Nanum Pen Script; font-size:',fontsize,
@@ -192,8 +192,12 @@ postit=function(text="This is some text",top="50%",left="2.5%",fontsize="85%",he
   )
 }
 
-# Creates HTML code to include the samptux icon + link to gianluca.statistica.it
-#' @noRd
+#' Creates HTML code to include the samptux icon + link to gianluca.statistica.it
+#'
+#' @param path The path to the image file (default "assets/logo.png")
+#' @param width The width of the image (default "2.0\%")
+#' @param text Some text to be added after the icon (default "")
+#' @export
 samptux=function(path="assets/logo.png",width="2.0%",text="") {
   paste0('<span><a href="https://gianluca.statistica.it/"><img src="',path,'" title="Go home" width="',width,'"></a>',text,'</span>')
   # But could use other links/icons, eg
@@ -320,24 +324,8 @@ quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE,css=
       path_to_files=directory
     }
     string_to_swap <- system.file("quarto/", package = "slides")
-    footer_file <- grep(
-      "quarto-support/footer.css",
-      list.files(
-        system.file(
-          "quarto/gb-slides_files/libs",package = "slides"
-        ), recursive = TRUE,full.names = TRUE
-      ), value = TRUE
-    )
-    header_logo_file <- grep(
-      "libs/revealjs/dist/theme/images",
-      list.files(
-        system.file(
-          "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
-          package = "slides"
-        ), recursive = TRUE,
-        full.names = TRUE
-      ), value = TRUE
-    )
+    # Theme images and footer.css that need to go in the '<file_name>_files' folder
+    support=system.file("quarto/support",package="slides")
     files_to_copy <- grep(
       ".qmd|.scss|title-slide.html|slides.Rproj|latex_macros.html|publish-slides",
       grep(
@@ -376,32 +364,18 @@ quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE,css=
       )
     }
 
-    from_dir = system.file(
-      "quarto/gb-slides_files/libs/revealjs/dist/theme/images",
-      package = "slides"
-    )
-    files = list.files(from_dir, recursive = TRUE, full.names = TRUE)
-    to_dir = gsub(
-      string_to_swap,
-      path_to_files,
-      gsub(
-        "gb-slides",
-        file_name,
-        from_dir
-      )
+    # Theme images (referenced by the .scss files as 'images/...', relative to
+    # the compiled theme css in '<file_name>_files/libs/revealjs/dist/theme')
+    files=list.files(file.path(support,"images"),recursive=TRUE,full.names=TRUE)
+    to_dir=file.path(directory,paste0(file_name,"_files"),"libs","revealjs","dist","theme","images")
+    file.copy(
+      from=files,
+      to=file.path(to_dir,basename(files)),
+      overwrite=TRUE
     )
     file.copy(
-      from = files,
-      to = file.path(to_dir, basename(files)),
-      overwrite = TRUE
-    )
-    file.copy(
-      from = footer_file,
-      to = gsub(
-        string_to_swap,path_to_files, gsub(
-          "gb-slides_files", paste0(file_name,"_files"), footer_file
-        )
-      )
+      from=file.path(support,"footer.css"),
+      to=file.path(directory,paste0(file_name,"_files"),"libs","revealjs","plugin","quarto-support","footer.css")
     )
     file.rename(paste0(path_to_files, "gb-slides.qmd"),
                 paste0(path_to_files, paste0(file_name, ".qmd")))
@@ -441,6 +415,9 @@ quarto_slides=function(file_name,directory=here::here("slides"),assets=TRUE,css=
       from = system.file("quarto/./_extensions",package = "slides"),
       to = path_to_files, recursive = TRUE
     )
+    # The fontawesome extension is zipped in the package because some of its
+    # file paths are longer than the 100 bytes allowed in a portable tarball
+    utils::unzip(system.file("quarto/fontawesome.zip",package="slides"),exdir=directory)
     if(assets) {
       file.copy(
         from = system.file("quarto/./assets",package = "slides"),
