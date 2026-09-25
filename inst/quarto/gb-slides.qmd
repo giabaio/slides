@@ -1,5 +1,5 @@
 ---
-#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'.
+#' Format. Here selects the style of the slides; other choice is 'gb-revealjs'.
 #' Can also output to beamer with ucl-beamer and that creates a native pdf presentation
 format: 
   ucl-revealjs
