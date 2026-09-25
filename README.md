@@ -46,7 +46,6 @@ These are the data that define the specific presentation such as:
 The rest of the `yml` defines the format of the `revealjs` slide. The `_extensions` folder contains a number of subfolders, each defining a specific theme: 
 
 - `gb` (old UCL template)
-- `sampdoria` (a theme based on the Sampdoria palette)
 - `ucl` (current UCL theme).
 
 The title page can be modified by changing the template in `_extentsion/XXX/title-page.html`. The appearance of the actual slides can also be modified by adding the code 
