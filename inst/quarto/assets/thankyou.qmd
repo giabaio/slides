@@ -1,21 +1,8 @@
 ```{r}
 #| echo: false
-file=paste0("images/",rmarkdown::metadata$`thank-you`$file,".gif")
+tk=rmarkdown::metadata$`thank-you`$file
+file=list.files("images",pattern=paste0("^",tk,"\\.(mp4|gif)$"),full.names=TRUE)[1]
+bg=ifelse(grepl("\\.mp4$",file),"background-video","background-image")
 ```
 
-<!-- this adds an empty slide with the "Thank you" gif selected in the yml of the talk -->
-# {.thank-you background-image="`r file`" background="#002248" footer="false"}
-
-<!-- This helps de-pixelate the image. can play with the values of blur and brightness -->
-```{=html}
-<style>
-.reveal .slide-background.thank-you .slide-background-content {
-  filter: blur(4px) brightness(1);
-}
-</style>
-```
-
-<!--
-::: {.footer style="background-color: transparent!important; background: transparent!important"}
-:::
--->
+# {.thank-you `r bg`="`r file`" background-video-loop="true" background-video-muted="true" background="#002248" footer="false"}
