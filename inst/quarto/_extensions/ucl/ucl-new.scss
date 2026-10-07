@@ -335,29 +335,38 @@ section.divider-bg li {
 }
 
 // Fixes the size of the footer when printing to pdf via `decktape`
+// Footer and slide number share the same height and are centred vertically with
+// flexbox, so the number always sits in the middle of the bar. Change
+// $decktape-footer-height to make the bar taller/shorter
+$decktape-footer-height: 34px;
+
 html.decktape .reveal div.footer.footer-default {
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
+  display: flex !important;
+  align-items: center !important;
+  height: $decktape-footer-height !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   line-height: 1.2 !important;
-  font-size: 0.75em !important;
+  font-size: 0.6em !important;
 }
 // Children inherit the footer size (rather than shrinking again at every nesting level)
 html.decktape .reveal div.footer.footer-default * {
   font-size: inherit !important;
 }
-html.decktape .reveal div.slide-number,
-html.decktape .reveal div.slide-number * {
-  padding-bottom: 0px !important;
+html.decktape .reveal div.footer.footer-default > p {
+  margin: 0 !important;
 }
+// Same height as the footer, centred the same way
 html.decktape .reveal div.slide-number {
-  font-size: 0.75em !important;
+  display: flex !important;
+  align-items: center !important;
+  bottom: 0 !important;
+  height: $decktape-footer-height !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 0.6em !important;
 }
 html.decktape .reveal div.slide-number * {
   font-size: inherit !important;
+  line-height: inherit !important;
 }
-/*
-html.decktape .reveal div.footer.footer-default > *,
-html.decktape .reveal div.footer.footer-default p {
-  margin: 0 !important;
-}
-*/
