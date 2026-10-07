@@ -140,21 +140,38 @@ local function convert_raw_html(t)
   return t
 end
 
+-- Default when the YAML does not say; `math-numbers-font: true/false` overrides it
+local enabled = false
+
 if FORMAT:match("html") or FORMAT:match("revealjs") then
   return {
     {
+      Meta = function(meta)
+        local v = meta["math-numbers-font"]
+        if v ~= nil then
+          -- YAML true/false arrive as booleans; quoted "true"/"false" as strings
+          if type(v) == "boolean" then
+            enabled = v
+          else
+            enabled = (pandoc.utils.stringify(v) == "true")
+          end
+        end
+      end
+    },
+    {
       Math = function(m)
+        if not enabled then return nil end
         m.text = convert(m.text)
         return m
       end,
       RawBlock = function(r)
-        if r.format:match("html") then
+        if enabled and r.format:match("html") then
           r.text = convert_raw_html(r.text)
           return r
         end
       end,
       RawInline = function(r)
-        if r.format:match("html") then
+        if enabled and r.format:match("html") then
           r.text = convert_raw_html(r.text)
           return r
         end

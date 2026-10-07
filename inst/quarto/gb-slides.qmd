@@ -27,6 +27,7 @@ slidesurl:
    size: "0.75em"
 decktape: 
    footer-size: "0.6em"
+math-numbers-font: false
 thank-you: 
    show: true
    file: reese
