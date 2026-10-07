@@ -116,6 +116,14 @@ section.has-dark-background a, section.has-dark-background a:hover {
 
 }
 
+@media screen and (max-width: 800px) {
+  .reveal .footer {
+    font-size: 8pt !important;
+    padding-top: 8px !important;
+    padding-bottom: 6px !important;
+  }
+}
+
 .panel-tabset [role="tablist"] {
   border-bottom: 1px solid $link-color;
   list-style: none;

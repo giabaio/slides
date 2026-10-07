@@ -142,7 +142,8 @@ section.has-dark-background h2 {
   padding-top: 12px;
   width: 100%;
   text-align: left!important;
-  z-index: 5;
+  font-size: 16pt !important;
+  z-index: 5 !important;
   box-sizing: border-box;     /* ensures padding does not expand background */
   padding-left: 11vw;         /* moves text without affecting gradient */
 }
