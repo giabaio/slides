@@ -25,6 +25,8 @@ slidesurl:
    show: false
    url: "[https://gianluca.statistica.it/slides/XXX](https://gianluca.statistica.it/slides/XXX)"
    size: "0.75em"
+decktape: 
+   footer-size: "0.6em"
 thank-you: 
    show: true
    file: reese

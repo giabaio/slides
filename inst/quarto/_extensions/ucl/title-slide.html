@@ -73,4 +73,9 @@ $for(institute)$
 <p class="institute">$institute.uni$</p>
 $endfor$
 
+<!-- This has no effect on the title page, but activates the dynamic font (selected in the yml) for the footer, when printed to decktape -->
+$if(decktape.footer-size)$
+<style>:root { --decktape-footer-size: $decktape.footer-size$; }</style>
+$endif$
+
 </section>

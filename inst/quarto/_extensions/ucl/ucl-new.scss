@@ -335,38 +335,38 @@ section.divider-bg li {
 }
 
 // Fixes the size of the footer when printing to pdf via `decktape`
-// Footer and slide number share the same height and are centred vertically with
-// flexbox, so the number always sits in the middle of the bar. Change
-// $decktape-footer-height to make the bar taller/shorter
+// - Footer and slide number share the same height; line-height = height centres
+//   the (single) line vertically without touching `display` (which Quarto uses
+//   to hide the footer on slides with data-footer="false")
+// - Font size of the whole footer is controlled by the CSS variable
+//   --decktape-footer-size (default below), which can be changed per deck
+// - nowrap + ellipsis: a footer that is too long gets cut, rather than wrapping
 $decktape-footer-height: 34px;
 
+// This decides the relative font size in the footer when printed to pdf *only*
+// Can be made smaller for longer footers, using the `decktape` option in the yml
+:root {
+  --decktape-footer-size: 0.6em;
+}
+
 html.decktape .reveal div.footer.footer-default {
-  display: flex !important;
-  align-items: center !important;
   height: $decktape-footer-height !important;
+  line-height: $decktape-footer-height !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  line-height: 1.2 !important;
-  font-size: 0.6em !important;
-}
-// Children inherit the footer size (rather than shrinking again at every nesting level)
-html.decktape .reveal div.footer.footer-default * {
-  font-size: inherit !important;
+  font-size: var(--decktape-footer-size) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 html.decktape .reveal div.footer.footer-default > p {
   margin: 0 !important;
+  line-height: inherit !important;
 }
-// Same height as the footer, centred the same way
 html.decktape .reveal div.slide-number {
-  display: flex !important;
-  align-items: center !important;
   bottom: 0 !important;
   height: $decktape-footer-height !important;
+  line-height: $decktape-footer-height !important;
   padding: 0 !important;
-  line-height: 1 !important;
-  font-size: 0.6em !important;
-}
-html.decktape .reveal div.slide-number * {
-  font-size: inherit !important;
-  line-height: inherit !important;
+  font-size: var(--decktape-footer-size) !important;
 }
