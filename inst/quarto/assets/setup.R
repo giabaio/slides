@@ -15,7 +15,7 @@ options(r2j.print.program=FALSE)
 # Sets default fonts for tikz
 library(tikzDevice)
 options(tikzLatexPackages=c(
-  getOption("tikzLatexPackages"),"\\usepackage{inconsolata,}","\\usepackage{amsmath}",
+  getOption("tikzLatexPackages"),"\\usepackage{inconsolata}","\\usepackage{amsmath}",
   "\\usepackage[scaled=.89]{helvet}\n\\renewcommand{\\familydefault}{\\sfdefault}\n")
 )
 options(tikzMetricPackages = c(
