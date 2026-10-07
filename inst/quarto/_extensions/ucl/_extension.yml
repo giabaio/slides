@@ -5,6 +5,10 @@ version: 1.0.0
 contributes:
   formats:
     revealjs:
+      # This adds a lua filter that changes the font of all numbers in math
+      # style to be the same as text
+      filters:
+          - math-numbers-text.lua
       css:
           - ./css/fonts.css
           - ./css/common.css
