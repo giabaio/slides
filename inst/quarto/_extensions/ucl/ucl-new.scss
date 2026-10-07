@@ -339,15 +339,21 @@ html.decktape .reveal div.footer.footer-default {
   padding-top: 2px !important;
   padding-bottom: 2px !important;
   line-height: 1.2 !important;
-}
-html.decktape .reveal div.footer.footer-default,
-html.decktape .reveal div.footer.footer-default * {
   font-size: 0.75em !important;
+}
+// Children inherit the footer size (rather than shrinking again at every nesting level)
+html.decktape .reveal div.footer.footer-default * {
+  font-size: inherit !important;
 }
 html.decktape .reveal div.slide-number,
 html.decktape .reveal div.slide-number * {
   padding-bottom: 0px !important;
+}
+html.decktape .reveal div.slide-number {
   font-size: 0.75em !important;
+}
+html.decktape .reveal div.slide-number * {
+  font-size: inherit !important;
 }
 /*
 html.decktape .reveal div.footer.footer-default > *,
