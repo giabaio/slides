@@ -141,6 +141,14 @@ This presentation will show you examples of what you can do with Quarto and [Rev
   ```
   instead.
   
+::: {.callout-important}
+## Printing to pdf via `decktape`
+
+This is probably the best option. Typeset and render the slides to `html`, to take full advantage of the `quarto`/`revealjs` features, then use `decktape` to print the `html` file to `pdf`
+
+- `decktape` maintains the main features of the `html` and the result is very good
+:::
+  
 --- 
 
 Here's a new slide without a title.
@@ -154,9 +162,9 @@ Here's a slide with no logo -- just add `{.no-logo}` to the title of the slide
 ## Embedding sites
 
 - Can also embed websites as `iframes`, using the code
-````
+```{verbatim}
 ## {background-iframe="https://gianluca.statistica.it" background-interactive="true" data-preload="true" .no-logo}
-````
+```
 
 - This creates a title-less slide with the full space occupied by the website.
    - Use the options `background-interactive="true"` and `data-preload="true"` for best control and maximum load speed
@@ -180,14 +188,14 @@ More can be created by simply modifying the `.css` file to add more `HEX` codes.
 (though this colour is already defined)
 
 ::: {style="margin-top: 40px"}
-Can add vertical space using `fragments`
+Can add vertical space using `css` styles
 :::
 
-````
+```{verbatim}
 ::: {style="margin-top: 40px"}
-Can add vertical space using `fragments`
-:::   
-````
+Can add vertical space using `css` styles
+::: 
+```
 
 ## Some maths
 
@@ -205,6 +213,17 @@ These use the predefined LaTeX macros, saved in the file [`latex_macros.html`](l
 
 `r vspace("2rem")`
 For instance, the command `$\dnorm$` translates to the text Normal (typeset in the current font). But can also use `$\txt{Some text}$`, which gets rendered as $\txt{Some text}$ --- it's like `\text{...}` but with the current font
+
+## More maths
+
+The font used to typeset numbers in maths mode can be controlled by the `yml` option `math-numbers-font` (default to `: false`). 
+
+- When this is set to `: true`, then the numbers in maths mode inherit the main font (UCL Sans)
+- This will look like 
+  
+  $$\int_\mnum{0}^\infty x^{\mnum{4}}p(x \mid y_1)dx \qquad \txt{ and } \qquad \DIC=\mnum{1234}.$$
+  
+  - NB: the font is controlled by the definition of the macro `mnum` in the `./assets/latex_macros.html` file
 
 
 ## Pretty Code {auto-animate="true"}
@@ -225,19 +244,24 @@ function(input, output) {
 }
 ```
 
-:::{.callout-important}
-The font size in code chunks is controlled by the default `css` style. This can be increase by modifying the file `./css/common.css` by changing the value for `font-size`
-```
+::: {.callout-important}
+## Controlling the font-size of code chunks
+
+This can be done by modifying the value set in the `./css/common.css` file:
+```{.css code-line-numbers="5,10"}
 .reveal div.sourceCode {
   margin: 0;
   overflow: auto;
   border-color: $link-color;
-  font-size: 1.10em;
+  font-size: 1.40em;
+}
+
+/* This controls the font size of the output of R chunks */
+.reveal pre:not(.sourceCode) {
+  font-size: .75em;
 }
 ```
-
 :::
-
 ::: footer
 Learn more: [Syntax Highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting)
 :::
@@ -264,15 +288,85 @@ function(input, output) {
 }
 ```
 
+::: {.aside}
+More on animation, next
+:::
+
 ::: footer
 Learn more: [Code Animations](https://quarto.org/docs/presentations/revealjs/advanced.html#code-animations)
 :::
 
+## Auto-animation {auto-animate=true}
+
+$$y \sim \dnorm(\mu, \sigma)$$
+
+## Auto-animation {auto-animate=true visibility="uncounted"}
+
+$$y \sim \dnorm(\mu, \sigma)$$
+
+$$\mu = \beta_0 + \beta_1 x$$
+
+::: {.callout-important style="margin-top: 50px;"}
+## Auto-animation
+
+When two consecutive slides both have the `{auto-animate=true}` in the title, `reveal.js` looks for elements that appear on both slides and animates each one from its position, size and style on the first slide to those on the second, instead of switching abruptly.
+
+Going from the first slide to the second, the equation slides up into its new place and the new line fades in, so it looks like one slide growing rather than two separate slides.
+
+Elements found on only one of the two slides fade in or out. Some useful extra options on the slide:
+
+- `{auto-animate-duration=0.5}` sets the duration in seconds.
+- `{auto-animate-easing="ease-in-out"}` sets the speed curve.
+- `{auto-animate-restart=true}` breaks a chain, so that slide doesn't animate from the previous one.
+:::
+
 :::: {.content-visible when-format="revealjs"}
+## (More) Auto-animation {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+Auto-animate tries to automatically find the bits to match across slides. To override, see:
+<https://quarto.org/docs/presentations/revealjs/advanced.html#element-matching>
+
+Automatically animate matching elements across slides with Auto-Animate.
+
+::: r-hstack
+::: {data-id="box1" auto-animate-delay="0" style="background: #2780e3; width: 200px; height: 150px; margin: 10px;"}
+:::
+
+::: {data-id="box2" auto-animate-delay="0.1" style="background: #3fb618; width: 200px; height: 150px; margin: 10px;"}
+:::
+
+::: {data-id="box3" auto-animate-delay="0.2" style="background: #e83e8c; width: 200px; height: 150px; margin: 10px;"}
+:::
+:::
+
+::: footer
+Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
+:::
+
+## (More) Auto-animation {auto-animate="true" auto-animate-easing="ease-in-out" visibility="uncounted"}
+
+Automatically animate matching elements across slides with Auto-Animate.
+
+::: r-stack
+::: {data-id="box1" style="background: #2780e3; width: 350px; height: 350px; border-radius: 200px;"}
+:::
+
+::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
+:::
+
+::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
+:::
+:::
+
+::: footer
+Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
+:::
+
 ## Line Highlighting
 
 -   Highlight specific lines for emphasis
 -   Incrementally highlight additional lines
+-   This is controlled by the chunk option `code-line-numbers=""`
 
 ``` {.python code-line-numbers="4-5|7|10"}
 import numpy as np
@@ -323,6 +417,22 @@ Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#ex
 plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 ```
 
+## Temporarily changing the size of code output
+
+```{r}
+#| echo: true
+#| attr-source: 'style="font-size: 2.0em;"'
+#| attr-output: 'style="font-size: 1.25em;"'
+rnorm(1000) |> summary()
+```
+
+This is achieved adding the options
+````
+#| attr-source: 'style="font-size: 2.0em;"'
+#| attr-output: 'style="font-size: 1.25em;"'
+````
+to that specific `R` chunk setup
+
 :::: {.content-visible when-format="beamer"}
 # A section
 ::::
@@ -343,7 +453,7 @@ to the end of the slide, to ensure that the footer doesn't interfere with the co
 
 More simply, can explicitly use the tag `{.divider-bg footer="false"}`
 
-# Section title slide {background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background="#002248" background-opacity=0.5 footer="false"}
+# Section title slide {background="#002248" background-opacity=0.5 footer="false"}
 
 Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!
 
@@ -513,7 +623,7 @@ Lists can optionally be displayed incrementally:
 Learn more: [Incremental Lists](https://quarto.org/docs/presentations/revealjs/#incremental-lists)
 :::
 
-## Fragments
+## Fragments {.no-logo}
 
 Incremental text display and animation with fragments:
 
@@ -618,7 +728,7 @@ Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.
 ::::
 
 :::: {.content-visible when-format="revealjs"}
-## Slide Backgrounds (only in `revealjs`) {background="#43464B"}
+## Slide Backgrounds (only in `revealjs`) {background="#43464B" background-image="https://media.gettyimages.com/id/2238182293/photo/u-c-sampdoria-v-us-catanzaro-1929-serie-b.webp?s=2048x2048&w=gi&k=20&c=79MaMTfi6TceyxHMQJRanekcYji5vsWu1qDA_OidP6A=" .no-logo}
 
 Set the `background` attribute on a slide to change the background color (all CSS color formats are supported).
 
@@ -628,7 +738,21 @@ Different background transitions are available via the `background-transition` o
 Learn more: [Slide Backgrounds](https://quarto.org/docs/presentations/revealjs/#color-backgrounds)
 :::
 
-## Media Backgrounds (only in `revealjs`)  {background="#43464B" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg"}
+## Slide Backgrounds (only in `revealjs`) {background="#43464B" background-image="https://media.gettyimages.com/id/2203411182/photo/uc-sampdoria-v-palermo-fc-serie-b.webp?s=2048x2048&w=gi&k=20&c=ndUR_LHG_SoyAj4fV4Jib1NIUwh2hxTa3Jmf_loFCGc=" .no-logo .light-bg footer="false"}
+
+::: {style="background-color: rgba(250, 250, 250, 0.7); border-radius: 0.8em 0.3em; padding: 0.3em;"}
+When the background image is light, use the `.light-bg` tag to ensure that the slide text is in the normal `font-color`
+
+-  If the text is not very clearly visible, can always wrap the text in something like     
+   ```
+   ::: {style="background-color: rgba(250, 250, 250, 0.7); border-radius: 0.8em 0.3em; padding: 0.3em;"}
+   Text
+   :::
+   ```
+   (here, `rgba(250, 250, 250, 0.7` is a `#FAFAFA` background with opacity set to 0.7)
+:::
+
+## Media Backgrounds (only in `revealjs`)  {background="#43464B" footer="false" background-image="https://media.gettyimages.com/id/79049198/photo/football-uefa-cup-winners-cup-final-gothenburg-sweden-10th-may-1990-sampdoria-2-v-anderlecht-0.webp?s=2048x2048&w=gi&k=20&c=y-dbZQxIdPe4qkIWL_quhl8MDSJ3ZPdD4oKhQNgMwLE="}
 
 You can also use the following as a slide background:
 
@@ -636,67 +760,10 @@ You can also use the following as a slide background:
 - A video: `background-video`
 - An iframe: `background-iframe`
 
-::: footer
-Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
-:::
-
-
-## Media Backgrounds with brand colour (only in `revealjs`) {background="#002248" background-image="https://www.ianvisits.co.uk/articles/wp-content/uploads/2022/11/ucl-observatory-mill-hill-01.jpg" background-opacity="0.5"}
-
-You can also use the following as a slide background:
-
-- An image: `background-image`
-- A video: `background-video`
-- An iframe: `background-iframe`
-
-::: footer
-Learn more: [Media Backgrounds](https://quarto.org/docs/presentations/revealjs/#image-backgrounds)
-:::
-
-## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
-
-Auto-animate tries to automatically find the bits to match across slides. To override, see:
-<https://quarto.org/docs/presentations/revealjs/advanced.html#element-matching>
-
-Automatically animate matching elements across slides with Auto-Animate.
-
-::: r-hstack
-::: {data-id="box1" auto-animate-delay="0" style="background: #2780e3; width: 200px; height: 150px; margin: 10px;"}
-:::
-
-::: {data-id="box2" auto-animate-delay="0.1" style="background: #3fb618; width: 200px; height: 150px; margin: 10px;"}
-:::
-
-::: {data-id="box3" auto-animate-delay="0.2" style="background: #e83e8c; width: 200px; height: 150px; margin: 10px;"}
-:::
-:::
-
-::: footer
-Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
-:::
-
-## Auto-Animate {auto-animate="true" auto-animate-easing="ease-in-out"}
-
-Automatically animate matching elements across slides with Auto-Animate.
-
-::: r-stack
-::: {data-id="box1" style="background: #2780e3; width: 350px; height: 350px; border-radius: 200px;"}
-:::
-
-::: {data-id="box2" style="background: #3fb618; width: 250px; height: 250px; border-radius: 200px;"}
-:::
-
-::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
-:::
-:::
-
-::: footer
-Learn more: [Auto-Animate](https://quarto.org/docs/presentations/revealjs/advanced.html#auto-animate)
-:::
 
 ## Slide Transitions  {.smaller}
 
-The next few slides will transition using the `slide` transition
+Possible options are the following:
 
 | Transition | Description                                                            |
 |------------|------------------------------------------------------------------------|
@@ -711,15 +778,6 @@ The next few slides will transition using the `slide` transition
 Learn more: [Slide Transitions](https://quarto.org/docs/presentations/revealjs/advanced.html#slide-transitions)
 :::
 
-
-## A long, scrollable table
-### Using `fragments`...
-
-::: {style="height: 80%; overflow: auto; font-size: .65em;"}
-```{r}
-knitr::kable(mtcars)
-```
-:::
 
 ## Tabsets {.no-logo transition="slide" .smaller}
 
@@ -743,7 +801,7 @@ ggplot(mtcars, aes(hp, mpg, color = am)) +
 
 ::: {style="height: 60%!important; overflow: auto; font-size: .63em;"}
 ```{r}
-knitr::kable(mtcars)
+tinytable::tt(mtcars)
 ```
 :::
 
@@ -752,6 +810,22 @@ knitr::kable(mtcars)
 ::: footer
 Learn more: [Tabsets](https://quarto.org/docs/presentations/revealjs/#tabsets)
 :::
+
+## A long, scrollable table
+### Using `styles`... 
+
+```{verbatim}
+::: {style="height: 80%; overflow: auto; font-size: .65em;"}
+Wrap the code to show the table here...
+:::
+```
+
+::: {style="height: 60%; overflow: auto; font-size: .65em; margin-top: 20px;"}
+```{r}
+tinytable::tt(mtcars)
+```
+:::
+
 
 ## Interactive Slides {.smaller transition="slide"}
 
@@ -871,33 +945,6 @@ Press `s` (or use the presentation menu) to open speaker view
 Learn more: [Speaker View](https://quarto.org/docs/presentations/revealjs/presenting.html#speaker-view)
 :::
 
-## Authoring Tools {.smaller}
-
-Live side-by-side preview for any notebook or text editor including Jupyter and VS Code
-
-::: columns
-::: {.column width="50%"}
-![](https://quarto.org/docs/presentations/revealjs/demo/images/jupyter-edit.png){.border .border-thick}
-:::
-
-::: {.column width="50%"}
-![](https://quarto.org/docs/presentations/revealjs/demo/images/jupyter-preview.png){.border .border-thick}
-:::
-:::
-
-::: footer
-Learn more: [Jupyter](https://quarto.org/docs/tools/jupyter-lab.html), [VS Code](https://quarto.org/docs/tools/vscode.html), [Text Editors](https://quarto.org/docs/tools/text-editors.html)
-:::
-
-## Authoring Tools {.smaller}
-
-RStudio includes an integrated presentation preview pane
-
-![](https://quarto.org/docs/presentations/revealjs/demo/images/rstudio.png){.border width="900"}
-
-::: footer
-Learn more: [RStudio](https://quarto.org/docs/tools/rstudio.html)
-:::
 
 ## And More...
 
@@ -914,16 +961,8 @@ Learn more: [Quarto Presentations](https://quarto.org/docs/presentations/revealj
 ## Make sure the text fits
 
 ::: {.r-fit-text}
-Big Text
+Thank you!
 :::
-
-## Make sure images fit in the remainder of the space
-
-Here is an image:
-
-![](https://github.com/cararthompson/tidytuesdays/raw/main/plots/202210_gbbo.png){.r-stretch}
-
-Some text after the image.
 
 <!-- 
    If the meta parameter 'thank-you' is set to "false", this won't show. Can 

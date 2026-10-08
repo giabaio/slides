@@ -158,8 +158,8 @@ section.has-dark-background h2 {
   bottom: 0!important;
 }
 
-/* Inserts logo in the normal slides (but not the title-slide) */
-.reveal .slides section:not(#title-slide):not(#section-title-slide):not(.divider-bg):not(.thank-you) {
+/* Inserts logo in the normal slides (but not the title-slide and other key cases) */
+.reveal .slides section:not(.stack):not(#title-slide):not(#section-title-slide):not(.divider-bg):not(.thank-you) {
   background-image: url("images/ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -192,6 +192,28 @@ section[data-background-image] {
     color: #fafafa;
   }
 }
+
+
+/* Light background image: keep the normal (dark) text and the purple logo.
+   Use as e.g.  ## Title {background-image="..." .light-bg}  */
+section[data-background-image].light-bg {
+  h1, h2, h3, .divider {
+    color: $presentation-heading-color;
+  }
+  p, li {
+    color: $body-color;
+  }
+  // inline code
+  code {
+    color: $code-color;
+  }
+  // code blocks: base text colour (syntax-highlighted tokens keep their own colours)
+  pre code, div.sourceCode {
+    color: $body-color;
+  }
+  background-image: url("images/ucl-new-logo.png") !important;
+}
+
 /* Adds the white logo for slides with backgrounds or images, but not the .thank-you class */
 section[data-background]:not(.thank-you),
 section[data-background-gradient]:not(.thank-you),
