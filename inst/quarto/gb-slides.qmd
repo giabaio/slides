@@ -629,8 +629,6 @@ Incremental text display and animation with fragments:
 
 [Extra fragment styling / nesting / ordering options](https://quarto.org/docs/presentations/revealjs/advanced.html#fragment-classes)
 
-<br/>
-
 ::: {.fragment .fade-in}
 Fade in
 :::
@@ -761,7 +759,7 @@ You can also use the following as a slide background:
 - An iframe: `background-iframe`
 
 
-## Slide Transitions  {.smaller}
+## Slide Transitions
 
 Possible options are the following:
 
@@ -958,7 +956,7 @@ Learn more: [Quarto Presentations](https://quarto.org/docs/presentations/revealj
 :::
 
 
-## Make sure the text fits
+## 
 
 ::: {.r-fit-text}
 Thank you!
