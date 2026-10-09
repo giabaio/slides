@@ -457,6 +457,8 @@ More simply, can explicitly use the tag `{.divider-bg footer="false"}`
 
 Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!
 
+- The footer may or may not be included and its positioning/formatting can be customised
+
 ::: {.footer-nobg style="font-size: 20px; margin-bottom: -50px; padding-left: 3vw;"}
 {{< meta footer >}}
 :::
@@ -479,7 +481,9 @@ ggplot(palmerpenguins::penguins,
 ```
 
 ::: {.callout-note}
-By default, `ggplot` uses a specialised `theme_ucl()` function (defined in `.assets/setup.R`) to format the graphs. This aligns with the background colour of the slides.
+This is controlled by the chunk option `output-location:`, which can take values `column-fragment` (code first, then output becomes visible), `column` (both visible at the same time), `fragment` (output appears on the same slide, but hidden until the next fragment), or `slide` (output pushed to a brand new slide)
+
+Also, by default, `ggplot` uses a specialised `theme_ucl()` function (defined in `.assets/setup.R`) to format the graphs. This aligns with the background colour of the slides.
 :::
 
 ## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
