@@ -457,7 +457,7 @@ More simply, can explicitly use the tag `{.divider-bg footer="false"}`
 
 Setting the background colour to a dark colour automatically changes the colour of the text to make it visible over a dark background!
 
-::: {.footer-nobg}
+::: {.footer-nobg style="font-size: 20px; margin-bottom: -50px; padding-left: 3vw;"}
 {{< meta footer >}}
 :::
 
