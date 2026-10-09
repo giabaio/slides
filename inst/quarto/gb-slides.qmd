@@ -223,7 +223,7 @@ The font used to typeset numbers in maths mode can be controlled by the `yml` op
   
   $$\int_\mnum{0}^\infty x^{\mnum{4}}p(x \mid y_1)dx \qquad \txt{ and } \qquad \DIC=\mnum{1234}.$$
   
-  - NB: the font is controlled by the definition of the macro `mnum` in the `./assets/latex_macros.html` file
+  - NB: the font is controlled by the definition of the macro `mnum{}` in the `./assets/latex_macros.html` file
 
 
 ## Pretty Code {auto-animate="true"}
