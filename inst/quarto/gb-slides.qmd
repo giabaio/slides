@@ -623,8 +623,10 @@ Lists can optionally be displayed incrementally:
 Learn more: [Incremental Lists](https://quarto.org/docs/presentations/revealjs/#incremental-lists)
 :::
 
-## Fragments {.no-logo}
+## Fragments
 
+:::: {.columns}
+::: {.column width="50%"}
 Incremental text display and animation with fragments:
 
 [Extra fragment styling / nesting / ordering options](https://quarto.org/docs/presentations/revealjs/advanced.html#fragment-classes)
@@ -655,10 +657,11 @@ Strike
 Highlight red (but green and blue are also built-in)
 :::
 
-. . .
+:::
+
+::: {.column width="50%"}
 
 Highlight custom colour (defined in `scss` file or can be added on the fly)
-
 ````{verbatim}
 ```{css}
 #| echo: false
@@ -675,6 +678,8 @@ Highlight custom colour (defined in `scss` file or can be added on the fly)
 Text to highlight here...
 :::
 ````
+:::
+::::
 
 ::: footer
 Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.html#fragments)
@@ -724,6 +729,47 @@ Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.
 - And that's it
 :::
 ::::
+
+:::: {.fragment fragment-index=4 style="margin-top: 30px"}
+::: {.callout-important}
+## Controlling fragments
+
+- `::: {.fragment .fade-out fragment-index=x ...}` shows the content up to fragment `x`, when it is replaced by other content and just fades out
+- `::: {.fragment .fade-in fragment-index=x ...}` introduces the content in fragment `x` and leaves it there
+- `::: {.fragment .current-visible fragment-index=x ...}` makes the content visible *only* in fragment `x`
+-   Fragments can be nested, so 
+    ```
+    :::: {.fragment .fade-out fragment-index=3}
+    ::: {.fragment .fade-in fragment-index=1}
+    Content here
+    :::
+    ::::
+    ```
+    will make `Content here` appear in fragment 1 and disappear in fragment 3
+:::
+::::
+
+## Fragments and stacks
+
+`r-stack` can be used together with fragments to center and place multiple elements on top of each other and reveal them incrementally.
+
+:::: {.r-stack}
+::: {.fragment .current-visible fragment-index=1}
+```{r}
+#| echo: false
+ggplot(mtcars, aes(hp, mpg, color = am)) +
+  geom_point() +  geom_smooth(formula = y ~ x, method = "loess")
+```
+:::
+
+::: {.fragment .fade-in fragment-index=2}
+```{r}
+#| echo: false
+plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
+```
+:::
+::::
+
 
 :::: {.content-visible when-format="revealjs"}
 ## Slide Backgrounds (only in `revealjs`) {background="#43464B" background-image="https://media.gettyimages.com/id/2238182293/photo/u-c-sampdoria-v-us-catanzaro-1929-serie-b.webp?s=2048x2048&w=gi&k=20&c=79MaMTfi6TceyxHMQJRanekcYji5vsWu1qDA_OidP6A=" .no-logo}
