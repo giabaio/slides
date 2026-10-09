@@ -758,22 +758,37 @@ Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.
 `r-stack` can be used together with fragments to center and place multiple elements on top of each other and reveal them incrementally.
 
 :::: {.r-stack}
-::: {.fragment .current-visible fragment-index=1}
+::: {.fragment .current-visible fragment-index=1 style="margin-top: -20px;"}
 ```{r}
 #| echo: false
+#| out-width: "45%"
 ggplot(mtcars, aes(hp, mpg, color = am)) +
   geom_point() +  geom_smooth(formula = y ~ x, method = "loess")
 ```
 :::
 
-::: {.fragment .fade-in fragment-index=2}
+::: {.fragment .fade-in fragment-index=2 style="margin-top: -60px;"}
 ```{r}
 #| echo: false
+#| out-width: "45%"
 plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 ```
 :::
 ::::
 
+::: {.fragment fragment-index=2 style="margin-top: -80px;"}
+-   Can style the `{.r-stack}` as well as the `{.fragment}`, for example with 
+    ```
+    :::: {.r-stack style="margin-left: 5%; margin-right: auto; width: fit-content;"}
+    ::: {.fragment .fade-out fragment-index=2}
+    Content
+    :::
+    ::: {.fragmment .current-visible fragment-index=2}
+    Something else
+    :::
+    ::::
+    ```
+:::
 
 :::: {.content-visible when-format="revealjs"}
 ## Slide Backgrounds (only in `revealjs`) {background="#43464B" background-image="https://media.gettyimages.com/id/2238182293/photo/u-c-sampdoria-v-us-catanzaro-1929-serie-b.webp?s=2048x2048&w=gi&k=20&c=79MaMTfi6TceyxHMQJRanekcYji5vsWu1qDA_OidP6A=" .no-logo}
