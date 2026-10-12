@@ -216,14 +216,14 @@ For instance, the command `$\dnorm$` translates to the text Normal (typeset in t
 
 ## More maths
 
-The font used to typeset numbers in maths mode can be controlled by the `yml` option `math-numbers-font` (default to `: false`). 
+The font used to typeset numbers in maths mode can be controlled by the `yml` option `math-numbers-font` (default to `false`). 
 
-- When this is set to `: true`, then the numbers in maths mode inherit the main font (UCL Sans)
+- When this is set to `true`, then the numbers in maths mode inherit the main font (UCL Sans)
 - This will look like 
   
   $$\int_\mnum{0}^\infty x^{\mnum{4}}p(x \mid y_1)dx \qquad \txt{ and } \qquad \DIC=\mnum{1234}.$$
   
-  - NB: the font is controlled by the definition of the macro `mnum{}` in the `./assets/latex_macros.html` file
+  - NB: the font is controlled by the definition of the macro `\mnum{}` in the `./assets/latex_macros.html` file
 
 
 ## Pretty Code {auto-animate="true"}
@@ -501,27 +501,6 @@ ggplot(palmerpenguins::penguins,
            y = bill_depth_mm, 
            color = species)) + 
   geom_point() +
-  theme_minimal() +
-  colorblindr::scale_color_OkabeIto()
-```
-
-## Code chunk and output side by side {auto-animate=true transition-in="fade" transition-speed="slow"}
-
-This time with hidden lines 
-
-```{r}
-#| output-location: column
-#| code-line-numbers: "6"
-#| echo: true
-#| fig-width: 6
-#| fig-height: 4
-#| out-width: "100%"
-
-ggplot(palmerpenguins::penguins, 
-       aes(x = bill_length_mm, 
-           y = bill_depth_mm, 
-           color = species)) + 
-  geom_point() + #| hide_line
   theme_minimal() +
   colorblindr::scale_color_OkabeIto()
 ```
