@@ -392,6 +392,14 @@ Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#
 >
 > More quoted text
 
+::: {.aside}
+An aside at the bottom of the page, can be styled with
+```{verbatim}
+::: {.aside}
+CONTENT
+:::
+```
+:::
 
 ## Executable Code
 
@@ -427,10 +435,10 @@ rnorm(1000) |> summary()
 ```
 
 This is achieved adding the options
-````
+```r
 #| attr-source: 'style="font-size: 2.0em;"'
 #| attr-output: 'style="font-size: 1.25em;"'
-````
+```
 to that specific `R` chunk setup
 
 :::: {.content-visible when-format="beamer"}
@@ -757,7 +765,7 @@ plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
 
 ::: {.fragment fragment-index=2 style="margin-top: -80px;"}
 -   Can style the `{.r-stack}` as well as the `{.fragment}`, for example with 
-    ```
+    ```{verbatim}
     :::: {.r-stack style="margin-left: 5%; margin-right: auto; width: fit-content;"}
     ::: {.fragment .fade-out fragment-index=2}
     Content
@@ -786,7 +794,7 @@ Learn more: [Slide Backgrounds](https://quarto.org/docs/presentations/revealjs/#
 When the background image is light, use the `.light-bg` tag to ensure that the slide text is in the normal `font-color`
 
 -  If the text is not very clearly visible, can always wrap the text in something like     
-   ```
+   ```{verbatim}
    ::: {style="background-color: rgba(250, 250, 250, 0.7); border-radius: 0.8em 0.3em; padding: 0.3em;"}
    Text
    :::
@@ -794,7 +802,7 @@ When the background image is light, use the `.light-bg` tag to ensure that the s
    (here, `rgba(250, 250, 250, 0.7` is a `#FAFAFA` background with opacity set to 0.7)
 :::
 
-## Media Backgrounds (only in `revealjs`)  {background="#43464B" footer="false" background-image="https://media.gettyimages.com/id/79049198/photo/football-uefa-cup-winners-cup-final-gothenburg-sweden-10th-may-1990-sampdoria-2-v-anderlecht-0.webp?s=2048x2048&w=gi&k=20&c=y-dbZQxIdPe4qkIWL_quhl8MDSJ3ZPdD4oKhQNgMwLE="}
+## Media Backgrounds (only in `revealjs`)  {background="#43464B" footer="false" background-image="https://media.gettyimages.com/id/79049198/photo/football-uefa-cup-winners-cup-final-gothenburg-sweden-10th-may-1990-sampdoria-2-v-anderlecht-0.webp?s=2048x2048&w=gi&k=20&c=y-dbZQxIdPe4qkIWL_quhl8MDSJ3ZPdD4oKhQNgMwLE=" .no-logo}
 
 You can also use the following as a slide background:
 
