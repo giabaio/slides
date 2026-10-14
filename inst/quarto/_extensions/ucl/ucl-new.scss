@@ -46,6 +46,13 @@ Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;
 
 /*-- scss:rules --*/
 
+/* MathJax measures text set in the page font (\txt, \dnorm, \style{font-family:inherit}...)
+   in a hidden box attached to <body>, outside the slides. Give <body> the slides' font,
+   otherwise it is measured in the browser default (Times) and then overlaps/leaves gaps */
+body {
+  font-family: $font-family-sans-serif;
+}
+
 .reveal .slide blockquote {
   border-left: 3px solid $link-color;
   color: $presentation-heading-color;
