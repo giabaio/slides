@@ -85,15 +85,18 @@ if (any(fmt %in% c("ucl-revealjs","ucl-beamer"))) {
   
   # UCL colour palette - official colour scaling
   ucl_palette=c(
-    uclblue="#5487ff", #blue
-    uclred="#ed367d", #fucsia
-    uclgreen="#57b444", #teal green
-    uclorange="#e36c2a", #orange
-    ucldarkgreen="#005e5c", #dark green
-    ucldarkred="#9e1a54", #dark fucsia
-    ucldarkorange="#781c1c", #dark orange
-    ucldarkblue="#002ea6"  #dark blue
+    blue="#5487ff", #blue
+    red="#ed367d", #fucsia
+    green="#57b444", #teal green
+    orange="#e36c2a", #orange
+    darkgreen="#005e5c", #dark green
+    darkred="#9e1a54", #dark fucsia
+    darkorange="#781c1c", #dark orange
+    darkblue="#002ea6"  #dark blue
   )
+    
+  # Creates a list of UCL colours
+  ucl=ucl_palette |> as.list()
   
   # Discrete palette: UCL colours, falls back to ggplot default hue if too many levels
   ucl_pal=function(n) {
