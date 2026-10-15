@@ -232,10 +232,6 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .lightgray {
   color: #ededed; /*#d3d3d3*/
 }
-.uclblue {
-  /* https://www.ucl.ac.uk/cam/sites/cam/files/migrated-files/ucl-visual-identity-poster.pdf */
-  color: #002855;
-}
 .navbargrey{
   color: #D5D5D5;
 }
@@ -248,6 +244,30 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .samp-red {
   color: #C21718;
 }
+
+/* UCL palette */
+.uclblue {
+  color: #5487ff;
+}
+.uclred {
+  color: #ed367d;
+}
+.uclgreen {
+  color: #57b444;
+}
+.ucldarkgreen {
+  color: #005e5c;
+}
+.ucldarkred {
+  color: #9e1a54;
+}
+.ucldarkorange {
+  color: #781c1c;
+}
+.ucldarkblue {
+  color: #002ea6;
+}
+
 
 /* This makes long tables included in tabsets scrollable vertically */
 .panel-tabset {
