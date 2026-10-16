@@ -1,8 +1,60 @@
 #########################################
 # Set up and common commands & packages #
 #########################################
-# Default ggplot theme
+
+# Default ggplot theme as backup
 theme_set(theme_bw())
+
+# Here defines the UCL ggplot theme
+ucl_palette=c(
+  blue="#5487ff", #blue
+  red="#ed367d", #fucsia
+  green="#57b444", #teal green
+  orange="#e36c2a", #orange
+  darkgreen="#005e5c", #dark green
+  darkred="#9e1a54", #dark fucsia
+  darkorange="#781c1c", #dark orange
+  darkblue="#002ea6"  #dark blue
+)
+
+# Creates a list of UCL colours
+ucl=ucl_palette |> as.list()
+
+# Discrete palette: UCL colours, falls back to ggplot default hue if too many levels
+ucl_pal=function(n) {
+  if (n<=length(ucl_palette)) {
+    unname(ucl_palette[seq_len(n)])
+  } else {
+    scales::pal_hue()(n)
+  }
+}
+
+# Specialised ggplot theme (also carries the palettes)
+theme_ucl=function(ignore_panel=TRUE,legend_pos=NULL) {
+  # Determine legend background fill based on position
+  leg_fill=if (identical(legend_pos,"inside")) "transparent" else "#fafafa"
+  
+  th=theme_bw() +
+    theme(
+      plot.background=element_rect(fill="#fafafa",colour=NA),
+      legend.background=element_rect(fill=leg_fill,colour=NA),
+      legend.key=element_rect(fill="#fafafa",colour=NA),
+      palette.colour.discrete=ucl_pal,
+      palette.fill.discrete=ucl_pal,
+      palette.colour.continuous=c("#5487ff","#002ea6"),
+      palette.fill.continuous=c("#5487ff","#002ea6")
+    )
+  
+  if (!ignore_panel) {
+    th=th + theme(panel.background=element_rect(fill="#fafafa",colour=NA))
+  }
+  
+  if (!is.null(legend_pos)) {
+    th=th + theme(legend.position=legend_pos)
+  }
+  
+  th
+}
 
 # Sets global options for running R2jags (available with the latest version --- my PR)
 options(
@@ -82,59 +134,8 @@ if (any(fmt %in% c("ucl-revealjs","ucl-beamer"))) {
   if (utils::packageVersion("ggplot2")<"4.0.0") {
     stop("The UCL theme needs ggplot2 >= 4.0.0")
   }
-  
-  # UCL colour palette - official colour scaling
-  ucl_palette=c(
-    blue="#5487ff", #blue
-    red="#ed367d", #fucsia
-    green="#57b444", #teal green
-    orange="#e36c2a", #orange
-    darkgreen="#005e5c", #dark green
-    darkred="#9e1a54", #dark fucsia
-    darkorange="#781c1c", #dark orange
-    darkblue="#002ea6"  #dark blue
-  )
-    
-  # Creates a list of UCL colours
-  ucl=ucl_palette |> as.list()
-  
-  # Discrete palette: UCL colours, falls back to ggplot default hue if too many levels
-  ucl_pal=function(n) {
-    if (n<=length(ucl_palette)) {
-      unname(ucl_palette[seq_len(n)])
-    } else {
-      scales::pal_hue()(n)
-    }
-  }
-  
-  # Specialised ggplot theme (also carries the palettes)
-  theme_ucl=function(ignore_panel=TRUE,legend_pos=NULL) {
-    # Determine legend background fill based on position
-    leg_fill=if (identical(legend_pos,"inside")) "transparent" else "#fafafa"
-    
-    th=theme_bw() +
-      theme(
-        plot.background=element_rect(fill="#fafafa",colour=NA),
-        legend.background=element_rect(fill=leg_fill,colour=NA),
-        legend.key=element_rect(fill="#fafafa",colour=NA),
-        palette.colour.discrete=ucl_pal,
-        palette.fill.discrete=ucl_pal,
-        palette.colour.continuous=c("#5487ff","#002ea6"),
-        palette.fill.continuous=c("#5487ff","#002ea6")
-      )
-    
-    if (!ignore_panel) {
-      th=th + theme(panel.background=element_rect(fill="#fafafa",colour=NA))
-    }
-    
-    if (!is.null(legend_pos)) {
-      th=th + theme(legend.position=legend_pos)
-    }
-    
-    th
-  }
-  
-  # Make it the default for every plot
+
+  # Make the UCL ggplot theme the default for every plot
   # NB: isFALSE means a missing 'img-bg' in the YAML defaults to ignore_panel=TRUE (rather than crashing)
   theme_set(theme_ucl(ignore_panel=!isFALSE(rmarkdown::metadata$`img-bg`)))
   
