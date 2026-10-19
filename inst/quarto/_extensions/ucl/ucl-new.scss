@@ -364,6 +364,15 @@ section.divider-bg li {
   text-decoration: none;
 }
 
+/* Formatting for the "thank-you-text" class (i.e. with r-fit-text and no image) */
+.thank-you-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // Fixes the size of the footer when printing to pdf via `decktape`
 // - Footer and slide number share the same height; line-height = height centres
 //   the (single) line vertically without touching `display` (which Quarto uses

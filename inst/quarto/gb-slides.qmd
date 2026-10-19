@@ -895,21 +895,29 @@ leaflet() %>%
 Learn more: [Jupyter widgets](https://quarto.org/docs/interactive/widgets/jupyter.html), [htmlwidgets](https://quarto.org/docs/interactive/widgets/htmlwidgets.html)
 :::
 
-## 
-
-::: {.r-fit-text}
-Thank you!
-:::
-
-<!-- 
-   If the meta parameter 'thank-you' is set to "false", this won't show. Can 
-   choose among various options, all stored in the 'assets' folder. For now:
-   - michelle
-   - phoebe
-   - reese
+<!-- If the meta parameter 'thank-you' is set to "true", this will show. Can 
+     choose among various options, all stored in the 'assets' folder. For now:
+     - michelle
+     - phoebe
+     - reese
+     - joey
+     - ted
 -->
 ::: {.content-hidden unless-meta="thank-you.show"}
 {{< include assets/thankyou.qmd >}}
 :::
 
 ::::
+
+<!-- If the meta parameter 'thank-you' is set to "false", then use a plain
+     text "Thank you" page 
+-->
+::: {.content-visible unless-meta="thank-you.show"}
+## 
+
+:::: {.thank-you-text}
+::: {.r-fit-text style="text-align: center;"}
+Thank you!
+:::
+::::
+:::
