@@ -139,7 +139,7 @@ This presentation will show you examples of what you can do with Quarto and [Rev
   format: 
      ucl-beamer
   ```
-  instead.
+  instead. This is much more limited than the full-on `quarto/revealjs` format!
   
 ::: {.callout-important}
 ## Printing to pdf via `decktape`
@@ -266,6 +266,7 @@ This can be done by modifying the value set in the `./css/common.css` file:
 Learn more: [Syntax Highlighting](https://quarto.org/docs/output-formats/html-code.html#highlighting)
 :::
 
+:::: {.content-visible when-format="revealjs"}
 ## Code Animations {auto-animate="true"}
 
 (Slide 2)
@@ -320,7 +321,6 @@ Elements found on only one of the two slides fade in or out. Some useful extra o
 - `{auto-animate-restart=true}` breaks a chain, so that slide doesn't animate from the previous one.
 :::
 
-:::: {.content-visible when-format="revealjs"}
 ## (More) Auto-animation {auto-animate="true" auto-animate-easing="ease-in-out"}
 
 Auto-animate tries to automatically find the bits to match across slides. To override, see:
@@ -385,7 +385,6 @@ plt.show()
 ::: footer
 Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
 :::
-::::
 
 ## Text formatting
 
@@ -401,6 +400,7 @@ CONTENT
 :::
 ```
 :::
+::::
 
 ## Executable Code
 
@@ -696,6 +696,7 @@ Learn more: [Fragments](https://quarto.org/docs/presentations/revealjs/advanced.
    and the `new-colour` must also be defined in the `ucl-beamer.tex` template (both under `_extensions/ucl/beamer`)
 ::::
 
+:::: {.content-visible when-format="revealjs"}
 ## Frame-Controlled Fragments
 
 - Some initial bullet point
@@ -777,7 +778,6 @@ plot(rnorm(1000),rnorm(1000),xlab="x",ylab="y")
     ```
 :::
 
-:::: {.content-visible when-format="revealjs"}
 ## Slide Backgrounds (only in `revealjs`) {background="#43464B" background-image="https://media.gettyimages.com/id/2238182293/photo/u-c-sampdoria-v-us-catanzaro-1929-serie-b.webp?s=2048x2048&w=gi&k=20&c=79MaMTfi6TceyxHMQJRanekcYji5vsWu1qDA_OidP6A=" .no-logo}
 
 Set the `background` attribute on a slide to change the background color (all CSS color formats are supported).
