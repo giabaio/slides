@@ -1,4 +1,4 @@
-# `slides` - an `R` package to create `quarto` and `xaringan` slides templates
+# `slides` - an `R` package to create `quarto` and `xaringan` slides templates <img src="man/figures/logo.png" align="right" height="139" />
 
 This package is written initially to create templated `xaringan` slides. 
 
