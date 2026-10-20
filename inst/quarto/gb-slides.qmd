@@ -79,6 +79,7 @@ footer: |
 #' Filters
 filters:
  - code-visibility
+ - math-numbers-text
 lightbox: auto
 
 

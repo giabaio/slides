@@ -118,7 +118,8 @@ section.has-dark-background h2 {
   width: 100%;
   text-align: center;
   font-family: "Inter Tight";
-  z-index: 5;
+  z-index: 5!important;
+  box-sizing: border-box;     /* ensures padding does not expand background */
 }
 
 .reveal div.sourceCode {

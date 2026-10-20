@@ -5,11 +5,16 @@ version: 1.0.0
 contributes:
   formats:
     revealjs:
-      css: ./assets/common.css
+      css:
+          - ./css/fonts.css
+          - ./css/common.css
       template-partials:
           - title-slide.html
       include-in-header:
           - ./assets/latex_macros.html
+          # This allows to print-to-pdf usign `decktape`, which must be
+          # installed separately
+          - ./assets/decktape_tag.html
       transition: none
       slide-number: true
       chalkboard:
