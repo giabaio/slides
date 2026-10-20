@@ -39,7 +39,7 @@ These are the data that define the specific presentation such as:
    - `url` (a multi-item field, containing multiple values such as `text`, the actual URL of the webpage to show in the title slide and `icon`, using fontawesome)
    - `github` (a multi-item field, containing multiple values such as `text`, the actual URL of the GitHub repo to show in the title slide and `icon`, using fontawesome)
    - `social` (a multi-item field, containing multiple values such as `text`, the actual link to the social media channel to show in the title slide and `icon`, using fontawesome)
-   - `orchid` (a multi-item field, containing multiple values such as `show`, which defaults to `false`, `url`, the actual link to the ORCHID page, to show in the title slide and `icon`, using fontawesome)
+   - `orcid` (a multi-item field, containing multiple values such as `show`, which defaults to `false`, `url`, the actual link to the ORCHID page, to show in the title slide and `icon`, using fontawesome)
    - `date-format` (the `quarto` command to format the way in which the date should appear)
    
 3. Computed attributes (from other parts of the yml file)
@@ -50,7 +50,7 @@ The rest of the `yml` defines the format of the `revealjs` slide. The `_extensio
 - `gb` (old UCL template)
 - `ucl` (current UCL theme).
 
-The title page can be modified by changing the template in `_extentsion/XXX/title-page.html`. The appearance of the actual slides can also be modified by adding the code 
+The title page can be modified by changing the template in `_extension/XXX/title-page.html`. The appearance of the actual slides can also be modified by adding the code 
 ```
 - template: "assets/template.html"
 ```
@@ -58,7 +58,7 @@ where the file `assets/template.html` is added (from [here](https://github.com/q
 
 In addition, **for the UCL** theme only, the slides can be rendered using either `revealjs` (to `html`) or `beamer` (to `pdf`). This is controlled by the input
 ```
-#' Format. Here selects the style of the slides; other choices are 'gb-revealjs' or 'sampdoria-revealjs'
+#' Format. Here selects the style of the slides (another choice is 'gb-revealjs').
 format: 
   ucl-XXX
 ```
@@ -88,7 +88,7 @@ Useful flags include:
 - `--pause 1500` gives `MathJax` more time before each screenshot (bump this if any equation looks half-rendered)
 - `--fragments true` renders each fragment step as its own page
 
-NB: to use some of these, it may be helpful to use explicitly the command `decktape reval` not just `decktape`.
+NB: to use some of these, it may be helpful to use explicitly the command `decktape reveal` not just `decktape`.
 
 This command can also be scripted, for instance as
 ```
@@ -98,7 +98,7 @@ URL=${1:-"http://localhost:4321"}
 OUT=${2:-"slides.pdf"}
 decktape reveal --size 1600x900 --pause 1500 "$URL" "$OUT"
 ```
-to make the pdf files. It may fail with sites hosted on `netflify`, as it doesn't want to give access to the 
+to make the pdf files. It may fail with sites hosted on `netlify`, as it doesn't want to give access to the 
 `xxx_files` folder. In that case, just do the local render.
 
 For password protected sites can do
