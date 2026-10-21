@@ -1,5 +1,9 @@
 /*-- scss:defaults --*/
 
+// Path from the compiled theme css ('<name>_files/libs/revealjs/dist/theme/') back to the 'images/' folder
+// NB: this way the images are taken from the slides' own folder (no need to copy them into '<name>_files')
+$img-path: "../../../../../images/";
+
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -167,7 +171,7 @@ section.has-dark-background h2 {
 
 /* Inserts logo in the normal slides (but not the title-slide and other key cases) */
 .reveal .slides section:not(.stack):not(#title-slide):not(#section-title-slide):not(.divider-bg):not(.thank-you) {
-  background-image: url("images/ucl-new-logo.png");
+  background-image: url("#{$img-path}ucl-new-logo.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 100px auto; // adjust size
@@ -218,7 +222,7 @@ section[data-background-image].light-bg {
   pre code, div.sourceCode {
     color: $body-color;
   }
-  background-image: url("images/ucl-new-logo.png") !important;
+  background-image: url("#{$img-path}ucl-new-logo.png") !important;
 }
 
 /* Adds the white logo for slides with backgrounds or images, but not the .thank-you class */
@@ -228,7 +232,7 @@ section[data-background-color]:not(.thank-you),
 section[data-background-image]:not(.thank-you) {
   width: 100%!important;
   height: 100%!important;
-  background-image: url("images/ucl-new-title.png")!important;
+  background-image: url("#{$img-path}ucl-new-title.png")!important;
   background-repeat: no-repeat!important;
   background-position: right bottom!important;
   background-size: 100px auto!important; // adjust size
@@ -262,7 +266,7 @@ section[data-background-image]:has(h1) {
   // Ensures the slide has the correct size and so the logo is placed correctly
   width: 100%!important;
   height: 100%!important;
-  background-image: url("images/ucl-new-title.png")!important;
+  background-image: url("#{$img-path}ucl-new-title.png")!important;
   background-repeat: no-repeat!important;
   background-position: right bottom!important;
   background-size: 100px auto!important; // adjust size
@@ -326,8 +330,7 @@ section.divider-bg li {
   height: 7.5em;
   width: 12em;
 //  padding: .5em;
-  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
-  background-image: url("images/ucl-new-title.png");
+  background-image: url("#{$img-path}ucl-new-title.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right bottom;

@@ -1,5 +1,9 @@
 /*-- scss:defaults --*/
 
+// Path from the compiled theme css ('<name>_files/libs/revealjs/dist/theme/') back to the 'images/' folder
+// NB: this way the images are taken from the slides' own folder (no need to copy them into '<name>_files')
+$img-path: "../../../../../images/";
+
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -95,7 +99,7 @@ section.has-dark-background h2 {
   color: #fcd000;
   /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
   /*
-  background-image: url("images/UCL-stats.png");
+  background-image: url("#{$img-path}UCL-stats.png"); 
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 4.8em;
@@ -328,26 +332,6 @@ section.has-dark-background a, section.has-dark-background a:hover {
   border-bottom-right-radius: 60px 5px;
 }
 
-/* Logo stats */
-/* the image file is in libs/revealjs/dist/theme where the final quarto.css file is rendered */
-/*
-.logo-stats {
-  text-decoration:none;
-  display:block;
-  height: 3.5em;
-  width: 3.5em;
-  padding: .5em;
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  background-image: url("images/UCL_Stats_logo.jpeg");
-  background-repeat: no-repeat;
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  background-size: contain;
-  border-radius: 6px 6px 6px 6px;
-}
-*/
-
 
 /*******************************************************************************************************************************
  * Colours
@@ -461,63 +445,6 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .reveal .slides section .fragment.highlight-blue.visible {
   color: blue;
 }
-
-
-/* Dropdown menu with links to other documents appearing above the button  #002c53 */
-.mydropbtn {
-  color: #D5D5D5;
-  padding: 1px;
-  border: none;
-  cursor: pointer;
-  transform: rotate(180deg)!important;
-}
-
-.mydropdown {
-  position: relative;
-  display: inline-block;
-  transform: rotate(180deg)!important;
-  z-index: 10000;
-}
-
-.mydropdown-content {
-  color: #002c53;
-  display: none;
-  position: absolute;
-  background-color: #647d97;
-  min-width: 140px;
-  border: 0.5px solid #abb3d6;
-  border-radius: .3rem;
-  box-shadow: 8px 5px 5px  rgba(0,0,0,0.6);
-  padding: 5px;
-  z-index: 10000;
-  background-color: #3e8e41;
-  transform: rotate(180deg)!important;
-  font-size: .75em;
-}
-
-.mydropdown-content a {
-  color: #002c53!important;
-  padding: 3px 3px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.mydropdown-content a:hover {
-  background-color: #D5D5D5;
- }
-
-.mydropdown:hover .mydropdown-content {
-  display: block;
-  background-color: #647d97;
-  position: absolute;
-  left: -350%;
-}
-
-.mydropdown:hover .mydropbtn {
-  transform: rotate(180deg)!important;
-}
-
 
 /* Makes the chunks font a bit larger
 code {

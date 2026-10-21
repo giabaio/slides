@@ -1,5 +1,9 @@
 /*-- scss:defaults --*/
 
+// Path from the compiled theme css ('<name>_files/libs/revealjs/dist/theme/') back to the 'images/' folder
+// NB: this way the images are taken from the slides' own folder (no need to copy them into '<name>_files')
+$img-path: "../../../../../images/";
+
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -84,8 +88,7 @@ section.has-dark-background h2 {
   margin-top: -1.55em;
   padding-right: 4.2em;
   color: #647d97; /* #FFFFFF; */
-  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
-  background-image: url("images/UCL-stats.png"); /* header-logo.png"); */
+  background-image: url("#{$img-path}UCL-stats.png"); /* header-logo.png"); */
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 4.8em;
