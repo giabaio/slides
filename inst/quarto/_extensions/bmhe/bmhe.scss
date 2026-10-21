@@ -25,8 +25,8 @@ $font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
 // headings
 $presentation-heading-font: Ubuntu, "Inter Tight", Arial,
   FreeSerif, serif !default;
-$presentation-heading-color: #1B5497 !default; // #3434ad !default; 
-//#002248 
+$presentation-heading-color: #1B5497 !default; // #3434ad !default;
+//#002248
 
 // other variables
 $body-bg: #ffffff;
@@ -53,7 +53,7 @@ $selection-bg: #95A6B8;
   box-sizing: border-box;
   box-shadow: 10px 10px 5px  rgba(0,0,0,0.6);
   border-radius: 15px;
-  background-color: #1B5497;  // #3434ad; 
+  background-color: #1B5497;  // #3434ad;
   padding: 35px 30px 35px 30px;
   margin-left: 3%;
   margin-right: 3%;
@@ -95,7 +95,7 @@ section.has-dark-background h2 {
   color: #fcd000;
   /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
   /*
-  background-image: url("images/UCL-stats.png"); 
+  background-image: url("images/UCL-stats.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 4.8em;
@@ -205,7 +205,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
   font-weight: 500;
 }
 
-/* Make a little utility class that spans a paragraph to align with a bullet point list-style-type: 
+/* Make a little utility class that spans a paragraph to align with a bullet point list-style-type:
    helpful if there's an equation that, when centered, breaks the indentation of a bullet/numbered
    list...
 */
@@ -465,7 +465,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
 
 /* Dropdown menu with links to other documents appearing above the button  #002c53 */
 .mydropbtn {
-  color: #D5D5D5; 
+  color: #D5D5D5;
   padding: 1px;
   border: none;
   cursor: pointer;
@@ -483,7 +483,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
   color: #002c53;
   display: none;
   position: absolute;
-  background-color: #647d97; 
+  background-color: #647d97;
   min-width: 140px;
   border: 0.5px solid #abb3d6;
   border-radius: .3rem;
@@ -519,7 +519,7 @@ section.has-dark-background a, section.has-dark-background a:hover {
 }
 
 
-/* Makes the chunks font a bit larger 
+/* Makes the chunks font a bit larger
 code {
   font-size: 1.3em;
 }
@@ -552,4 +552,15 @@ code {
 .full-output pre code {
   max-height: none;
   overflow-y: visible;
+}
+
+/* Formatting for the "thank-you-text" class (i.e. with r-fit-text and no image) */
+.thank-you-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $presentation-heading-color;
+  font-family: $presentation-heading-font;
 }
