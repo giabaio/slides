@@ -93,7 +93,7 @@ section.has-dark-background h2 {
 
 /* Sets up a class to prevent the logo (e.g. '## Title {.no-logo}') */
 /* NB: Quarto moves the class from the heading to the slide 'section', hence the selector */
-.reveal section.no-logo h2 {
+.reveal section.no-logo > h2 {
   background-image: none !important;
 }
 
@@ -142,21 +142,18 @@ section.has-dark-background h2 {
 }
 
 
-/* Logo stats */
-.logo-stats {
-  text-decoration:none;
-  display:block;
-  height: 3.5em;
-  width: 3.5em;
-  padding: .5em;
+/* Logo stats (an <img> in title-slide.html, so the path is relative to the slides, i.e. 'images/') */
+/* NB: no padding (unlike a background image, it would show as a white frame), so size includes it */
+.reveal .logo-stats {
+  display: block;
+  height: 4.5em;
+  width: 4.5em;
+  margin: 0;
+  object-fit: contain;
   box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  /* this sits within libs/revealjs/dist/theme where the final quarto.css file is rendered */
-  background-image: url("images/UCL_Stats_logo.jpeg");
-  background-repeat: no-repeat;
   position: absolute;
   bottom: 0px;
   right: 0px;
-  background-size: contain;
   border-radius: 6px 6px 6px 6px;
 }
 
