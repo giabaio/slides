@@ -1,0 +1,29 @@
+title: bmhe
+description: Template for the BMHE summer school
+author: Gianluca Baio
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      css:
+          - ./css/fonts.css
+          - ./css/common.css
+      template-partials:
+          - title-slide.html
+      include-in-header:
+          - ./assets/latex_macros.html
+          # This allows to print-to-pdf usign `decktape`, which must be
+          # installed separately
+          - ./assets/decktape_tag.html
+      transition: none
+      slide-number: true
+      chalkboard:
+         buttons: false
+      preview-links: auto
+      theme: bmhe.scss
+      width: 1500
+      height: 900
+      title-slide-attributes:
+      data-background-size: stretch
+      data-background-opacity: "0.08"
+      footer: "{{< meta footer >}}"

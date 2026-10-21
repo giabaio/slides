@@ -48,7 +48,8 @@ These are the data that define the specific presentation such as:
 The rest of the `yml` defines the format of the `revealjs` slide. The `_extensions` folder contains a number of subfolders, each defining a specific theme: 
 
 - `gb` (old UCL template)
-- `ucl` (current UCL theme).
+- `ucl` (current UCL theme)
+- `bmhe` (summer school theme).
 
 The title page can be modified by changing the template in `_extension/XXX/title-page.html`. The appearance of the actual slides can also be modified by adding the code 
 ```
@@ -58,7 +59,7 @@ where the file `assets/template.html` is added (from [here](https://github.com/q
 
 In addition, **for the UCL** theme only, the slides can be rendered using either `revealjs` (to `html`) or `beamer` (to `pdf`). This is controlled by the input
 ```
-#' Format. Here selects the style of the slides (another choice is 'gb-revealjs').
+#' Format. Here selects the style of the slides (can also use `gb-revealjs` or `bmhe-revealjs`).
 format: 
   ucl-XXX
 ```
