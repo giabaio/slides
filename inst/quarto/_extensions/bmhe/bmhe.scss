@@ -564,3 +564,11 @@ code {
   color: $presentation-heading-color;
   font-family: $presentation-heading-font;
 }
+
+/* Removes the title bar (logo and colour) on slides with the "thank-you-text" class */
+/* NB: '>' restricts to the slide itself, otherwise an outer (stacking) section matches too */
+.reveal section:has(> .thank-you-text) > h2 {
+  background-image: none !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
