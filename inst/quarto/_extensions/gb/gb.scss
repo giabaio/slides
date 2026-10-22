@@ -127,12 +127,6 @@ section.has-dark-background h2 {
   box-sizing: border-box;     /* ensures padding does not expand background */
 }
 
-.reveal div.sourceCode {
-  margin: 0;
-  overflow: auto;
-  border-color: $link-color;
-}
-
 .reveal .slide-number{
   color:#b4c0cc;
   background-color:#fff;
