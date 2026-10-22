@@ -40,6 +40,17 @@ $link-color: #95A6B8;
 $presentation-font-size-root: 20pt;
 $selection-bg: #95A6B8;
 
+:root {
+  --icon-email: #00acee;
+  --icon-web: #00acee;
+  --icon-github: black;
+  --icon-x-twitter: black;
+  --icon-mastodon: #6364FF;
+  --icon-linkedin: #0A66C2;
+  --icon-orcid: black;
+}
+
+
 /*-- scss:rules --*/
 
 .reveal .slide blockquote {

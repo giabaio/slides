@@ -41,28 +41,28 @@ institute:
    - uni: "Department of Statistical Science &nbsp; | &nbsp; University College London"
 email: 
    text: "[g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)"
-   icon: "[{{< fa envelope >}}]{style='color:#00acee; height: 0.8em'}"
+   icon: "[{{< fa envelope >}}]{style='color: var(--icon-email, currentColor); height: 0.8em'}"
 url: 
   - text: "[https://gianluca.statistica.it](https://gianluca.statistica.it)"
-    icon: "[{{< fa globe >}}]{style='color: #00acee; height: 0.8em'}"
+    icon: "[{{< fa globe >}}]{style='color: var(--icon-web, currentColor); height: 0.8em'}"
   - text: "[https://egon.stats.ucl.ac.uk/research/statistics-health-economics](https://egon.stats.ucl.ac.uk/research/statistics-health-economics)"
-    icon: "[{{< fa globe >}}]{style='color: #00acee; height: 0.8em'}"
+    icon: "[{{< fa globe >}}]{style='color: var(--icon-web, currentColor); height: 0.8em'}"
 github: 
   - text: "[https://github.com/giabaio](https://github.com/giabaio)"
-    icon: "[{{< fa brands github >}}]{style='color: white; height: 0.8em'}"
+    icon: "[{{< fa brands github >}}]{style='color: var(--icon-github, currentColor); height: 0.8em'}"
   - text: "[https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)"
-    icon: "[{{< fa brands github >}}]{style='color: white; height: 0.8em'}"
+    icon: "[{{< fa brands github >}}]{style='color: var(--icon-github, currentColor); height: 0.8em'}"
 social: 
   - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
-    icon: "[{{< fa brands mastodon >}}]{style='color: #6364FF; height: 0.8em'}" 
+    icon: "[{{< fa brands mastodon >}}]{style='color: var(--icon-mastodon, currentColor); height: 0.8em'}" 
   # - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
-  #   icon: "[{{< fa brands x-twitter >}}]{style='color: black; height: 0.8em'}"
+  #   icon: "[{{< fa brands x-twitter >}}]{style='color: var(--icon-x-twitter, currentColor); height: 0.8em'}"
   - text: '[gianluca-baio](https://www.linkedin.com/in/gianluca-baio/)'
-    icon: "[{{< fa brands linkedin >}}]{style='color: #0A66C2; height: 0.8em'}" 
+    icon: "[{{< fa brands linkedin >}}]{style='color: var(--icon-linkedin, currentColor); height: 0.8em'}" 
 orcid: 
    show: false
    url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
-   icon: "[{{< fa brands orcid >}}]{style='color: white; height: 0.8em'}"
+   icon: "[{{< fa brands orcid >}}]{style='color: var(--icon-orcid, currentColor); height: 0.8em'}"
 date-format: "D MMMM YYYY"
 #' Here defines the elements of the footer. May want to change the various elements
 footer: |

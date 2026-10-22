@@ -48,6 +48,17 @@ Conversion rule for fonts (based on choosing $presentation-font-size-root: 20pt;
 - 18pt / 20pt = 0.9em
 */
 
+/* Colour of the GitHub & ORCID icons on the title slide (white on the dark UCL background) */
+:root {
+  --icon-email: #00acee;
+  --icon-web: #00acee;
+  --icon-github: white;
+  --icon-x-twitter: white;
+  --icon-mastodon: #6364FF;
+  --icon-linkedin: #0A66C2;
+  --icon-orcid: white;
+}
+
 /*-- scss:rules --*/
 
 /* MathJax measures text set in the page font (\txt, \dnorm, \style{font-family:inherit}...)
