@@ -3,7 +3,7 @@
 #' Can also output to beamer with ucl-beamer and that creates a native pdf presentation
 format: 
   ucl-revealjs
-#' Author's details
+#' Author's details (can change in /assets/author.yml)
 metadata-files: 
   - assets/author.yml
 
