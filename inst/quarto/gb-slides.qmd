@@ -868,7 +868,8 @@ Learn more: [Jupyter widgets](https://quarto.org/docs/interactive/widgets/jupyte
 ::::
 
 <!-- If the meta parameter 'thank-you' is set to "false", then use a plain
-     text "Thank you" page 
+     text "Thank you" page. There's another version, which includes an AI-generated
+     image -- there are two versions (thank-you.png and thank-you-book.png)
 -->
 ::: {.content-visible unless-meta="thank-you.show"}
 ## 
@@ -878,4 +879,12 @@ Learn more: [Jupyter widgets](https://quarto.org/docs/interactive/widgets/jupyte
 Thank you!
 :::
 ::::
+
+
+## {footer="false" .no-logo}
+
+::: {.center style="position: absolute; top: -40px;"}
+![](images/thank-you.png)
+:::
+
 :::
