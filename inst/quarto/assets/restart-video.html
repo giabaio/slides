@@ -1,0 +1,13 @@
+<script>
+/* Background videos sometimes stay paused when coming back to their slide:
+   (re)start them explicitly every time a slide is shown */
+document.addEventListener("slidechanged", function (e) {
+  var bg = Reveal.getSlideBackground(e.currentSlide);
+  if (!bg) return;
+  bg.querySelectorAll("video").forEach(function (v) {
+    v.muted = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  });
+});
+</script>

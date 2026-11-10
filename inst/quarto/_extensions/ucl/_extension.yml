@@ -15,6 +15,9 @@ contributes:
           # This allows to print-to-pdf usign `decktape`, which must be
           # installed separately
           - ./assets/decktape_tag.html
+          # Makes sure a video (used as thank-you slide) restarts every time
+          # that the slide is active
+          - .assets/restart-video.html
       transition: none
       slide-number: true
       chalkboard:
