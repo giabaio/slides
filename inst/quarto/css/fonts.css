@@ -1,20 +1,46 @@
-@font-face {
-  font-family: "UCLSans";
-  src: url("fonts/UCLSans-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
+/*******************************************************************************
+ * All the fonts used by the themes (ucl-new, bmhe, gb), bundled locally in
+ * css/fonts/, so the slides look the same offline, on any computer and in the
+ * decktape PDF, and so that MathJax measures text in the right font.
+ * Licences: UCLSans (UCL brand font); Inter Tight and Nanum Pen Script (SIL OFL,
+ * see OFL-*.txt); Ubuntu and Ubuntu Mono (Ubuntu Font Licence, see UFL-*.txt)
+ ******************************************************************************/
 
-@font-face {
-  font-family: "UCLSans";
-  src: url("fonts/UCLSans-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
+/* ---- UCLSans (ucl-new): one face per weight, upright and italic ------------ */
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-ExtraLight.ttf") format("truetype");       font-weight: 200; font-style: normal; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-Light.ttf") format("truetype");            font-weight: 300; font-style: normal; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-LightItalic.ttf") format("truetype");      font-weight: 300; font-style: italic; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-Regular.ttf") format("truetype");          font-weight: 400; font-style: normal; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-Italic.ttf") format("truetype");           font-weight: 400; font-style: italic; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-Medium.ttf") format("truetype");           font-weight: 500; font-style: normal; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-MediumItalic.ttf") format("truetype");     font-weight: 500; font-style: italic; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-SemiBold.ttf") format("truetype");         font-weight: 600; font-style: normal; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-SemiBoldItalic.ttf") format("truetype");   font-weight: 600; font-style: italic; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-Bold.ttf") format("truetype");             font-weight: 700; font-style: normal; }
+@font-face { font-family: "UCLSans"; src: url("fonts/UCLSans-BoldItalic.ttf") format("truetype");       font-weight: 700; font-style: italic; }
 
-@font-face {
-  font-family: "UCLSans";
-  src: url("fonts/UCLSans-SemiBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
+/* ---- Inter Tight (bmhe, gb; digits in maths via \mnum) ---------------------
+   Variable fonts: one file covers every weight from 100 to 900 */
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-VF.woff2") format("woff2");        font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/InterTight-Italic-VF.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+
+/* ---- Ubuntu (headings in bmhe and gb) -------------------------------------- */
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-Light.woff2") format("woff2");        font-weight: 300; font-style: normal; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-LightItalic.woff2") format("woff2");  font-weight: 300; font-style: italic; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-Regular.woff2") format("woff2");      font-weight: 400; font-style: normal; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-Italic.woff2") format("woff2");       font-weight: 400; font-style: italic; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-Medium.woff2") format("woff2");       font-weight: 500; font-style: normal; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-MediumItalic.woff2") format("woff2"); font-weight: 500; font-style: italic; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-Bold.woff2") format("woff2");         font-weight: 700; font-style: normal; }
+@font-face { font-family: "Ubuntu"; src: url("fonts/Ubuntu-BoldItalic.woff2") format("woff2");   font-weight: 700; font-style: italic; }
+
+/* ---- Ubuntu Mono (code, all themes) ---------------------------------------- */
+@font-face { font-family: "Ubuntu Mono"; src: url("fonts/UbuntuMono-Regular.woff2") format("woff2");    font-weight: 400; font-style: normal; }
+@font-face { font-family: "Ubuntu Mono"; src: url("fonts/UbuntuMono-Italic.woff2") format("woff2");     font-weight: 400; font-style: italic; }
+@font-face { font-family: "Ubuntu Mono"; src: url("fonts/UbuntuMono-Bold.woff2") format("woff2");       font-weight: 700; font-style: normal; }
+@font-face { font-family: "Ubuntu Mono"; src: url("fonts/UbuntuMono-BoldItalic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+
+/* ---- Nanum Pen Script (post-it notes in common.css) -------------------------
+   Subset to Latin characters only: the full font (Korean included) is 3 MB */
+@font-face { font-family: "Nanum Pen Script"; src: url("fonts/NanumPenScript-Latin.woff2") format("woff2"); font-weight: 400; font-style: normal; }

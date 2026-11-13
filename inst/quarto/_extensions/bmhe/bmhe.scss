@@ -4,31 +4,15 @@
 // NB: this way the images are taken from the slides' own folder (no need to copy them into '<name>_files')
 $img-path: "../../../../../images/";
 
-// fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
-
-/* Fonts (added by GB) */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
-/* Font to do nice numbered items */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+// fonts: all bundled locally (css/fonts/, declared in css/fonts.css), so the
+// slides look the same offline and in the decktape PDF -- no Google Fonts imports
 
 
-$font-family-sans-serif: "Inter Tight", "Ubuntu", "Arial", Arial,
-  FreeSerif, serif !default;
-$font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
+$font-family-sans-serif: "Inter Tight", "Arial", sans-serif !default;
+$font-family-monospace: "Ubuntu Mono", monospace !default;
 
 // headings
-$presentation-heading-font: Ubuntu, "Inter Tight", Arial,
-  FreeSerif, serif !default;
+$presentation-heading-font: "Ubuntu", "Inter Tight", "Arial", sans-serif !default;
 $presentation-heading-color: #1B5497 !default; // #3434ad !default;
 //#002248
 
@@ -52,6 +36,14 @@ $selection-bg: #95A6B8;
 
 
 /*-- scss:rules --*/
+
+/* MathJax measures text set in the page font (\txt, \dnorm, \style{font-family:inherit}...)
+   in a hidden box attached to <body>, outside the slides. Give <body> the slides' font,
+   otherwise it is measured in the browser default (Times) and then overlaps/leaves gaps */
+body {
+  font-family: $font-family-sans-serif;
+}
+
 
 .reveal .slide blockquote {
   border-left: 3px solid $link-color;

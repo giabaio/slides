@@ -4,29 +4,14 @@
 // NB: this way the images are taken from the slides' own folder (no need to copy them into '<name>_files')
 $img-path: "../../../../../images/";
 
-// fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+// fonts: all bundled locally (css/fonts/, declared in css/fonts.css), so the
+// slides look the same offline and in the decktape PDF -- no Google Fonts imports
 
-/* Fonts (added by GB) */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap);
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap);
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
-/* Font to do nice numbered items */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
-$font-family-sans-serif: "UCLSans", "Ubuntu", "Arial", "FreeSerif", "serif" !default;
-$font-family-monospace: "Ubuntu Mono", "Inconsolata",  monospace !default;
+$font-family-sans-serif: "UCLSans", "Arial", sans-serif !default;
+$font-family-monospace: "Ubuntu Mono", monospace !default;
 
 // headings
-$presentation-heading-font: "UCLSans", "Ubuntu", "Inter Tight", "Arial",
-  FreeSerif, serif !default;
+$presentation-heading-font: "UCLSans", "Arial", sans-serif !default;
 $presentation-heading-color: #002248 !default;
 
 // other variables
